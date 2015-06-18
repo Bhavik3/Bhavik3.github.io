@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>App xref</title>
+<link type="text/css" rel="stylesheet" href="../../../../stylesheet.css" />
+</head>
+<body>
+<div id="overview"><a href="../../../../../../../../../../apidocs/com/iluwatar/specification/app/App.html">View Javadoc</a></div><pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">package</strong> com.iluwatar.specification.app;
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> java.util.Arrays;
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> java.util.List;
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> java.util.stream.Collectors;
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">import</strong> com.iluwatar.specification.creature.Creature;
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">import</strong> com.iluwatar.specification.creature.Dragon;
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">import</strong> com.iluwatar.specification.creature.Goblin;
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <strong class="jxr_keyword">import</strong> com.iluwatar.specification.creature.KillerBee;
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">import</strong> com.iluwatar.specification.creature.Octopus;
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <strong class="jxr_keyword">import</strong> com.iluwatar.specification.creature.Shark;
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <strong class="jxr_keyword">import</strong> com.iluwatar.specification.creature.Troll;
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <strong class="jxr_keyword">import</strong> com.iluwatar.specification.property.Color;
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <strong class="jxr_keyword">import</strong> com.iluwatar.specification.property.Movement;
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <strong class="jxr_keyword">import</strong> com.iluwatar.specification.selector.ColorSelector;
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <strong class="jxr_keyword">import</strong> com.iluwatar.specification.selector.MovementSelector;
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_javadoccomment"> * </em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_javadoccomment"> * The central idea of Specification pattern is to separate the statement of how to match a candidate, from the</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_javadoccomment"> * candidate object that it is matched against. As well as its usefulness in selection, it is also valuable for</em>
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <em class="jxr_javadoccomment"> * validation and for building to order.</em>
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_javadoccomment"> * </em>
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <em class="jxr_javadoccomment"> * In this example we have a pool of creatures with different properties. We then have defined separate selection</em>
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <em class="jxr_javadoccomment"> * rules (Specifications) that we apply to the collection and as output receive only the creatures that match</em>
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <em class="jxr_javadoccomment"> * the selection criteria.</em>
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <em class="jxr_javadoccomment"> * </em>
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <em class="jxr_javadoccomment"> * <a href="http://martinfowler.com/apsupp/spec.pd" target="alexandria_uri">http://martinfowler.com/apsupp/spec.pd</a>f</em>
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <em class="jxr_javadoccomment"> *</em>
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <em class="jxr_javadoccomment"> */</em>
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../com/iluwatar/specification/app/App.html">App</a> {
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  	
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> main( String[] args ) {
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>      	<em class="jxr_comment">// initialize creatures list</em>
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>      	List&lt;Creature&gt; creatures = Arrays.asList(<strong class="jxr_keyword">new</strong> <a href="../../../../com/iluwatar/specification/creature/Goblin.html">Goblin</a>(), <strong class="jxr_keyword">new</strong> Octopus(), <strong class="jxr_keyword">new</strong> Dragon(), <strong class="jxr_keyword">new</strong> Shark(), <strong class="jxr_keyword">new</strong> Troll(), <strong class="jxr_keyword">new</strong> KillerBee());
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>      	<em class="jxr_comment">// find all walking creatures</em>
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>      	System.out.println(<span class="jxr_string">"Find all walking creatures"</span>);
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>      	List&lt;Creature&gt; walkingCreatures = creatures.stream().filter(<strong class="jxr_keyword">new</strong> MovementSelector(Movement.WALKING)).collect(Collectors.toList());
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>      	walkingCreatures.stream().forEach(System.out::println);
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>      	<em class="jxr_comment">// find all dark creatures</em>
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>      	System.out.println(<span class="jxr_string">"Find all dark creatures"</span>);
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>      	List&lt;Creature&gt; darkCreatures = creatures.stream().filter(<strong class="jxr_keyword">new</strong> ColorSelector(Color.DARK)).collect(Collectors.toList());
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>      	darkCreatures.stream().forEach(System.out::println);
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>      	<em class="jxr_comment">// find all red and flying creatures</em>
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>      	System.out.println(<span class="jxr_string">"Find all red and flying creatures"</span>);
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>      	List&lt;Creature&gt; redAndFlyingCreatures = creatures.stream().filter(<strong class="jxr_keyword">new</strong> ColorSelector(Color.RED).and(<strong class="jxr_keyword">new</strong> MovementSelector(Movement.FLYING))).collect(Collectors.toList());
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>      	redAndFlyingCreatures.stream().forEach(System.out::println);
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>      }
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>  }
+</pre>
+<hr/>
+<div id="footer">Copyright &#169; 2015. All rights reserved.</div>
+</body>
+</html>
