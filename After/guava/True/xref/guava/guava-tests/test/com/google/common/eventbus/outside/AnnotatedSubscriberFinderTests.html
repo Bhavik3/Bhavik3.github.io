@@ -72,7 +72,7 @@
 <a class="jxr_linenumber" name="L64" href="#L64">64</a>  <em class="jxr_comment">   */</em>
 <a class="jxr_linenumber" name="L65" href="#L65">65</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../com/google/common/eventbus/outside/AnnotatedSubscriberFinderTests.html">BaseSubscriberFinderTest</a> <strong class="jxr_keyword">extends</strong>
 <a class="jxr_linenumber" name="L66" href="#L66">66</a>        AbstractEventBusTest&lt;BaseSubscriberFinderTest.Subscriber&gt; {
-<a class="jxr_linenumber" name="L67" href="#L67">67</a>      <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../com/google/common/eventbus/Subscriber.html">Subscriber</a> {
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>      <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../com/google/common/eventbus/outside/AnnotatedSubscriberFinderTests.html">Subscriber</a> {
 <a class="jxr_linenumber" name="L68" href="#L68">68</a>        <strong class="jxr_keyword">final</strong> List&lt;Object&gt; nonSubscriberEvents = Lists.newArrayList();
 <a class="jxr_linenumber" name="L69" href="#L69">69</a>        <strong class="jxr_keyword">final</strong> List&lt;Object&gt; subscriberEvents = Lists.newArrayList();
 <a class="jxr_linenumber" name="L70" href="#L70">70</a>  
@@ -91,12 +91,12 @@
 <a class="jxr_linenumber" name="L83" href="#L83">83</a>      }
 <a class="jxr_linenumber" name="L84" href="#L84">84</a>  
 <a class="jxr_linenumber" name="L85" href="#L85">85</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testSubscriber() {
-<a class="jxr_linenumber" name="L86" href="#L86">86</a>        assertThat(getSubscriber().subscriberEvents).contains(EVENT);
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>        assertThat(getSubscriber().subscriberEvents).has().item(EVENT);
 <a class="jxr_linenumber" name="L87" href="#L87">87</a>      }
 <a class="jxr_linenumber" name="L88" href="#L88">88</a>  
 <a class="jxr_linenumber" name="L89" href="#L89">89</a>      @Override
-<a class="jxr_linenumber" name="L90" href="#L90">90</a>      <a href="../../../../../com/google/common/eventbus/Subscriber.html">Subscriber</a> createSubscriber() {
-<a class="jxr_linenumber" name="L91" href="#L91">91</a>        <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../com/google/common/eventbus/Subscriber.html">Subscriber</a>();
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>      <a href="../../../../../com/google/common/eventbus/outside/AnnotatedSubscriberFinderTests.html">Subscriber</a> createSubscriber() {
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>        <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../com/google/common/eventbus/outside/AnnotatedSubscriberFinderTests.html">Subscriber</a>();
 <a class="jxr_linenumber" name="L92" href="#L92">92</a>      }
 <a class="jxr_linenumber" name="L93" href="#L93">93</a>    }
 <a class="jxr_linenumber" name="L94" href="#L94">94</a>  
@@ -127,11 +127,11 @@
 <a class="jxr_linenumber" name="L119" href="#L119">119</a>     }
 <a class="jxr_linenumber" name="L120" href="#L120">120</a> 
 <a class="jxr_linenumber" name="L121" href="#L121">121</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testOverriddenAndAnnotatedInSubclass() {
-<a class="jxr_linenumber" name="L122" href="#L122">122</a>       assertThat(getSubscriber().overriddenAndAnnotatedInSubclassEvents).contains(EVENT);
+<a class="jxr_linenumber" name="L122" href="#L122">122</a>       assertThat(getSubscriber().overriddenAndAnnotatedInSubclassEvents).has().item(EVENT);
 <a class="jxr_linenumber" name="L123" href="#L123">123</a>     }
 <a class="jxr_linenumber" name="L124" href="#L124">124</a> 
 <a class="jxr_linenumber" name="L125" href="#L125">125</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testOverriddenNotAnnotatedInSubclass() {
-<a class="jxr_linenumber" name="L126" href="#L126">126</a>       assertThat(getSubscriber().overriddenInSubclassEvents).contains(EVENT);
+<a class="jxr_linenumber" name="L126" href="#L126">126</a>       assertThat(getSubscriber().overriddenInSubclassEvents).has().item(EVENT);
 <a class="jxr_linenumber" name="L127" href="#L127">127</a>     }
 <a class="jxr_linenumber" name="L128" href="#L128">128</a> 
 <a class="jxr_linenumber" name="L129" href="#L129">129</a>     @Override
@@ -207,26 +207,26 @@
 <a class="jxr_linenumber" name="L199" href="#L199">199</a>     }
 <a class="jxr_linenumber" name="L200" href="#L200">200</a> 
 <a class="jxr_linenumber" name="L201" href="#L201">201</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testNotOverriddenInSubclass() {
-<a class="jxr_linenumber" name="L202" href="#L202">202</a>       assertThat(getSubscriber().notOverriddenInSubclassEvents).contains(EVENT);
+<a class="jxr_linenumber" name="L202" href="#L202">202</a>       assertThat(getSubscriber().notOverriddenInSubclassEvents).has().item(EVENT);
 <a class="jxr_linenumber" name="L203" href="#L203">203</a>     }
 <a class="jxr_linenumber" name="L204" href="#L204">204</a> 
 <a class="jxr_linenumber" name="L205" href="#L205">205</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testOverriddenNotAnnotatedInSubclass() {
-<a class="jxr_linenumber" name="L206" href="#L206">206</a>       assertThat(getSubscriber().overriddenNotAnnotatedInSubclassEvents).contains(EVENT);
+<a class="jxr_linenumber" name="L206" href="#L206">206</a>       assertThat(getSubscriber().overriddenNotAnnotatedInSubclassEvents).has().item(EVENT);
 <a class="jxr_linenumber" name="L207" href="#L207">207</a>     }
 <a class="jxr_linenumber" name="L208" href="#L208">208</a> 
 <a class="jxr_linenumber" name="L209" href="#L209">209</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testDifferentlyOverriddenNotAnnotatedInSubclass() {
 <a class="jxr_linenumber" name="L210" href="#L210">210</a>       assertThat(getSubscriber().differentlyOverriddenNotAnnotatedInSubclassGoodEvents)
-<a class="jxr_linenumber" name="L211" href="#L211">211</a>           .contains(EVENT);
+<a class="jxr_linenumber" name="L211" href="#L211">211</a>           .has().item(EVENT);
 <a class="jxr_linenumber" name="L212" href="#L212">212</a>       assertThat(getSubscriber().differentlyOverriddenNotAnnotatedInSubclassBadEvents).isEmpty();
 <a class="jxr_linenumber" name="L213" href="#L213">213</a>     }
 <a class="jxr_linenumber" name="L214" href="#L214">214</a> 
 <a class="jxr_linenumber" name="L215" href="#L215">215</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testOverriddenAndAnnotatedInSubclass() {
-<a class="jxr_linenumber" name="L216" href="#L216">216</a>       assertThat(getSubscriber().overriddenAndAnnotatedInSubclassEvents).contains(EVENT);
+<a class="jxr_linenumber" name="L216" href="#L216">216</a>       assertThat(getSubscriber().overriddenAndAnnotatedInSubclassEvents).has().item(EVENT);
 <a class="jxr_linenumber" name="L217" href="#L217">217</a>     }
 <a class="jxr_linenumber" name="L218" href="#L218">218</a> 
 <a class="jxr_linenumber" name="L219" href="#L219">219</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testDifferentlyOverriddenAndAnnotatedInSubclass() {
 <a class="jxr_linenumber" name="L220" href="#L220">220</a>       assertThat(getSubscriber().differentlyOverriddenAnnotatedInSubclassGoodEvents)
-<a class="jxr_linenumber" name="L221" href="#L221">221</a>           .contains(EVENT);
+<a class="jxr_linenumber" name="L221" href="#L221">221</a>           .has().item(EVENT);
 <a class="jxr_linenumber" name="L222" href="#L222">222</a>       assertThat(getSubscriber().differentlyOverriddenAnnotatedInSubclassBadEvents).isEmpty();
 <a class="jxr_linenumber" name="L223" href="#L223">223</a>     }
 <a class="jxr_linenumber" name="L224" href="#L224">224</a> 
@@ -261,7 +261,7 @@
 <a class="jxr_linenumber" name="L253" href="#L253">253</a>     }
 <a class="jxr_linenumber" name="L254" href="#L254">254</a> 
 <a class="jxr_linenumber" name="L255" href="#L255">255</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testOverriddenAndAnnotatedInSubclass() {
-<a class="jxr_linenumber" name="L256" href="#L256">256</a>       assertThat(getSubscriber().overriddenAndAnnotatedInSubclassEvents).contains(EVENT);
+<a class="jxr_linenumber" name="L256" href="#L256">256</a>       assertThat(getSubscriber().overriddenAndAnnotatedInSubclassEvents).has().item(EVENT);
 <a class="jxr_linenumber" name="L257" href="#L257">257</a>     }
 <a class="jxr_linenumber" name="L258" href="#L258">258</a> 
 <a class="jxr_linenumber" name="L259" href="#L259">259</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testOverriddenInSubclassNowhereAnnotated() {
@@ -316,7 +316,7 @@
 <a class="jxr_linenumber" name="L308" href="#L308">308</a>     }
 <a class="jxr_linenumber" name="L309" href="#L309">309</a> 
 <a class="jxr_linenumber" name="L310" href="#L310">310</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testOverriddenAndAnnotatedInSubclass() {
-<a class="jxr_linenumber" name="L311" href="#L311">311</a>       assertThat(getSubscriber().overriddenAndAnnotatedInSubclassEvents).contains(EVENT);
+<a class="jxr_linenumber" name="L311" href="#L311">311</a>       assertThat(getSubscriber().overriddenAndAnnotatedInSubclassEvents).has().item(EVENT);
 <a class="jxr_linenumber" name="L312" href="#L312">312</a>     }
 <a class="jxr_linenumber" name="L313" href="#L313">313</a> 
 <a class="jxr_linenumber" name="L314" href="#L314">314</a>     @Override
@@ -418,31 +418,31 @@
 <a class="jxr_linenumber" name="L410" href="#L410">410</a>     }
 <a class="jxr_linenumber" name="L411" href="#L411">411</a> 
 <a class="jxr_linenumber" name="L412" href="#L412">412</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testAnnotatedIn1() {
-<a class="jxr_linenumber" name="L413" href="#L413">413</a>       assertThat(getSubscriber().annotatedIn1Events).contains(EVENT);
+<a class="jxr_linenumber" name="L413" href="#L413">413</a>       assertThat(getSubscriber().annotatedIn1Events).has().item(EVENT);
 <a class="jxr_linenumber" name="L414" href="#L414">414</a>     }
 <a class="jxr_linenumber" name="L415" href="#L415">415</a> 
 <a class="jxr_linenumber" name="L416" href="#L416">416</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testAnnotatedIn2() {
-<a class="jxr_linenumber" name="L417" href="#L417">417</a>       assertThat(getSubscriber().annotatedIn2Events).contains(EVENT);
+<a class="jxr_linenumber" name="L417" href="#L417">417</a>       assertThat(getSubscriber().annotatedIn2Events).has().item(EVENT);
 <a class="jxr_linenumber" name="L418" href="#L418">418</a>     }
 <a class="jxr_linenumber" name="L419" href="#L419">419</a> 
 <a class="jxr_linenumber" name="L420" href="#L420">420</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testAnnotatedIn1And2() {
-<a class="jxr_linenumber" name="L421" href="#L421">421</a>       assertThat(getSubscriber().annotatedIn1And2Events).contains(EVENT);
+<a class="jxr_linenumber" name="L421" href="#L421">421</a>       assertThat(getSubscriber().annotatedIn1And2Events).has().item(EVENT);
 <a class="jxr_linenumber" name="L422" href="#L422">422</a>     }
 <a class="jxr_linenumber" name="L423" href="#L423">423</a> 
 <a class="jxr_linenumber" name="L424" href="#L424">424</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testAnnotatedIn1And2AndClass() {
-<a class="jxr_linenumber" name="L425" href="#L425">425</a>       assertThat(getSubscriber().annotatedIn1And2AndClassEvents).contains(EVENT);
+<a class="jxr_linenumber" name="L425" href="#L425">425</a>       assertThat(getSubscriber().annotatedIn1And2AndClassEvents).has().item(EVENT);
 <a class="jxr_linenumber" name="L426" href="#L426">426</a>     }
 <a class="jxr_linenumber" name="L427" href="#L427">427</a> 
 <a class="jxr_linenumber" name="L428" href="#L428">428</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testDeclaredIn1AnnotatedIn2() {
-<a class="jxr_linenumber" name="L429" href="#L429">429</a>       assertThat(getSubscriber().declaredIn1AnnotatedIn2Events).contains(EVENT);
+<a class="jxr_linenumber" name="L429" href="#L429">429</a>       assertThat(getSubscriber().declaredIn1AnnotatedIn2Events).has().item(EVENT);
 <a class="jxr_linenumber" name="L430" href="#L430">430</a>     }
 <a class="jxr_linenumber" name="L431" href="#L431">431</a> 
 <a class="jxr_linenumber" name="L432" href="#L432">432</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testDeclaredIn1AnnotatedInClass() {
-<a class="jxr_linenumber" name="L433" href="#L433">433</a>       assertThat(getSubscriber().declaredIn1AnnotatedInClassEvents).contains(EVENT);
+<a class="jxr_linenumber" name="L433" href="#L433">433</a>       assertThat(getSubscriber().declaredIn1AnnotatedInClassEvents).has().item(EVENT);
 <a class="jxr_linenumber" name="L434" href="#L434">434</a>     }
 <a class="jxr_linenumber" name="L435" href="#L435">435</a> 
 <a class="jxr_linenumber" name="L436" href="#L436">436</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testDeclaredIn2AnnotatedInClass() {
-<a class="jxr_linenumber" name="L437" href="#L437">437</a>       assertThat(getSubscriber().declaredIn2AnnotatedInClassEvents).contains(EVENT);
+<a class="jxr_linenumber" name="L437" href="#L437">437</a>       assertThat(getSubscriber().declaredIn2AnnotatedInClassEvents).has().item(EVENT);
 <a class="jxr_linenumber" name="L438" href="#L438">438</a>     }
 <a class="jxr_linenumber" name="L439" href="#L439">439</a> 
 <a class="jxr_linenumber" name="L440" href="#L440">440</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testNowhereAnnotated() {

@@ -55,10 +55,10 @@
 <a class="jxr_linenumber" name="L47" href="#L47">47</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testRemove_present() {
 <a class="jxr_linenumber" name="L48" href="#L48">48</a>      <strong class="jxr_keyword">int</strong> initialSize = collection.size();
 <a class="jxr_linenumber" name="L49" href="#L49">49</a>      assertTrue(<span class="jxr_string">"remove(present) should return true"</span>,
-<a class="jxr_linenumber" name="L50" href="#L50">50</a>          collection.remove(e0()));
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>          collection.remove(samples.e0));
 <a class="jxr_linenumber" name="L51" href="#L51">51</a>      assertEquals(<span class="jxr_string">"remove(present) should decrease a collection's size by one."</span>,
 <a class="jxr_linenumber" name="L52" href="#L52">52</a>          initialSize - 1, collection.size());
-<a class="jxr_linenumber" name="L53" href="#L53">53</a>      expectMissing(e0());
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>      expectMissing(samples.e0);
 <a class="jxr_linenumber" name="L54" href="#L54">54</a>    }
 <a class="jxr_linenumber" name="L55" href="#L55">55</a>  
 <a class="jxr_linenumber" name="L56" href="#L56">56</a>    @CollectionFeature.Require({SUPPORTS_REMOVE,
@@ -67,7 +67,7 @@
 <a class="jxr_linenumber" name="L59" href="#L59">59</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testRemovePresentConcurrentWithIteration() {
 <a class="jxr_linenumber" name="L60" href="#L60">60</a>      <strong class="jxr_keyword">try</strong> {
 <a class="jxr_linenumber" name="L61" href="#L61">61</a>        Iterator&lt;E&gt; iterator = collection.iterator();
-<a class="jxr_linenumber" name="L62" href="#L62">62</a>        assertTrue(collection.remove(e0()));
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>        assertTrue(collection.remove(samples.e0));
 <a class="jxr_linenumber" name="L63" href="#L63">63</a>        iterator.next();
 <a class="jxr_linenumber" name="L64" href="#L64">64</a>        fail(<span class="jxr_string">"Expected ConcurrentModificationException"</span>);
 <a class="jxr_linenumber" name="L65" href="#L65">65</a>      } <strong class="jxr_keyword">catch</strong> (ConcurrentModificationException expected) {
@@ -78,7 +78,7 @@
 <a class="jxr_linenumber" name="L70" href="#L70">70</a>    @CollectionFeature.Require(SUPPORTS_REMOVE)
 <a class="jxr_linenumber" name="L71" href="#L71">71</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testRemove_notPresent() {
 <a class="jxr_linenumber" name="L72" href="#L72">72</a>      assertFalse(<span class="jxr_string">"remove(notPresent) should return false"</span>,
-<a class="jxr_linenumber" name="L73" href="#L73">73</a>          collection.remove(e3()));
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>          collection.remove(samples.e3));
 <a class="jxr_linenumber" name="L74" href="#L74">74</a>      expectUnchanged();
 <a class="jxr_linenumber" name="L75" href="#L75">75</a>    }
 <a class="jxr_linenumber" name="L76" href="#L76">76</a>  
@@ -98,13 +98,13 @@
 <a class="jxr_linenumber" name="L90" href="#L90">90</a>    @CollectionSize.Require(absent = ZERO)
 <a class="jxr_linenumber" name="L91" href="#L91">91</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testRemove_unsupported() {
 <a class="jxr_linenumber" name="L92" href="#L92">92</a>      <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L93" href="#L93">93</a>        collection.remove(e0());
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>        collection.remove(samples.e0);
 <a class="jxr_linenumber" name="L94" href="#L94">94</a>        fail(<span class="jxr_string">"remove(present) should throw UnsupportedOperationException"</span>);
 <a class="jxr_linenumber" name="L95" href="#L95">95</a>      } <strong class="jxr_keyword">catch</strong> (UnsupportedOperationException expected) {
 <a class="jxr_linenumber" name="L96" href="#L96">96</a>      }
 <a class="jxr_linenumber" name="L97" href="#L97">97</a>      expectUnchanged();
 <a class="jxr_linenumber" name="L98" href="#L98">98</a>      assertTrue(<span class="jxr_string">"remove(present) should not remove the element"</span>,
-<a class="jxr_linenumber" name="L99" href="#L99">99</a>          collection.contains(e0()));
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>          collection.contains(samples.e0));
 <a class="jxr_linenumber" name="L100" href="#L100">100</a>   }
 <a class="jxr_linenumber" name="L101" href="#L101">101</a> 
 <a class="jxr_linenumber" name="L102" href="#L102">102</a>   @CollectionFeature.Require(absent = SUPPORTS_REMOVE)
@@ -112,11 +112,11 @@
 <a class="jxr_linenumber" name="L104" href="#L104">104</a>     <strong class="jxr_keyword">try</strong> {
 <a class="jxr_linenumber" name="L105" href="#L105">105</a>       assertFalse(<span class="jxr_string">"remove(notPresent) should return false or throw "</span>
 <a class="jxr_linenumber" name="L106" href="#L106">106</a>           + <span class="jxr_string">"UnsupportedOperationException"</span>,
-<a class="jxr_linenumber" name="L107" href="#L107">107</a>           collection.remove(e3()));
+<a class="jxr_linenumber" name="L107" href="#L107">107</a>           collection.remove(samples.e3));
 <a class="jxr_linenumber" name="L108" href="#L108">108</a>     } <strong class="jxr_keyword">catch</strong> (UnsupportedOperationException tolerated) {
 <a class="jxr_linenumber" name="L109" href="#L109">109</a>     }
 <a class="jxr_linenumber" name="L110" href="#L110">110</a>     expectUnchanged();
-<a class="jxr_linenumber" name="L111" href="#L111">111</a>     expectMissing(e3());
+<a class="jxr_linenumber" name="L111" href="#L111">111</a>     expectMissing(samples.e3);
 <a class="jxr_linenumber" name="L112" href="#L112">112</a>   }
 <a class="jxr_linenumber" name="L113" href="#L113">113</a> 
 <a class="jxr_linenumber" name="L114" href="#L114">114</a>   @CollectionFeature.Require(
@@ -149,7 +149,7 @@
 <a class="jxr_linenumber" name="L141" href="#L141">141</a>     } <strong class="jxr_keyword">catch</strong> (UnsupportedOperationException expected) {
 <a class="jxr_linenumber" name="L142" href="#L142">142</a>     }
 <a class="jxr_linenumber" name="L143" href="#L143">143</a>     expectUnchanged();
-<a class="jxr_linenumber" name="L144" href="#L144">144</a>     assertTrue(collection.contains(e0()));
+<a class="jxr_linenumber" name="L144" href="#L144">144</a>     assertTrue(collection.contains(samples.e0));
 <a class="jxr_linenumber" name="L145" href="#L145">145</a>   }
 <a class="jxr_linenumber" name="L146" href="#L146">146</a> 
 <a class="jxr_linenumber" name="L147" href="#L147">147</a>   @CollectionFeature.Require(SUPPORTS_REMOVE)

@@ -150,7 +150,7 @@
 <a class="jxr_linenumber" name="L142" href="#L142">142</a>   }
 <a class="jxr_linenumber" name="L143" href="#L143">143</a> 
 <a class="jxr_linenumber" name="L144" href="#L144">144</a>   <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L145" href="#L145">145</a> <em class="jxr_javadoccomment">   * A {@link File} that provides a specialized value for {@link File#length()}.</em>
+<a class="jxr_linenumber" name="L145" href="#L145">145</a> <em class="jxr_javadoccomment">   * A {@link File} that provides a specialized value for {link File#length()}.</em>
 <a class="jxr_linenumber" name="L146" href="#L146">146</a> <em class="jxr_javadoccomment">   */</em>
 <a class="jxr_linenumber" name="L147" href="#L147">147</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../com/google/common/io/FilesTest.html">BadLengthFile</a> <strong class="jxr_keyword">extends</strong> File {
 <a class="jxr_linenumber" name="L148" href="#L148">148</a> 
@@ -550,7 +550,7 @@
 <a class="jxr_linenumber" name="L542" href="#L542">542</a>     w.close();
 <a class="jxr_linenumber" name="L543" href="#L543">543</a>     Files.readLines(temp, Charsets.UTF_8, collect);
 <a class="jxr_linenumber" name="L544" href="#L544">544</a>     assertThat(collect.getResult())
-<a class="jxr_linenumber" name="L545" href="#L545">545</a>         .containsExactly(<span class="jxr_string">"hello"</span>, <span class="jxr_string">""</span>, <span class="jxr_string">" world  "</span>, <span class="jxr_string">""</span>).inOrder();
+<a class="jxr_linenumber" name="L545" href="#L545">545</a>         .has().exactly(<span class="jxr_string">"hello"</span>, <span class="jxr_string">""</span>, <span class="jxr_string">" world  "</span>, <span class="jxr_string">""</span>).inOrder();
 <a class="jxr_linenumber" name="L546" href="#L546">546</a> 
 <a class="jxr_linenumber" name="L547" href="#L547">547</a>     LineProcessor&lt;List&lt;String&gt;&gt; collectNonEmptyLines =
 <a class="jxr_linenumber" name="L548" href="#L548">548</a>         <strong class="jxr_keyword">new</strong> LineProcessor&lt;List&lt;String&gt;&gt;() {
@@ -570,7 +570,7 @@
 <a class="jxr_linenumber" name="L562" href="#L562">562</a>           }
 <a class="jxr_linenumber" name="L563" href="#L563">563</a>         };
 <a class="jxr_linenumber" name="L564" href="#L564">564</a>     Files.readLines(temp, Charsets.UTF_8, collectNonEmptyLines);
-<a class="jxr_linenumber" name="L565" href="#L565">565</a>     assertThat(collectNonEmptyLines.getResult()).containsExactly(
+<a class="jxr_linenumber" name="L565" href="#L565">565</a>     assertThat(collectNonEmptyLines.getResult()).has().exactly(
 <a class="jxr_linenumber" name="L566" href="#L566">566</a>         <span class="jxr_string">"hello"</span>, <span class="jxr_string">" world  "</span>).inOrder();
 <a class="jxr_linenumber" name="L567" href="#L567">567</a> 
 <a class="jxr_linenumber" name="L568" href="#L568">568</a>     assertTrue(temp.delete());

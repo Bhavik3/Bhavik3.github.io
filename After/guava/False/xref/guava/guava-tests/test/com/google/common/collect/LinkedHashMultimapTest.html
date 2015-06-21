@@ -159,8 +159,8 @@
 <a class="jxr_linenumber" name="L151" href="#L151">151</a>     multimap.put(<span class="jxr_string">"c"</span>, 4);
 <a class="jxr_linenumber" name="L152" href="#L152">152</a>     multimap.remove(<span class="jxr_string">"a"</span>, 1);
 <a class="jxr_linenumber" name="L153" href="#L153">153</a>     multimap = SerializableTester.reserializeAndAssert(multimap);
-<a class="jxr_linenumber" name="L154" href="#L154">154</a>     assertThat(multimap.keySet()).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>).inOrder();
-<a class="jxr_linenumber" name="L155" href="#L155">155</a>     assertThat(multimap.entries()).containsExactly(
+<a class="jxr_linenumber" name="L154" href="#L154">154</a>     assertThat(multimap.keySet()).has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>).inOrder();
+<a class="jxr_linenumber" name="L155" href="#L155">155</a>     assertThat(multimap.entries()).has().exactly(
 <a class="jxr_linenumber" name="L156" href="#L156">156</a>         mapEntry(<span class="jxr_string">"b"</span>, 2),
 <a class="jxr_linenumber" name="L157" href="#L157">157</a>         mapEntry(<span class="jxr_string">"a"</span>, 3),
 <a class="jxr_linenumber" name="L158" href="#L158">158</a>         mapEntry(<span class="jxr_string">"c"</span>, 4)).inOrder();
@@ -168,12 +168,12 @@
 <a class="jxr_linenumber" name="L160" href="#L160">160</a>   }
 <a class="jxr_linenumber" name="L161" href="#L161">161</a> 
 <a class="jxr_linenumber" name="L162" href="#L162">162</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> assertOrderingReadOnly(Multimap&lt;String, Integer&gt; multimap) {
-<a class="jxr_linenumber" name="L163" href="#L163">163</a>     assertThat(multimap.get(<span class="jxr_string">"foo"</span>)).containsExactly(5, 3).inOrder();
-<a class="jxr_linenumber" name="L164" href="#L164">164</a>     assertThat(multimap.get(<span class="jxr_string">"bar"</span>)).containsExactly(4, 1).inOrder();
-<a class="jxr_linenumber" name="L165" href="#L165">165</a>     assertThat(multimap.get(<span class="jxr_string">"cow"</span>)).contains(2);
+<a class="jxr_linenumber" name="L163" href="#L163">163</a>     assertThat(multimap.get(<span class="jxr_string">"foo"</span>)).has().exactly(5, 3).inOrder();
+<a class="jxr_linenumber" name="L164" href="#L164">164</a>     assertThat(multimap.get(<span class="jxr_string">"bar"</span>)).has().exactly(4, 1).inOrder();
+<a class="jxr_linenumber" name="L165" href="#L165">165</a>     assertThat(multimap.get(<span class="jxr_string">"cow"</span>)).has().item(2);
 <a class="jxr_linenumber" name="L166" href="#L166">166</a> 
-<a class="jxr_linenumber" name="L167" href="#L167">167</a>     assertThat(multimap.keySet()).containsExactly(<span class="jxr_string">"foo"</span>, <span class="jxr_string">"bar"</span>, <span class="jxr_string">"cow"</span>).inOrder();
-<a class="jxr_linenumber" name="L168" href="#L168">168</a>     assertThat(multimap.values()).containsExactly(5, 4, 3, 2, 1).inOrder();
+<a class="jxr_linenumber" name="L167" href="#L167">167</a>     assertThat(multimap.keySet()).has().exactly(<span class="jxr_string">"foo"</span>, <span class="jxr_string">"bar"</span>, <span class="jxr_string">"cow"</span>).inOrder();
+<a class="jxr_linenumber" name="L168" href="#L168">168</a>     assertThat(multimap.values()).has().exactly(5, 4, 3, 2, 1).inOrder();
 <a class="jxr_linenumber" name="L169" href="#L169">169</a> 
 <a class="jxr_linenumber" name="L170" href="#L170">170</a>     Iterator&lt;Map.Entry&lt;String, Integer&gt;&gt; entryIterator =
 <a class="jxr_linenumber" name="L171" href="#L171">171</a>         multimap.entries().iterator();
@@ -187,28 +187,28 @@
 <a class="jxr_linenumber" name="L179" href="#L179">179</a>         multimap.asMap().entrySet().iterator();
 <a class="jxr_linenumber" name="L180" href="#L180">180</a>     Map.Entry&lt;String, Collection&lt;Integer&gt;&gt; entry = collectionIterator.next();
 <a class="jxr_linenumber" name="L181" href="#L181">181</a>     assertEquals(<span class="jxr_string">"foo"</span>, entry.getKey());
-<a class="jxr_linenumber" name="L182" href="#L182">182</a>     assertThat(entry.getValue()).containsExactly(5, 3).inOrder();
+<a class="jxr_linenumber" name="L182" href="#L182">182</a>     assertThat(entry.getValue()).has().exactly(5, 3).inOrder();
 <a class="jxr_linenumber" name="L183" href="#L183">183</a>     entry = collectionIterator.next();
 <a class="jxr_linenumber" name="L184" href="#L184">184</a>     assertEquals(<span class="jxr_string">"bar"</span>, entry.getKey());
-<a class="jxr_linenumber" name="L185" href="#L185">185</a>     assertThat(entry.getValue()).containsExactly(4, 1).inOrder();
+<a class="jxr_linenumber" name="L185" href="#L185">185</a>     assertThat(entry.getValue()).has().exactly(4, 1).inOrder();
 <a class="jxr_linenumber" name="L186" href="#L186">186</a>     entry = collectionIterator.next();
 <a class="jxr_linenumber" name="L187" href="#L187">187</a>     assertEquals(<span class="jxr_string">"cow"</span>, entry.getKey());
-<a class="jxr_linenumber" name="L188" href="#L188">188</a>     assertThat(entry.getValue()).contains(2);
+<a class="jxr_linenumber" name="L188" href="#L188">188</a>     assertThat(entry.getValue()).has().item(2);
 <a class="jxr_linenumber" name="L189" href="#L189">189</a>   }
 <a class="jxr_linenumber" name="L190" href="#L190">190</a> 
 <a class="jxr_linenumber" name="L191" href="#L191">191</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testOrderingUpdates() {
 <a class="jxr_linenumber" name="L192" href="#L192">192</a>     Multimap&lt;String, Integer&gt; multimap = initializeMultimap5();
 <a class="jxr_linenumber" name="L193" href="#L193">193</a> 
-<a class="jxr_linenumber" name="L194" href="#L194">194</a>     assertThat(multimap.replaceValues(<span class="jxr_string">"foo"</span>, asList(6, 7))).containsExactly(5, 3).inOrder();
-<a class="jxr_linenumber" name="L195" href="#L195">195</a>     assertThat(multimap.keySet()).containsExactly(<span class="jxr_string">"foo"</span>, <span class="jxr_string">"bar"</span>, <span class="jxr_string">"cow"</span>).inOrder();
-<a class="jxr_linenumber" name="L196" href="#L196">196</a>     assertThat(multimap.removeAll(<span class="jxr_string">"foo"</span>)).containsExactly(6, 7).inOrder();
-<a class="jxr_linenumber" name="L197" href="#L197">197</a>     assertThat(multimap.keySet()).containsExactly(<span class="jxr_string">"bar"</span>, <span class="jxr_string">"cow"</span>).inOrder();
+<a class="jxr_linenumber" name="L194" href="#L194">194</a>     assertThat(multimap.replaceValues(<span class="jxr_string">"foo"</span>, asList(6, 7))).has().exactly(5, 3).inOrder();
+<a class="jxr_linenumber" name="L195" href="#L195">195</a>     assertThat(multimap.keySet()).has().exactly(<span class="jxr_string">"foo"</span>, <span class="jxr_string">"bar"</span>, <span class="jxr_string">"cow"</span>).inOrder();
+<a class="jxr_linenumber" name="L196" href="#L196">196</a>     assertThat(multimap.removeAll(<span class="jxr_string">"foo"</span>)).has().exactly(6, 7).inOrder();
+<a class="jxr_linenumber" name="L197" href="#L197">197</a>     assertThat(multimap.keySet()).has().exactly(<span class="jxr_string">"bar"</span>, <span class="jxr_string">"cow"</span>).inOrder();
 <a class="jxr_linenumber" name="L198" href="#L198">198</a>     assertTrue(multimap.remove(<span class="jxr_string">"bar"</span>, 4));
-<a class="jxr_linenumber" name="L199" href="#L199">199</a>     assertThat(multimap.keySet()).containsExactly(<span class="jxr_string">"bar"</span>, <span class="jxr_string">"cow"</span>).inOrder();
+<a class="jxr_linenumber" name="L199" href="#L199">199</a>     assertThat(multimap.keySet()).has().exactly(<span class="jxr_string">"bar"</span>, <span class="jxr_string">"cow"</span>).inOrder();
 <a class="jxr_linenumber" name="L200" href="#L200">200</a>     assertTrue(multimap.remove(<span class="jxr_string">"bar"</span>, 1));
-<a class="jxr_linenumber" name="L201" href="#L201">201</a>     assertThat(multimap.keySet()).contains(<span class="jxr_string">"cow"</span>);
+<a class="jxr_linenumber" name="L201" href="#L201">201</a>     assertThat(multimap.keySet()).has().item(<span class="jxr_string">"cow"</span>);
 <a class="jxr_linenumber" name="L202" href="#L202">202</a>     multimap.put(<span class="jxr_string">"bar"</span>, 9);
-<a class="jxr_linenumber" name="L203" href="#L203">203</a>     assertThat(multimap.keySet()).containsExactly(<span class="jxr_string">"cow"</span>, <span class="jxr_string">"bar"</span>).inOrder();
+<a class="jxr_linenumber" name="L203" href="#L203">203</a>     assertThat(multimap.keySet()).has().exactly(<span class="jxr_string">"cow"</span>, <span class="jxr_string">"bar"</span>).inOrder();
 <a class="jxr_linenumber" name="L204" href="#L204">204</a>   }
 <a class="jxr_linenumber" name="L205" href="#L205">205</a> 
 <a class="jxr_linenumber" name="L206" href="#L206">206</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testToStringNullExact() {

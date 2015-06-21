@@ -430,13 +430,13 @@
 <a class="jxr_linenumber" name="L422" href="#L422">422</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testSerialization_multiple() {
 <a class="jxr_linenumber" name="L423" href="#L423">423</a>     Collection&lt;String&gt; c = ImmutableSortedMultiset.of(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"a"</span>);
 <a class="jxr_linenumber" name="L424" href="#L424">424</a>     Collection&lt;String&gt; copy = SerializableTester.reserializeAndAssert(c);
-<a class="jxr_linenumber" name="L425" href="#L425">425</a>     assertThat(copy).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>).inOrder();
+<a class="jxr_linenumber" name="L425" href="#L425">425</a>     assertThat(copy).has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>).inOrder();
 <a class="jxr_linenumber" name="L426" href="#L426">426</a>   }
 <a class="jxr_linenumber" name="L427" href="#L427">427</a> 
 <a class="jxr_linenumber" name="L428" href="#L428">428</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testSerialization_elementSet() {
 <a class="jxr_linenumber" name="L429" href="#L429">429</a>     Multiset&lt;String&gt; c = ImmutableSortedMultiset.of(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"a"</span>);
 <a class="jxr_linenumber" name="L430" href="#L430">430</a>     Collection&lt;String&gt; copy = SerializableTester.reserializeAndAssert(c.elementSet());
-<a class="jxr_linenumber" name="L431" href="#L431">431</a>     assertThat(copy).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>).inOrder();
+<a class="jxr_linenumber" name="L431" href="#L431">431</a>     assertThat(copy).has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>).inOrder();
 <a class="jxr_linenumber" name="L432" href="#L432">432</a>   }
 <a class="jxr_linenumber" name="L433" href="#L433">433</a> 
 <a class="jxr_linenumber" name="L434" href="#L434">434</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testSerialization_entrySet() {
@@ -454,7 +454,7 @@
 <a class="jxr_linenumber" name="L446" href="#L446">446</a> 
 <a class="jxr_linenumber" name="L447" href="#L447">447</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testIterationOrder() {
 <a class="jxr_linenumber" name="L448" href="#L448">448</a>     Collection&lt;String&gt; c = ImmutableSortedMultiset.of(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"a"</span>);
-<a class="jxr_linenumber" name="L449" href="#L449">449</a>     assertThat(c).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>).inOrder();
+<a class="jxr_linenumber" name="L449" href="#L449">449</a>     assertThat(c).has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>).inOrder();
 <a class="jxr_linenumber" name="L450" href="#L450">450</a>   }
 <a class="jxr_linenumber" name="L451" href="#L451">451</a> 
 <a class="jxr_linenumber" name="L452" href="#L452">452</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testMultisetWrites() {

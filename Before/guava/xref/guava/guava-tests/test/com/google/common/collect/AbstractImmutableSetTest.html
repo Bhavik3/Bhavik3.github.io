@@ -303,7 +303,7 @@
 <a class="jxr_linenumber" name="L295" href="#L295">295</a>         .add(<span class="jxr_string">"d"</span>, <span class="jxr_string">"e"</span>, <span class="jxr_string">"f"</span>)
 <a class="jxr_linenumber" name="L296" href="#L296">296</a>         .add(<span class="jxr_string">"g"</span>, <span class="jxr_string">"h"</span>, <span class="jxr_string">"i"</span>, <span class="jxr_string">"j"</span>)
 <a class="jxr_linenumber" name="L297" href="#L297">297</a>         .build();
-<a class="jxr_linenumber" name="L298" href="#L298">298</a>     assertThat(set).containsExactly(
+<a class="jxr_linenumber" name="L298" href="#L298">298</a>     assertThat(set).has().exactly(
 <a class="jxr_linenumber" name="L299" href="#L299">299</a>         <span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"d"</span>, <span class="jxr_string">"e"</span>, <span class="jxr_string">"f"</span>, <span class="jxr_string">"g"</span>, <span class="jxr_string">"h"</span>, <span class="jxr_string">"i"</span>, <span class="jxr_string">"j"</span>).inOrder();
 <a class="jxr_linenumber" name="L300" href="#L300">300</a>   }
 <a class="jxr_linenumber" name="L301" href="#L301">301</a> 
@@ -311,9 +311,9 @@
 <a class="jxr_linenumber" name="L303" href="#L303">303</a>     ImmutableSet.Builder&lt;String&gt; builder = <strong class="jxr_keyword">this</strong>.&lt;String&gt;builder()
 <a class="jxr_linenumber" name="L304" href="#L304">304</a>         .add(<span class="jxr_string">"a"</span>)
 <a class="jxr_linenumber" name="L305" href="#L305">305</a>         .add(<span class="jxr_string">"b"</span>);
-<a class="jxr_linenumber" name="L306" href="#L306">306</a>     assertThat(builder.build()).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>).inOrder();
+<a class="jxr_linenumber" name="L306" href="#L306">306</a>     assertThat(builder.build()).has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>).inOrder();
 <a class="jxr_linenumber" name="L307" href="#L307">307</a>     builder.add(<span class="jxr_string">"c"</span>, <span class="jxr_string">"d"</span>);
-<a class="jxr_linenumber" name="L308" href="#L308">308</a>     assertThat(builder.build()).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"d"</span>).inOrder();
+<a class="jxr_linenumber" name="L308" href="#L308">308</a>     assertThat(builder.build()).has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"d"</span>).inOrder();
 <a class="jxr_linenumber" name="L309" href="#L309">309</a>   }
 <a class="jxr_linenumber" name="L310" href="#L310">310</a> 
 <a class="jxr_linenumber" name="L311" href="#L311">311</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testBuilderWithDuplicateElements() {
@@ -333,9 +333,9 @@
 <a class="jxr_linenumber" name="L325" href="#L325">325</a>         .add(<span class="jxr_string">"a"</span>)
 <a class="jxr_linenumber" name="L326" href="#L326">326</a>         .add(<span class="jxr_string">"a"</span>, <span class="jxr_string">"a"</span>)
 <a class="jxr_linenumber" name="L327" href="#L327">327</a>         .add(<span class="jxr_string">"b"</span>);
-<a class="jxr_linenumber" name="L328" href="#L328">328</a>     assertThat(builder.build()).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>).inOrder();
+<a class="jxr_linenumber" name="L328" href="#L328">328</a>     assertThat(builder.build()).has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>).inOrder();
 <a class="jxr_linenumber" name="L329" href="#L329">329</a>     builder.add(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"c"</span>);
-<a class="jxr_linenumber" name="L330" href="#L330">330</a>     assertThat(builder.build()).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>).inOrder();
+<a class="jxr_linenumber" name="L330" href="#L330">330</a>     assertThat(builder.build()).has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>).inOrder();
 <a class="jxr_linenumber" name="L331" href="#L331">331</a>   }
 <a class="jxr_linenumber" name="L332" href="#L332">332</a> 
 <a class="jxr_linenumber" name="L333" href="#L333">333</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testBuilderAddAll() {
@@ -345,7 +345,7 @@
 <a class="jxr_linenumber" name="L337" href="#L337">337</a>         .addAll(a)
 <a class="jxr_linenumber" name="L338" href="#L338">338</a>         .addAll(b)
 <a class="jxr_linenumber" name="L339" href="#L339">339</a>         .build();
-<a class="jxr_linenumber" name="L340" href="#L340">340</a>     assertThat(set).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"d"</span>, <span class="jxr_string">"e"</span>).inOrder();
+<a class="jxr_linenumber" name="L340" href="#L340">340</a>     assertThat(set).has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"d"</span>, <span class="jxr_string">"e"</span>).inOrder();
 <a class="jxr_linenumber" name="L341" href="#L341">341</a>   }
 <a class="jxr_linenumber" name="L342" href="#L342">342</a> 
 <a class="jxr_linenumber" name="L343" href="#L343">343</a>   <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> LAST_COLOR_ADDED = 0x00BFFF;

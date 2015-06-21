@@ -90,9 +90,9 @@
 <a class="jxr_linenumber" name="L82" href="#L82">82</a>      ListMultimap&lt;String, Integer&gt; multimap = create();
 <a class="jxr_linenumber" name="L83" href="#L83">83</a>      multimap.putAll(<span class="jxr_string">"foo"</span>, asList(1, 2, 3, 4, 5));
 <a class="jxr_linenumber" name="L84" href="#L84">84</a>      List&lt;Integer&gt; list = multimap.get(<span class="jxr_string">"foo"</span>);
-<a class="jxr_linenumber" name="L85" href="#L85">85</a>      assertThat(multimap.get(<span class="jxr_string">"foo"</span>)).containsExactly(1, 2, 3, 4, 5).inOrder();
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>      assertThat(multimap.get(<span class="jxr_string">"foo"</span>)).has().exactly(1, 2, 3, 4, 5).inOrder();
 <a class="jxr_linenumber" name="L86" href="#L86">86</a>      List&lt;Integer&gt; sublist = list.subList(0, 5);
-<a class="jxr_linenumber" name="L87" href="#L87">87</a>      assertThat(sublist).containsExactly(1, 2, 3, 4, 5).inOrder();
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>      assertThat(sublist).has().exactly(1, 2, 3, 4, 5).inOrder();
 <a class="jxr_linenumber" name="L88" href="#L88">88</a>  
 <a class="jxr_linenumber" name="L89" href="#L89">89</a>      sublist.clear();
 <a class="jxr_linenumber" name="L90" href="#L90">90</a>      assertTrue(sublist.isEmpty());
@@ -161,8 +161,8 @@
 <a class="jxr_linenumber" name="L153" href="#L153">153</a>     multimap.put(<span class="jxr_string">"bar"</span>, 3);
 <a class="jxr_linenumber" name="L154" href="#L154">154</a>     multimap.trimToSize();
 <a class="jxr_linenumber" name="L155" href="#L155">155</a>     assertEquals(3, multimap.size());
-<a class="jxr_linenumber" name="L156" href="#L156">156</a>     assertThat(multimap.get(<span class="jxr_string">"foo"</span>)).containsExactly(1, 2).inOrder();
-<a class="jxr_linenumber" name="L157" href="#L157">157</a>     assertThat(multimap.get(<span class="jxr_string">"bar"</span>)).contains(3);
+<a class="jxr_linenumber" name="L156" href="#L156">156</a>     assertThat(multimap.get(<span class="jxr_string">"foo"</span>)).has().exactly(1, 2).inOrder();
+<a class="jxr_linenumber" name="L157" href="#L157">157</a>     assertThat(multimap.get(<span class="jxr_string">"bar"</span>)).has().item(3);
 <a class="jxr_linenumber" name="L158" href="#L158">158</a>   }
 <a class="jxr_linenumber" name="L159" href="#L159">159</a> }
 <a class="jxr_linenumber" name="L160" href="#L160">160</a> 

@@ -244,9 +244,9 @@
 <a class="jxr_linenumber" name="L236" href="#L236">236</a> 
 <a class="jxr_linenumber" name="L237" href="#L237">237</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testRemovalListener_replaced() {
 <a class="jxr_linenumber" name="L238" href="#L238">238</a>     <em class="jxr_comment">// TODO(user): May be a good candidate to play with the MultithreadedTestCase</em>
-<a class="jxr_linenumber" name="L239" href="#L239">239</a>     <strong class="jxr_keyword">final</strong> <a href="../../../../java/util/concurrent/CountDownLatch.html">CountDownLatch</a> startSignal = <strong class="jxr_keyword">new</strong> <a href="../../../../java/util/concurrent/CountDownLatch.html">CountDownLatch</a>(1);
-<a class="jxr_linenumber" name="L240" href="#L240">240</a>     <strong class="jxr_keyword">final</strong> <a href="../../../../java/util/concurrent/CountDownLatch.html">CountDownLatch</a> computingSignal = <strong class="jxr_keyword">new</strong> <a href="../../../../java/util/concurrent/CountDownLatch.html">CountDownLatch</a>(1);
-<a class="jxr_linenumber" name="L241" href="#L241">241</a>     <strong class="jxr_keyword">final</strong> <a href="../../../../java/util/concurrent/CountDownLatch.html">CountDownLatch</a> doneSignal = <strong class="jxr_keyword">new</strong> <a href="../../../../java/util/concurrent/CountDownLatch.html">CountDownLatch</a>(1);
+<a class="jxr_linenumber" name="L239" href="#L239">239</a>     <strong class="jxr_keyword">final</strong> CountDownLatch startSignal = <strong class="jxr_keyword">new</strong> CountDownLatch(1);
+<a class="jxr_linenumber" name="L240" href="#L240">240</a>     <strong class="jxr_keyword">final</strong> CountDownLatch computingSignal = <strong class="jxr_keyword">new</strong> CountDownLatch(1);
+<a class="jxr_linenumber" name="L241" href="#L241">241</a>     <strong class="jxr_keyword">final</strong> CountDownLatch doneSignal = <strong class="jxr_keyword">new</strong> CountDownLatch(1);
 <a class="jxr_linenumber" name="L242" href="#L242">242</a>     <strong class="jxr_keyword">final</strong> Object computedObject = <strong class="jxr_keyword">new</strong> Object();
 <a class="jxr_linenumber" name="L243" href="#L243">243</a> 
 <a class="jxr_linenumber" name="L244" href="#L244">244</a>     Function&lt;Object, Object&gt; computingFunction = <strong class="jxr_keyword">new</strong> Function&lt;Object, Object&gt;() {

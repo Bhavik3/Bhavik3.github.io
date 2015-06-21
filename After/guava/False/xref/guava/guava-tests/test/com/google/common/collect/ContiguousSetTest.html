@@ -154,15 +154,15 @@
 <a class="jxr_linenumber" name="L146" href="#L146">146</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testHeadSet() {
 <a class="jxr_linenumber" name="L147" href="#L147">147</a>     ImmutableSortedSet&lt;Integer&gt; set = ContiguousSet.create(Range.closed(1, 3), integers());
 <a class="jxr_linenumber" name="L148" href="#L148">148</a>     assertThat(set.headSet(1)).isEmpty();
-<a class="jxr_linenumber" name="L149" href="#L149">149</a>     assertThat(set.headSet(2)).contains(1);
-<a class="jxr_linenumber" name="L150" href="#L150">150</a>     assertThat(set.headSet(3)).containsExactly(1, 2).inOrder();
-<a class="jxr_linenumber" name="L151" href="#L151">151</a>     assertThat(set.headSet(4)).containsExactly(1, 2, 3).inOrder();
-<a class="jxr_linenumber" name="L152" href="#L152">152</a>     assertThat(set.headSet(Integer.MAX_VALUE)).containsExactly(1, 2, 3).inOrder();
-<a class="jxr_linenumber" name="L153" href="#L153">153</a>     assertThat(set.headSet(1, <strong class="jxr_keyword">true</strong>)).contains(1);
-<a class="jxr_linenumber" name="L154" href="#L154">154</a>     assertThat(set.headSet(2, <strong class="jxr_keyword">true</strong>)).containsExactly(1, 2).inOrder();
-<a class="jxr_linenumber" name="L155" href="#L155">155</a>     assertThat(set.headSet(3, <strong class="jxr_keyword">true</strong>)).containsExactly(1, 2, 3).inOrder();
-<a class="jxr_linenumber" name="L156" href="#L156">156</a>     assertThat(set.headSet(4, <strong class="jxr_keyword">true</strong>)).containsExactly(1, 2, 3).inOrder();
-<a class="jxr_linenumber" name="L157" href="#L157">157</a>     assertThat(set.headSet(Integer.MAX_VALUE, <strong class="jxr_keyword">true</strong>)).containsExactly(1, 2, 3).inOrder();
+<a class="jxr_linenumber" name="L149" href="#L149">149</a>     assertThat(set.headSet(2)).has().item(1);
+<a class="jxr_linenumber" name="L150" href="#L150">150</a>     assertThat(set.headSet(3)).has().exactly(1, 2).inOrder();
+<a class="jxr_linenumber" name="L151" href="#L151">151</a>     assertThat(set.headSet(4)).has().exactly(1, 2, 3).inOrder();
+<a class="jxr_linenumber" name="L152" href="#L152">152</a>     assertThat(set.headSet(Integer.MAX_VALUE)).has().exactly(1, 2, 3).inOrder();
+<a class="jxr_linenumber" name="L153" href="#L153">153</a>     assertThat(set.headSet(1, <strong class="jxr_keyword">true</strong>)).has().item(1);
+<a class="jxr_linenumber" name="L154" href="#L154">154</a>     assertThat(set.headSet(2, <strong class="jxr_keyword">true</strong>)).has().exactly(1, 2).inOrder();
+<a class="jxr_linenumber" name="L155" href="#L155">155</a>     assertThat(set.headSet(3, <strong class="jxr_keyword">true</strong>)).has().exactly(1, 2, 3).inOrder();
+<a class="jxr_linenumber" name="L156" href="#L156">156</a>     assertThat(set.headSet(4, <strong class="jxr_keyword">true</strong>)).has().exactly(1, 2, 3).inOrder();
+<a class="jxr_linenumber" name="L157" href="#L157">157</a>     assertThat(set.headSet(Integer.MAX_VALUE, <strong class="jxr_keyword">true</strong>)).has().exactly(1, 2, 3).inOrder();
 <a class="jxr_linenumber" name="L158" href="#L158">158</a>   }
 <a class="jxr_linenumber" name="L159" href="#L159">159</a> 
 <a class="jxr_linenumber" name="L160" href="#L160">160</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testHeadSet_tooSmall() {
@@ -171,13 +171,13 @@
 <a class="jxr_linenumber" name="L163" href="#L163">163</a> 
 <a class="jxr_linenumber" name="L164" href="#L164">164</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testTailSet() {
 <a class="jxr_linenumber" name="L165" href="#L165">165</a>     ImmutableSortedSet&lt;Integer&gt; set = ContiguousSet.create(Range.closed(1, 3), integers());
-<a class="jxr_linenumber" name="L166" href="#L166">166</a>     assertThat(set.tailSet(Integer.MIN_VALUE)).containsExactly(1, 2, 3).inOrder();
-<a class="jxr_linenumber" name="L167" href="#L167">167</a>     assertThat(set.tailSet(1)).containsExactly(1, 2, 3).inOrder();
-<a class="jxr_linenumber" name="L168" href="#L168">168</a>     assertThat(set.tailSet(2)).containsExactly(2, 3).inOrder();
-<a class="jxr_linenumber" name="L169" href="#L169">169</a>     assertThat(set.tailSet(3)).contains(3);
-<a class="jxr_linenumber" name="L170" href="#L170">170</a>     assertThat(set.tailSet(Integer.MIN_VALUE, false)).containsExactly(1, 2, 3).inOrder();
-<a class="jxr_linenumber" name="L171" href="#L171">171</a>     assertThat(set.tailSet(1, false)).containsExactly(2, 3).inOrder();
-<a class="jxr_linenumber" name="L172" href="#L172">172</a>     assertThat(set.tailSet(2, false)).contains(3);
+<a class="jxr_linenumber" name="L166" href="#L166">166</a>     assertThat(set.tailSet(Integer.MIN_VALUE)).has().exactly(1, 2, 3).inOrder();
+<a class="jxr_linenumber" name="L167" href="#L167">167</a>     assertThat(set.tailSet(1)).has().exactly(1, 2, 3).inOrder();
+<a class="jxr_linenumber" name="L168" href="#L168">168</a>     assertThat(set.tailSet(2)).has().exactly(2, 3).inOrder();
+<a class="jxr_linenumber" name="L169" href="#L169">169</a>     assertThat(set.tailSet(3)).has().item(3);
+<a class="jxr_linenumber" name="L170" href="#L170">170</a>     assertThat(set.tailSet(Integer.MIN_VALUE, false)).has().exactly(1, 2, 3).inOrder();
+<a class="jxr_linenumber" name="L171" href="#L171">171</a>     assertThat(set.tailSet(1, false)).has().exactly(2, 3).inOrder();
+<a class="jxr_linenumber" name="L172" href="#L172">172</a>     assertThat(set.tailSet(2, false)).has().item(3);
 <a class="jxr_linenumber" name="L173" href="#L173">173</a>     assertThat(set.tailSet(3, false)).isEmpty();
 <a class="jxr_linenumber" name="L174" href="#L174">174</a>   }
 <a class="jxr_linenumber" name="L175" href="#L175">175</a> 
@@ -187,19 +187,19 @@
 <a class="jxr_linenumber" name="L179" href="#L179">179</a> 
 <a class="jxr_linenumber" name="L180" href="#L180">180</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testSubSet() {
 <a class="jxr_linenumber" name="L181" href="#L181">181</a>     ImmutableSortedSet&lt;Integer&gt; set = ContiguousSet.create(Range.closed(1, 3), integers());
-<a class="jxr_linenumber" name="L182" href="#L182">182</a>     assertThat(set.subSet(1, 4)).containsExactly(1, 2, 3).inOrder();
-<a class="jxr_linenumber" name="L183" href="#L183">183</a>     assertThat(set.subSet(2, 4)).containsExactly(2, 3).inOrder();
-<a class="jxr_linenumber" name="L184" href="#L184">184</a>     assertThat(set.subSet(3, 4)).contains(3);
+<a class="jxr_linenumber" name="L182" href="#L182">182</a>     assertThat(set.subSet(1, 4)).has().exactly(1, 2, 3).inOrder();
+<a class="jxr_linenumber" name="L183" href="#L183">183</a>     assertThat(set.subSet(2, 4)).has().exactly(2, 3).inOrder();
+<a class="jxr_linenumber" name="L184" href="#L184">184</a>     assertThat(set.subSet(3, 4)).has().item(3);
 <a class="jxr_linenumber" name="L185" href="#L185">185</a>     assertThat(set.subSet(3, 3)).isEmpty();
-<a class="jxr_linenumber" name="L186" href="#L186">186</a>     assertThat(set.subSet(2, 3)).contains(2);
-<a class="jxr_linenumber" name="L187" href="#L187">187</a>     assertThat(set.subSet(1, 3)).containsExactly(1, 2).inOrder();
-<a class="jxr_linenumber" name="L188" href="#L188">188</a>     assertThat(set.subSet(1, 2)).contains(1);
+<a class="jxr_linenumber" name="L186" href="#L186">186</a>     assertThat(set.subSet(2, 3)).has().item(2);
+<a class="jxr_linenumber" name="L187" href="#L187">187</a>     assertThat(set.subSet(1, 3)).has().exactly(1, 2).inOrder();
+<a class="jxr_linenumber" name="L188" href="#L188">188</a>     assertThat(set.subSet(1, 2)).has().item(1);
 <a class="jxr_linenumber" name="L189" href="#L189">189</a>     assertThat(set.subSet(2, 2)).isEmpty();
-<a class="jxr_linenumber" name="L190" href="#L190">190</a>     assertThat(set.subSet(Integer.MIN_VALUE, Integer.MAX_VALUE)).containsExactly(1, 2, 3).inOrder();
-<a class="jxr_linenumber" name="L191" href="#L191">191</a>     assertThat(set.subSet(1, <strong class="jxr_keyword">true</strong>, 3, <strong class="jxr_keyword">true</strong>)).containsExactly(1, 2, 3).inOrder();
-<a class="jxr_linenumber" name="L192" href="#L192">192</a>     assertThat(set.subSet(1, false, 3, <strong class="jxr_keyword">true</strong>)).containsExactly(2, 3).inOrder();
-<a class="jxr_linenumber" name="L193" href="#L193">193</a>     assertThat(set.subSet(1, <strong class="jxr_keyword">true</strong>, 3, false)).containsExactly(1, 2).inOrder();
-<a class="jxr_linenumber" name="L194" href="#L194">194</a>     assertThat(set.subSet(1, false, 3, false)).contains(2);
+<a class="jxr_linenumber" name="L190" href="#L190">190</a>     assertThat(set.subSet(Integer.MIN_VALUE, Integer.MAX_VALUE)).has().exactly(1, 2, 3).inOrder();
+<a class="jxr_linenumber" name="L191" href="#L191">191</a>     assertThat(set.subSet(1, <strong class="jxr_keyword">true</strong>, 3, <strong class="jxr_keyword">true</strong>)).has().exactly(1, 2, 3).inOrder();
+<a class="jxr_linenumber" name="L192" href="#L192">192</a>     assertThat(set.subSet(1, false, 3, <strong class="jxr_keyword">true</strong>)).has().exactly(2, 3).inOrder();
+<a class="jxr_linenumber" name="L193" href="#L193">193</a>     assertThat(set.subSet(1, <strong class="jxr_keyword">true</strong>, 3, false)).has().exactly(1, 2).inOrder();
+<a class="jxr_linenumber" name="L194" href="#L194">194</a>     assertThat(set.subSet(1, false, 3, false)).has().item(2);
 <a class="jxr_linenumber" name="L195" href="#L195">195</a>   }
 <a class="jxr_linenumber" name="L196" href="#L196">196</a> 
 <a class="jxr_linenumber" name="L197" href="#L197">197</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testSubSet_outOfOrder() {

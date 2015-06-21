@@ -48,14 +48,14 @@
 <a class="jxr_linenumber" name="L40" href="#L40">40</a>  @Beta
 <a class="jxr_linenumber" name="L41" href="#L41">41</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">abstract</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../../com/google/common/util/concurrent/testing/AbstractListenableFutureTest.html">AbstractListenableFutureTest</a> <strong class="jxr_keyword">extends</strong> TestCase {
 <a class="jxr_linenumber" name="L42" href="#L42">42</a>  
-<a class="jxr_linenumber" name="L43" href="#L43">43</a>    <strong class="jxr_keyword">protected</strong> <a href="../../../../../../java/util/concurrent/CountDownLatch.html">CountDownLatch</a> latch;
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>    <strong class="jxr_keyword">protected</strong> CountDownLatch latch;
 <a class="jxr_linenumber" name="L44" href="#L44">44</a>    <strong class="jxr_keyword">protected</strong> ListenableFuture&lt;Boolean&gt; future;
 <a class="jxr_linenumber" name="L45" href="#L45">45</a>  
 <a class="jxr_linenumber" name="L46" href="#L46">46</a>    @Override
 <a class="jxr_linenumber" name="L47" href="#L47">47</a>    <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> setUp() <strong class="jxr_keyword">throws</strong> Exception {
 <a class="jxr_linenumber" name="L48" href="#L48">48</a>  
 <a class="jxr_linenumber" name="L49" href="#L49">49</a>      <em class="jxr_comment">// Create a latch and a future that waits on the latch.</em>
-<a class="jxr_linenumber" name="L50" href="#L50">50</a>      latch = <strong class="jxr_keyword">new</strong> <a href="../../../../../../java/util/concurrent/CountDownLatch.html">CountDownLatch</a>(1);
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>      latch = <strong class="jxr_keyword">new</strong> CountDownLatch(1);
 <a class="jxr_linenumber" name="L51" href="#L51">51</a>      future = createListenableFuture(Boolean.TRUE, <strong class="jxr_keyword">null</strong>, latch);
 <a class="jxr_linenumber" name="L52" href="#L52">52</a>    }
 <a class="jxr_linenumber" name="L53" href="#L53">53</a>  
@@ -71,7 +71,7 @@
 <a class="jxr_linenumber" name="L63" href="#L63">63</a>  <em class="jxr_javadoccomment">   * has counted down.</em>
 <a class="jxr_linenumber" name="L64" href="#L64">64</a>  <em class="jxr_javadoccomment">   */</em>
 <a class="jxr_linenumber" name="L65" href="#L65">65</a>    <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">abstract</strong> &lt;V&gt; ListenableFuture&lt;V&gt; createListenableFuture(
-<a class="jxr_linenumber" name="L66" href="#L66">66</a>        V value, Exception except, <a href="../../../../../../java/util/concurrent/CountDownLatch.html">CountDownLatch</a> waitOn);
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>        V value, Exception except, CountDownLatch waitOn);
 <a class="jxr_linenumber" name="L67" href="#L67">67</a>  
 <a class="jxr_linenumber" name="L68" href="#L68">68</a>    <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L69" href="#L69">69</a>  <em class="jxr_javadoccomment">   * Tests that the {@link Future#get()} method blocks until a value is</em>
@@ -82,7 +82,7 @@
 <a class="jxr_linenumber" name="L74" href="#L74">74</a>      assertFalse(future.isDone());
 <a class="jxr_linenumber" name="L75" href="#L75">75</a>      assertFalse(future.isCancelled());
 <a class="jxr_linenumber" name="L76" href="#L76">76</a>  
-<a class="jxr_linenumber" name="L77" href="#L77">77</a>      <strong class="jxr_keyword">final</strong> <a href="../../../../../../java/util/concurrent/CountDownLatch.html">CountDownLatch</a> successLatch = <strong class="jxr_keyword">new</strong> <a href="../../../../../../java/util/concurrent/CountDownLatch.html">CountDownLatch</a>(1);
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>      <strong class="jxr_keyword">final</strong> CountDownLatch successLatch = <strong class="jxr_keyword">new</strong> CountDownLatch(1);
 <a class="jxr_linenumber" name="L78" href="#L78">78</a>      <strong class="jxr_keyword">final</strong> Throwable[] badness = <strong class="jxr_keyword">new</strong> Throwable[1];
 <a class="jxr_linenumber" name="L79" href="#L79">79</a>  
 <a class="jxr_linenumber" name="L80" href="#L80">80</a>      <em class="jxr_comment">// Wait on the future in a separate thread.</em>
@@ -139,7 +139,7 @@
 <a class="jxr_linenumber" name="L131" href="#L131">131</a>     assertFalse(future.isDone());
 <a class="jxr_linenumber" name="L132" href="#L132">132</a>     assertFalse(future.isCancelled());
 <a class="jxr_linenumber" name="L133" href="#L133">133</a> 
-<a class="jxr_linenumber" name="L134" href="#L134">134</a>     <strong class="jxr_keyword">final</strong> <a href="../../../../../../java/util/concurrent/CountDownLatch.html">CountDownLatch</a> successLatch = <strong class="jxr_keyword">new</strong> <a href="../../../../../../java/util/concurrent/CountDownLatch.html">CountDownLatch</a>(1);
+<a class="jxr_linenumber" name="L134" href="#L134">134</a>     <strong class="jxr_keyword">final</strong> CountDownLatch successLatch = <strong class="jxr_keyword">new</strong> CountDownLatch(1);
 <a class="jxr_linenumber" name="L135" href="#L135">135</a> 
 <a class="jxr_linenumber" name="L136" href="#L136">136</a>     <em class="jxr_comment">// Run cancellation in a separate thread as an extra thread-safety test.</em>
 <a class="jxr_linenumber" name="L137" href="#L137">137</a>     <strong class="jxr_keyword">new</strong> Thread(<strong class="jxr_keyword">new</strong> Runnable() {
@@ -169,8 +169,8 @@
 <a class="jxr_linenumber" name="L161" href="#L161">161</a>   }
 <a class="jxr_linenumber" name="L162" href="#L162">162</a> 
 <a class="jxr_linenumber" name="L163" href="#L163">163</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testListenersNotifiedOnError() <strong class="jxr_keyword">throws</strong> Exception {
-<a class="jxr_linenumber" name="L164" href="#L164">164</a>     <strong class="jxr_keyword">final</strong> <a href="../../../../../../java/util/concurrent/CountDownLatch.html">CountDownLatch</a> successLatch = <strong class="jxr_keyword">new</strong> <a href="../../../../../../java/util/concurrent/CountDownLatch.html">CountDownLatch</a>(1);
-<a class="jxr_linenumber" name="L165" href="#L165">165</a>     <strong class="jxr_keyword">final</strong> <a href="../../../../../../java/util/concurrent/CountDownLatch.html">CountDownLatch</a> listenerLatch = <strong class="jxr_keyword">new</strong> <a href="../../../../../../java/util/concurrent/CountDownLatch.html">CountDownLatch</a>(1);
+<a class="jxr_linenumber" name="L164" href="#L164">164</a>     <strong class="jxr_keyword">final</strong> CountDownLatch successLatch = <strong class="jxr_keyword">new</strong> CountDownLatch(1);
+<a class="jxr_linenumber" name="L165" href="#L165">165</a>     <strong class="jxr_keyword">final</strong> CountDownLatch listenerLatch = <strong class="jxr_keyword">new</strong> CountDownLatch(1);
 <a class="jxr_linenumber" name="L166" href="#L166">166</a> 
 <a class="jxr_linenumber" name="L167" href="#L167">167</a>     ExecutorService exec = Executors.newCachedThreadPool();
 <a class="jxr_linenumber" name="L168" href="#L168">168</a> 
@@ -220,7 +220,7 @@
 <a class="jxr_linenumber" name="L212" href="#L212">212</a>     ExecutorService exec = Executors.newCachedThreadPool();
 <a class="jxr_linenumber" name="L213" href="#L213">213</a> 
 <a class="jxr_linenumber" name="L214" href="#L214">214</a>     <strong class="jxr_keyword">int</strong> listenerCount = 20;
-<a class="jxr_linenumber" name="L215" href="#L215">215</a>     <strong class="jxr_keyword">final</strong> <a href="../../../../../../java/util/concurrent/CountDownLatch.html">CountDownLatch</a> listenerLatch = <strong class="jxr_keyword">new</strong> <a href="../../../../../../java/util/concurrent/CountDownLatch.html">CountDownLatch</a>(listenerCount);
+<a class="jxr_linenumber" name="L215" href="#L215">215</a>     <strong class="jxr_keyword">final</strong> CountDownLatch listenerLatch = <strong class="jxr_keyword">new</strong> CountDownLatch(listenerCount);
 <a class="jxr_linenumber" name="L216" href="#L216">216</a> 
 <a class="jxr_linenumber" name="L217" href="#L217">217</a>     <em class="jxr_comment">// Test that listeners added both before and after the value is available</em>
 <a class="jxr_linenumber" name="L218" href="#L218">218</a>     <em class="jxr_comment">// get called correctly.</em>

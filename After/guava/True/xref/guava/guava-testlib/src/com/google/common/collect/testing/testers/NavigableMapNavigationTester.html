@@ -96,14 +96,14 @@
 <a class="jxr_linenumber" name="L88" href="#L88">88</a>  
 <a class="jxr_linenumber" name="L89" href="#L89">89</a>    @CollectionSize.Require(ZERO)
 <a class="jxr_linenumber" name="L90" href="#L90">90</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testEmptyMapNearby() {
-<a class="jxr_linenumber" name="L91" href="#L91">91</a>      assertNull(navigableMap.lowerEntry(k0()));
-<a class="jxr_linenumber" name="L92" href="#L92">92</a>      assertNull(navigableMap.lowerKey(k0()));
-<a class="jxr_linenumber" name="L93" href="#L93">93</a>      assertNull(navigableMap.floorEntry(k0()));
-<a class="jxr_linenumber" name="L94" href="#L94">94</a>      assertNull(navigableMap.floorKey(k0()));
-<a class="jxr_linenumber" name="L95" href="#L95">95</a>      assertNull(navigableMap.ceilingEntry(k0()));
-<a class="jxr_linenumber" name="L96" href="#L96">96</a>      assertNull(navigableMap.ceilingKey(k0()));
-<a class="jxr_linenumber" name="L97" href="#L97">97</a>      assertNull(navigableMap.higherEntry(k0()));
-<a class="jxr_linenumber" name="L98" href="#L98">98</a>      assertNull(navigableMap.higherKey(k0()));
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>      assertNull(navigableMap.lowerEntry(samples.e0.getKey()));
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>      assertNull(navigableMap.lowerKey(samples.e0.getKey()));
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>      assertNull(navigableMap.floorEntry(samples.e0.getKey()));
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>      assertNull(navigableMap.floorKey(samples.e0.getKey()));
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>      assertNull(navigableMap.ceilingEntry(samples.e0.getKey()));
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>      assertNull(navigableMap.ceilingKey(samples.e0.getKey()));
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>      assertNull(navigableMap.higherEntry(samples.e0.getKey()));
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>      assertNull(navigableMap.higherKey(samples.e0.getKey()));
 <a class="jxr_linenumber" name="L99" href="#L99">99</a>    }
 <a class="jxr_linenumber" name="L100" href="#L100">100</a> 
 <a class="jxr_linenumber" name="L101" href="#L101">101</a>   @CollectionSize.Require(ZERO)
@@ -131,14 +131,14 @@
 <a class="jxr_linenumber" name="L123" href="#L123">123</a> 
 <a class="jxr_linenumber" name="L124" href="#L124">124</a>   @CollectionSize.Require(ONE)
 <a class="jxr_linenumber" name="L125" href="#L125">125</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testSingletonMapNearby() {
-<a class="jxr_linenumber" name="L126" href="#L126">126</a>     assertNull(navigableMap.lowerEntry(k0()));
-<a class="jxr_linenumber" name="L127" href="#L127">127</a>     assertNull(navigableMap.lowerKey(k0()));
-<a class="jxr_linenumber" name="L128" href="#L128">128</a>     assertEquals(a, navigableMap.floorEntry(k0()));
-<a class="jxr_linenumber" name="L129" href="#L129">129</a>     assertEquals(a.getKey(), navigableMap.floorKey(k0()));
-<a class="jxr_linenumber" name="L130" href="#L130">130</a>     assertEquals(a, navigableMap.ceilingEntry(k0()));
-<a class="jxr_linenumber" name="L131" href="#L131">131</a>     assertEquals(a.getKey(), navigableMap.ceilingKey(k0()));
-<a class="jxr_linenumber" name="L132" href="#L132">132</a>     assertNull(navigableMap.higherEntry(k0()));
-<a class="jxr_linenumber" name="L133" href="#L133">133</a>     assertNull(navigableMap.higherKey(k0()));
+<a class="jxr_linenumber" name="L126" href="#L126">126</a>     assertNull(navigableMap.lowerEntry(samples.e0.getKey()));
+<a class="jxr_linenumber" name="L127" href="#L127">127</a>     assertNull(navigableMap.lowerKey(samples.e0.getKey()));
+<a class="jxr_linenumber" name="L128" href="#L128">128</a>     assertEquals(a, navigableMap.floorEntry(samples.e0.getKey()));
+<a class="jxr_linenumber" name="L129" href="#L129">129</a>     assertEquals(a.getKey(), navigableMap.floorKey(samples.e0.getKey()));
+<a class="jxr_linenumber" name="L130" href="#L130">130</a>     assertEquals(a, navigableMap.ceilingEntry(samples.e0.getKey()));
+<a class="jxr_linenumber" name="L131" href="#L131">131</a>     assertEquals(a.getKey(), navigableMap.ceilingKey(samples.e0.getKey()));
+<a class="jxr_linenumber" name="L132" href="#L132">132</a>     assertNull(navigableMap.higherEntry(samples.e0.getKey()));
+<a class="jxr_linenumber" name="L133" href="#L133">133</a>     assertNull(navigableMap.higherKey(samples.e0.getKey()));
 <a class="jxr_linenumber" name="L134" href="#L134">134</a>   }
 <a class="jxr_linenumber" name="L135" href="#L135">135</a> 
 <a class="jxr_linenumber" name="L136" href="#L136">136</a>   @CollectionSize.Require(ONE)

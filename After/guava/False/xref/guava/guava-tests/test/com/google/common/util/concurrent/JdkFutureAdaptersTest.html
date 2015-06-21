@@ -115,7 +115,7 @@
 <a class="jxr_linenumber" name="L107" href="#L107">107</a> 
 <a class="jxr_linenumber" name="L108" href="#L108">108</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testListenInPoolThreadCustomExecutorInterrupted()
 <a class="jxr_linenumber" name="L109" href="#L109">109</a>       <strong class="jxr_keyword">throws</strong> Exception {
-<a class="jxr_linenumber" name="L110" href="#L110">110</a>     <strong class="jxr_keyword">final</strong> <a href="../../../../../java/util/concurrent/CountDownLatch.html">CountDownLatch</a> submitSuccessful = <strong class="jxr_keyword">new</strong> <a href="../../../../../java/util/concurrent/CountDownLatch.html">CountDownLatch</a>(1);
+<a class="jxr_linenumber" name="L110" href="#L110">110</a>     <strong class="jxr_keyword">final</strong> CountDownLatch submitSuccessful = <strong class="jxr_keyword">new</strong> CountDownLatch(1);
 <a class="jxr_linenumber" name="L111" href="#L111">111</a>     ExecutorService executorService = <strong class="jxr_keyword">new</strong> ThreadPoolExecutor(
 <a class="jxr_linenumber" name="L112" href="#L112">112</a>         0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS,
 <a class="jxr_linenumber" name="L113" href="#L113">113</a>         <strong class="jxr_keyword">new</strong> SynchronousQueue&lt;Runnable&gt;(),
@@ -175,7 +175,7 @@
 <a class="jxr_linenumber" name="L167" href="#L167">167</a> 
 <a class="jxr_linenumber" name="L168" href="#L168">168</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">class</strong> RuntimeExceptionThrowingFuture&lt;V&gt;
 <a class="jxr_linenumber" name="L169" href="#L169">169</a>       <strong class="jxr_keyword">implements</strong> Future&lt;V&gt; {
-<a class="jxr_linenumber" name="L170" href="#L170">170</a>     <strong class="jxr_keyword">final</strong> <a href="../../../../../java/util/concurrent/CountDownLatch.html">CountDownLatch</a> allowGetToComplete = <strong class="jxr_keyword">new</strong> <a href="../../../../../java/util/concurrent/CountDownLatch.html">CountDownLatch</a>(1);
+<a class="jxr_linenumber" name="L170" href="#L170">170</a>     <strong class="jxr_keyword">final</strong> CountDownLatch allowGetToComplete = <strong class="jxr_keyword">new</strong> CountDownLatch(1);
 <a class="jxr_linenumber" name="L171" href="#L171">171</a> 
 <a class="jxr_linenumber" name="L172" href="#L172">172</a>     @Override
 <a class="jxr_linenumber" name="L173" href="#L173">173</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> cancel(<strong class="jxr_keyword">boolean</strong> mayInterruptIfRunning) {
@@ -215,7 +215,7 @@
 <a class="jxr_linenumber" name="L207" href="#L207">207</a>   }
 <a class="jxr_linenumber" name="L208" href="#L208">208</a> 
 <a class="jxr_linenumber" name="L209" href="#L209">209</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../com/google/common/util/concurrent/JdkFutureAdaptersTest.html">RecordingRunnable</a> <strong class="jxr_keyword">implements</strong> Runnable {
-<a class="jxr_linenumber" name="L210" href="#L210">210</a>     <strong class="jxr_keyword">final</strong> <a href="../../../../../java/util/concurrent/CountDownLatch.html">CountDownLatch</a> wasRun = <strong class="jxr_keyword">new</strong> <a href="../../../../../java/util/concurrent/CountDownLatch.html">CountDownLatch</a>(1);
+<a class="jxr_linenumber" name="L210" href="#L210">210</a>     <strong class="jxr_keyword">final</strong> CountDownLatch wasRun = <strong class="jxr_keyword">new</strong> CountDownLatch(1);
 <a class="jxr_linenumber" name="L211" href="#L211">211</a> 
 <a class="jxr_linenumber" name="L212" href="#L212">212</a>     <em class="jxr_comment">// synchronized so that checkState works as expected.</em>
 <a class="jxr_linenumber" name="L213" href="#L213">213</a>     @Override

@@ -43,10 +43,10 @@
 <a class="jxr_linenumber" name="L35" href="#L35">35</a>    @CollectionFeature.Require(SUPPORTS_REMOVE)
 <a class="jxr_linenumber" name="L36" href="#L36">36</a>    @CollectionSize.Require(absent = ZERO)
 <a class="jxr_linenumber" name="L37" href="#L37">37</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testRemove_present() {
-<a class="jxr_linenumber" name="L38" href="#L38">38</a>      getSet().remove(e0());
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>      getSet().remove(samples.e0);
 <a class="jxr_linenumber" name="L39" href="#L39">39</a>      assertFalse(<span class="jxr_string">"After remove(present) a set should not contain "</span>
 <a class="jxr_linenumber" name="L40" href="#L40">40</a>          + <span class="jxr_string">"the removed element."</span>,
-<a class="jxr_linenumber" name="L41" href="#L41">41</a>          getSet().contains(e0()));
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>          getSet().contains(samples.e0));
 <a class="jxr_linenumber" name="L42" href="#L42">42</a>    }
 <a class="jxr_linenumber" name="L43" href="#L43">43</a>  }
 </pre>

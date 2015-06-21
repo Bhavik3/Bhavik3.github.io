@@ -57,7 +57,7 @@
 <a class="jxr_linenumber" name="L49" href="#L49">49</a>    @CollectionSize.Require(absent = ZERO)
 <a class="jxr_linenumber" name="L50" href="#L50">50</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testContainsAll_subset() {
 <a class="jxr_linenumber" name="L51" href="#L51">51</a>      assertTrue(<span class="jxr_string">"containsAll(subset) should return true"</span>,
-<a class="jxr_linenumber" name="L52" href="#L52">52</a>          collection.containsAll(MinimalCollection.of(e0())));
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>          collection.containsAll(MinimalCollection.of(samples.e0)));
 <a class="jxr_linenumber" name="L53" href="#L53">53</a>    }
 <a class="jxr_linenumber" name="L54" href="#L54">54</a>  
 <a class="jxr_linenumber" name="L55" href="#L55">55</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testContainsAll_sameElements() {
@@ -73,12 +73,12 @@
 <a class="jxr_linenumber" name="L65" href="#L65">65</a>  
 <a class="jxr_linenumber" name="L66" href="#L66">66</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testContainsAll_partialOverlap() {
 <a class="jxr_linenumber" name="L67" href="#L67">67</a>      assertFalse(<span class="jxr_string">"containsAll(partialOverlap) should return false"</span>,
-<a class="jxr_linenumber" name="L68" href="#L68">68</a>          collection.containsAll(MinimalCollection.of(e0(), e3())));
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>          collection.containsAll(MinimalCollection.of(samples.e0, samples.e3)));
 <a class="jxr_linenumber" name="L69" href="#L69">69</a>    }
 <a class="jxr_linenumber" name="L70" href="#L70">70</a>  
 <a class="jxr_linenumber" name="L71" href="#L71">71</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testContainsAll_disjoint() {
 <a class="jxr_linenumber" name="L72" href="#L72">72</a>      assertFalse(<span class="jxr_string">"containsAll(disjoint) should return false"</span>,
-<a class="jxr_linenumber" name="L73" href="#L73">73</a>          collection.containsAll(MinimalCollection.of(e3())));
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>          collection.containsAll(MinimalCollection.of(samples.e3)));
 <a class="jxr_linenumber" name="L74" href="#L74">74</a>    }
 <a class="jxr_linenumber" name="L75" href="#L75">75</a>  
 <a class="jxr_linenumber" name="L76" href="#L76">76</a>    @CollectionFeature.Require(absent = ALLOWS_NULL_QUERIES)

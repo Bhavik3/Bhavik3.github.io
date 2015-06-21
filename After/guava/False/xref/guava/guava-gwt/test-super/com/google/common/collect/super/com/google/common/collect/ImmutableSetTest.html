@@ -111,7 +111,7 @@
 <a class="jxr_linenumber" name="L103" href="#L103">103</a>     <em class="jxr_comment">// now we'll get the varargs overload</em>
 <a class="jxr_linenumber" name="L104" href="#L104">104</a>     ImmutableSet&lt;String&gt; set = ImmutableSet.of(
 <a class="jxr_linenumber" name="L105" href="#L105">105</a>         <span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"a"</span>, <span class="jxr_string">"a"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"a"</span>);
-<a class="jxr_linenumber" name="L106" href="#L106">106</a>     assertThat(set).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>).inOrder();
+<a class="jxr_linenumber" name="L106" href="#L106">106</a>     assertThat(set).has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>).inOrder();
 <a class="jxr_linenumber" name="L107" href="#L107">107</a>   }
 <a class="jxr_linenumber" name="L108" href="#L108">108</a> 
 <a class="jxr_linenumber" name="L109" href="#L109">109</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testCreation_arrayOfArray() {

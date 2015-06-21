@@ -115,11 +115,11 @@
 <a class="jxr_linenumber" name="L107" href="#L107">107</a>       <strong class="jxr_keyword">final</strong> SampleElements&lt;Map.Entry&lt;K, V&gt;&gt; mapSamples =
 <a class="jxr_linenumber" name="L108" href="#L108">108</a>           <strong class="jxr_keyword">this</strong>.mapGenerator.samples();
 <a class="jxr_linenumber" name="L109" href="#L109">109</a>       <strong class="jxr_keyword">this</strong>.samples = <strong class="jxr_keyword">new</strong> SampleElements&lt;K&gt;(
-<a class="jxr_linenumber" name="L110" href="#L110">110</a>           mapSamples.e0().getKey(),
-<a class="jxr_linenumber" name="L111" href="#L111">111</a>           mapSamples.e1().getKey(),
-<a class="jxr_linenumber" name="L112" href="#L112">112</a>           mapSamples.e2().getKey(),
-<a class="jxr_linenumber" name="L113" href="#L113">113</a>           mapSamples.e3().getKey(),
-<a class="jxr_linenumber" name="L114" href="#L114">114</a>           mapSamples.e4().getKey());
+<a class="jxr_linenumber" name="L110" href="#L110">110</a>           mapSamples.e0.getKey(),
+<a class="jxr_linenumber" name="L111" href="#L111">111</a>           mapSamples.e1.getKey(),
+<a class="jxr_linenumber" name="L112" href="#L112">112</a>           mapSamples.e2.getKey(),
+<a class="jxr_linenumber" name="L113" href="#L113">113</a>           mapSamples.e3.getKey(),
+<a class="jxr_linenumber" name="L114" href="#L114">114</a>           mapSamples.e4.getKey());
 <a class="jxr_linenumber" name="L115" href="#L115">115</a>     }
 <a class="jxr_linenumber" name="L116" href="#L116">116</a> 
 <a class="jxr_linenumber" name="L117" href="#L117">117</a>     @Override
@@ -159,7 +159,7 @@
 <a class="jxr_linenumber" name="L151" href="#L151">151</a> 
 <a class="jxr_linenumber" name="L152" href="#L152">152</a>     @Override
 <a class="jxr_linenumber" name="L153" href="#L153">153</a>     <strong class="jxr_keyword">public</strong> Iterable&lt;K&gt; order(List&lt;K&gt; insertionOrder) {
-<a class="jxr_linenumber" name="L154" href="#L154">154</a>       V v = ((TestMapGenerator&lt;K, V&gt;) mapGenerator.getInnerGenerator()).samples().e0().getValue();
+<a class="jxr_linenumber" name="L154" href="#L154">154</a>       V v = ((TestMapGenerator&lt;K, V&gt;) mapGenerator.getInnerGenerator()).samples().e0.getValue();
 <a class="jxr_linenumber" name="L155" href="#L155">155</a>       List&lt;Entry&lt;K, V&gt;&gt; entries = <strong class="jxr_keyword">new</strong> ArrayList&lt;Entry&lt;K, V&gt;&gt;();
 <a class="jxr_linenumber" name="L156" href="#L156">156</a>       <strong class="jxr_keyword">for</strong> (K element : insertionOrder) {
 <a class="jxr_linenumber" name="L157" href="#L157">157</a>         entries.add(mapEntry(element, v));
@@ -228,11 +228,11 @@
 <a class="jxr_linenumber" name="L220" href="#L220">220</a>       <strong class="jxr_keyword">final</strong> SampleElements&lt;Map.Entry&lt;K, V&gt;&gt; mapSamples =
 <a class="jxr_linenumber" name="L221" href="#L221">221</a>           <strong class="jxr_keyword">this</strong>.mapGenerator.samples();
 <a class="jxr_linenumber" name="L222" href="#L222">222</a>       <strong class="jxr_keyword">this</strong>.samples = <strong class="jxr_keyword">new</strong> SampleElements&lt;V&gt;(
-<a class="jxr_linenumber" name="L223" href="#L223">223</a>           mapSamples.e0().getValue(),
-<a class="jxr_linenumber" name="L224" href="#L224">224</a>           mapSamples.e1().getValue(),
-<a class="jxr_linenumber" name="L225" href="#L225">225</a>           mapSamples.e2().getValue(),
-<a class="jxr_linenumber" name="L226" href="#L226">226</a>           mapSamples.e3().getValue(),
-<a class="jxr_linenumber" name="L227" href="#L227">227</a>           mapSamples.e4().getValue());
+<a class="jxr_linenumber" name="L223" href="#L223">223</a>           mapSamples.e0.getValue(),
+<a class="jxr_linenumber" name="L224" href="#L224">224</a>           mapSamples.e1.getValue(),
+<a class="jxr_linenumber" name="L225" href="#L225">225</a>           mapSamples.e2.getValue(),
+<a class="jxr_linenumber" name="L226" href="#L226">226</a>           mapSamples.e3.getValue(),
+<a class="jxr_linenumber" name="L227" href="#L227">227</a>           mapSamples.e4.getValue());
 <a class="jxr_linenumber" name="L228" href="#L228">228</a>     }
 <a class="jxr_linenumber" name="L229" href="#L229">229</a> 
 <a class="jxr_linenumber" name="L230" href="#L230">230</a>     @Override
@@ -301,7 +301,7 @@
 <a class="jxr_linenumber" name="L293" href="#L293">293</a>   <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">class</strong> ForwardingTestMapGenerator&lt;K, V&gt; <strong class="jxr_keyword">implements</strong> TestMapGenerator&lt;K, V&gt; {
 <a class="jxr_linenumber" name="L294" href="#L294">294</a>     TestMapGenerator&lt;K, V&gt; delegate;
 <a class="jxr_linenumber" name="L295" href="#L295">295</a> 
-<a class="jxr_linenumber" name="L296" href="#L296">296</a>     <a href="../../../../../com/google/common/collect/testing/DerivedCollectionGenerators.html">ForwardingTestMapGenerator</a>(TestMapGenerator&lt;K, V&gt; delegate) {
+<a class="jxr_linenumber" name="L296" href="#L296">296</a>     <a href="../../../../../com/google/common/collect/testing/NavigableMapTestSuiteBuilder.html">ForwardingTestMapGenerator</a>(TestMapGenerator&lt;K, V&gt; delegate) {
 <a class="jxr_linenumber" name="L297" href="#L297">297</a>       <strong class="jxr_keyword">this</strong>.delegate = delegate;
 <a class="jxr_linenumber" name="L298" href="#L298">298</a>     }
 <a class="jxr_linenumber" name="L299" href="#L299">299</a> 
@@ -492,7 +492,7 @@
 <a class="jxr_linenumber" name="L484" href="#L484">484</a>       SampleElements&lt;Entry&lt;K, V&gt;&gt; samples = delegate.samples();
 <a class="jxr_linenumber" name="L485" href="#L485">485</a>       @SuppressWarnings(<span class="jxr_string">"unchecked"</span>) <em class="jxr_comment">// no elements are inserted into the array</em>
 <a class="jxr_linenumber" name="L486" href="#L486">486</a>       List&lt;Entry&lt;K, V&gt;&gt; samplesList = Arrays.asList(
-<a class="jxr_linenumber" name="L487" href="#L487">487</a>           samples.e0(), samples.e1(), samples.e2(), samples.e3(), samples.e4());
+<a class="jxr_linenumber" name="L487" href="#L487">487</a>           samples.e0, samples.e1, samples.e2, samples.e3, samples.e4);
 <a class="jxr_linenumber" name="L488" href="#L488">488</a>       Collections.sort(samplesList, entryComparator);
 <a class="jxr_linenumber" name="L489" href="#L489">489</a>       <strong class="jxr_keyword">this</strong>.firstInclusive = samplesList.get(0).getKey();
 <a class="jxr_linenumber" name="L490" href="#L490">490</a>       <strong class="jxr_keyword">this</strong>.lastInclusive = samplesList.get(samplesList.size() - 1).getKey();

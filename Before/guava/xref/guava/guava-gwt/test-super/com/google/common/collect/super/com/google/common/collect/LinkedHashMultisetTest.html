@@ -105,14 +105,14 @@
 <a class="jxr_linenumber" name="L97" href="#L97">97</a>      ms.add(<span class="jxr_string">"a"</span>);
 <a class="jxr_linenumber" name="L98" href="#L98">98</a>      ms.add(<span class="jxr_string">"b"</span>, 2);
 <a class="jxr_linenumber" name="L99" href="#L99">99</a>      ms.add(<span class="jxr_string">"c"</span>);
-<a class="jxr_linenumber" name="L100" href="#L100">100</a>     assertThat(ms.elementSet()).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>).inOrder();
+<a class="jxr_linenumber" name="L100" href="#L100">100</a>     assertThat(ms.elementSet()).has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>).inOrder();
 <a class="jxr_linenumber" name="L101" href="#L101">101</a>     ms.remove(<span class="jxr_string">"b"</span>);
-<a class="jxr_linenumber" name="L102" href="#L102">102</a>     assertThat(ms.elementSet()).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>).inOrder();
+<a class="jxr_linenumber" name="L102" href="#L102">102</a>     assertThat(ms.elementSet()).has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>).inOrder();
 <a class="jxr_linenumber" name="L103" href="#L103">103</a>     ms.add(<span class="jxr_string">"b"</span>);
-<a class="jxr_linenumber" name="L104" href="#L104">104</a>     assertThat(ms.elementSet()).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>).inOrder();
+<a class="jxr_linenumber" name="L104" href="#L104">104</a>     assertThat(ms.elementSet()).has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>).inOrder();
 <a class="jxr_linenumber" name="L105" href="#L105">105</a>     ms.remove(<span class="jxr_string">"b"</span>, 2);
 <a class="jxr_linenumber" name="L106" href="#L106">106</a>     ms.add(<span class="jxr_string">"b"</span>);
-<a class="jxr_linenumber" name="L107" href="#L107">107</a>     assertThat(ms.elementSet()).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"b"</span>).inOrder();
+<a class="jxr_linenumber" name="L107" href="#L107">107</a>     assertThat(ms.elementSet()).has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"b"</span>).inOrder();
 <a class="jxr_linenumber" name="L108" href="#L108">108</a>   }
 <a class="jxr_linenumber" name="L109" href="#L109">109</a> }
 <a class="jxr_linenumber" name="L110" href="#L110">110</a> 

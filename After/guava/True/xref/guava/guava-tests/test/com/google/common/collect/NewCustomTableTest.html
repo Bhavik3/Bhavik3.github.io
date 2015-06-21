@@ -59,12 +59,12 @@
 <a class="jxr_linenumber" name="L51" href="#L51">51</a>  
 <a class="jxr_linenumber" name="L52" href="#L52">52</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testRowKeySetOrdering() {
 <a class="jxr_linenumber" name="L53" href="#L53">53</a>      table = create(<span class="jxr_string">"foo"</span>, 3, 'a', <span class="jxr_string">"bar"</span>, 1, 'b', <span class="jxr_string">"foo"</span>, 2, 'c');
-<a class="jxr_linenumber" name="L54" href="#L54">54</a>      assertThat(table.rowKeySet()).containsExactly(<span class="jxr_string">"foo"</span>, <span class="jxr_string">"bar"</span>).inOrder();
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>      assertThat(table.rowKeySet()).has().exactly(<span class="jxr_string">"foo"</span>, <span class="jxr_string">"bar"</span>).inOrder();
 <a class="jxr_linenumber" name="L55" href="#L55">55</a>    }
 <a class="jxr_linenumber" name="L56" href="#L56">56</a>  
 <a class="jxr_linenumber" name="L57" href="#L57">57</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testRowOrdering() {
 <a class="jxr_linenumber" name="L58" href="#L58">58</a>      table = create(<span class="jxr_string">"foo"</span>, 3, 'a', <span class="jxr_string">"bar"</span>, 1, 'b', <span class="jxr_string">"foo"</span>, 2, 'c');
-<a class="jxr_linenumber" name="L59" href="#L59">59</a>      assertThat(table.row(<span class="jxr_string">"foo"</span>).keySet()).containsExactly(2, 3).inOrder();
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>      assertThat(table.row(<span class="jxr_string">"foo"</span>).keySet()).has().exactly(2, 3).inOrder();
 <a class="jxr_linenumber" name="L60" href="#L60">60</a>    }
 <a class="jxr_linenumber" name="L61" href="#L61">61</a>  }
 </pre>

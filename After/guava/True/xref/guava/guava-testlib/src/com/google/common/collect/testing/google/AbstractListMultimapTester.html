@@ -44,10 +44,10 @@
 <a class="jxr_linenumber" name="L36" href="#L36">36</a>    }
 <a class="jxr_linenumber" name="L37" href="#L37">37</a>  
 <a class="jxr_linenumber" name="L38" href="#L38">38</a>    <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> assertGet(K key, Collection&lt;V&gt; values) {
-<a class="jxr_linenumber" name="L39" href="#L39">39</a>      assertThat(multimap().get(key)).containsExactlyElementsIn(values).inOrder();
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>      assertThat(multimap().get(key)).has().exactlyAs(values).inOrder();
 <a class="jxr_linenumber" name="L40" href="#L40">40</a>  
 <a class="jxr_linenumber" name="L41" href="#L41">41</a>      <strong class="jxr_keyword">if</strong> (!values.isEmpty()) {
-<a class="jxr_linenumber" name="L42" href="#L42">42</a>        assertThat(multimap().asMap().get(key)).containsExactlyElementsIn(values).inOrder();
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>        assertThat(multimap().asMap().get(key)).has().exactlyAs(values).inOrder();
 <a class="jxr_linenumber" name="L43" href="#L43">43</a>        assertFalse(multimap().isEmpty());
 <a class="jxr_linenumber" name="L44" href="#L44">44</a>      } <strong class="jxr_keyword">else</strong> {
 <a class="jxr_linenumber" name="L45" href="#L45">45</a>        assertThat(multimap().asMap().get(key)).isNull();

@@ -460,7 +460,7 @@
 <a class="jxr_linenumber" name="L452" href="#L452">452</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testSerialization_multiple() {
 <a class="jxr_linenumber" name="L453" href="#L453">453</a>     Collection&lt;String&gt; c = ImmutableMultiset.of(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"a"</span>);
 <a class="jxr_linenumber" name="L454" href="#L454">454</a>     Collection&lt;String&gt; copy = SerializableTester.reserializeAndAssert(c);
-<a class="jxr_linenumber" name="L455" href="#L455">455</a>     assertThat(copy).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>).inOrder();
+<a class="jxr_linenumber" name="L455" href="#L455">455</a>     assertThat(copy).has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>).inOrder();
 <a class="jxr_linenumber" name="L456" href="#L456">456</a>   }
 <a class="jxr_linenumber" name="L457" href="#L457">457</a> 
 <a class="jxr_linenumber" name="L458" href="#L458">458</a>   @GwtIncompatible(<span class="jxr_string">"SerializableTester"</span>)
@@ -468,7 +468,7 @@
 <a class="jxr_linenumber" name="L460" href="#L460">460</a>     Multiset&lt;String&gt; c = ImmutableMultiset.of(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"a"</span>);
 <a class="jxr_linenumber" name="L461" href="#L461">461</a>     Collection&lt;String&gt; copy =
 <a class="jxr_linenumber" name="L462" href="#L462">462</a>         LenientSerializableTester.reserializeAndAssertLenient(c.elementSet());
-<a class="jxr_linenumber" name="L463" href="#L463">463</a>     assertThat(copy).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>).inOrder();
+<a class="jxr_linenumber" name="L463" href="#L463">463</a>     assertThat(copy).has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>).inOrder();
 <a class="jxr_linenumber" name="L464" href="#L464">464</a>   }
 <a class="jxr_linenumber" name="L465" href="#L465">465</a> 
 <a class="jxr_linenumber" name="L466" href="#L466">466</a>   @GwtIncompatible(<span class="jxr_string">"SerializableTester"</span>)
@@ -487,7 +487,7 @@
 <a class="jxr_linenumber" name="L479" href="#L479">479</a> 
 <a class="jxr_linenumber" name="L480" href="#L480">480</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testIterationOrder() {
 <a class="jxr_linenumber" name="L481" href="#L481">481</a>     Collection&lt;String&gt; c = ImmutableMultiset.of(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"a"</span>);
-<a class="jxr_linenumber" name="L482" href="#L482">482</a>     assertThat(c).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>).inOrder();
+<a class="jxr_linenumber" name="L482" href="#L482">482</a>     assertThat(c).has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>).inOrder();
 <a class="jxr_linenumber" name="L483" href="#L483">483</a>   }
 <a class="jxr_linenumber" name="L484" href="#L484">484</a> 
 <a class="jxr_linenumber" name="L485" href="#L485">485</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testMultisetWrites() {

@@ -40,16 +40,16 @@
 <a class="jxr_linenumber" name="L32" href="#L32">32</a>  <em class="jxr_javadoccomment"> * href="<a href="http://en.wikipedia.org/wiki/Decorator_pattern" target="alexandria_uri">http://en.wikipedia.org/wiki/Decorator_pattern</a>"&gt;decorator pattern&lt;/a&gt;.</em>
 <a class="jxr_linenumber" name="L33" href="#L33">33</a>  <em class="jxr_javadoccomment"> *</em>
 <a class="jxr_linenumber" name="L34" href="#L34">34</a>  <em class="jxr_javadoccomment"> * @author Robert Konigsberg</em>
-<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <em class="jxr_javadoccomment"> * @since 2.0</em>
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <em class="jxr_javadoccomment"> * @since 2.0 (imported from Google Collections Library)</em>
 <a class="jxr_linenumber" name="L36" href="#L36">36</a>  <em class="jxr_javadoccomment"> */</em>
 <a class="jxr_linenumber" name="L37" href="#L37">37</a>  @GwtCompatible
-<a class="jxr_linenumber" name="L38" href="#L38">38</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">abstract</strong> <strong class="jxr_keyword">class</strong> ForwardingMultimap&lt;K, V&gt; <strong class="jxr_keyword">extends</strong> <a href="../../../../com/google/common/collect/ForwardingObject.html">ForwardingObject</a> <strong class="jxr_keyword">implements</strong> Multimap&lt;K, V&gt; {
-<a class="jxr_linenumber" name="L39" href="#L39">39</a>  
-<a class="jxr_linenumber" name="L40" href="#L40">40</a>    <em class="jxr_javadoccomment">/** Constructor for use by subclasses. */</em>
-<a class="jxr_linenumber" name="L41" href="#L41">41</a>    <strong class="jxr_keyword">protected</strong> <a href="../../../../com/google/common/collect/ForwardingMultimap.html">ForwardingMultimap</a>() {}
-<a class="jxr_linenumber" name="L42" href="#L42">42</a>  
-<a class="jxr_linenumber" name="L43" href="#L43">43</a>    @Override
-<a class="jxr_linenumber" name="L44" href="#L44">44</a>    <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">abstract</strong> Multimap&lt;K, V&gt; delegate();
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">abstract</strong> <strong class="jxr_keyword">class</strong> ForwardingMultimap&lt;K, V&gt; <strong class="jxr_keyword">extends</strong> <a href="../../../../com/google/common/collect/ForwardingObject.html">ForwardingObject</a>
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>      <strong class="jxr_keyword">implements</strong> Multimap&lt;K, V&gt; {
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>    <em class="jxr_javadoccomment">/** Constructor for use by subclasses. */</em>
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>    <strong class="jxr_keyword">protected</strong> <a href="../../../../com/google/common/collect/ForwardingMultimap.html">ForwardingMultimap</a>() {}
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>    @Override <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">abstract</strong> Multimap&lt;K, V&gt; delegate();
 <a class="jxr_linenumber" name="L45" href="#L45">45</a>  
 <a class="jxr_linenumber" name="L46" href="#L46">46</a>    @Override
 <a class="jxr_linenumber" name="L47" href="#L47">47</a>    <strong class="jxr_keyword">public</strong> Map&lt;K, Collection&lt;V&gt;&gt; asMap() {
@@ -141,16 +141,14 @@
 <a class="jxr_linenumber" name="L133" href="#L133">133</a>     <strong class="jxr_keyword">return</strong> delegate().values();
 <a class="jxr_linenumber" name="L134" href="#L134">134</a>   }
 <a class="jxr_linenumber" name="L135" href="#L135">135</a> 
-<a class="jxr_linenumber" name="L136" href="#L136">136</a>   @Override
-<a class="jxr_linenumber" name="L137" href="#L137">137</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> equals(@Nullable Object object) {
-<a class="jxr_linenumber" name="L138" href="#L138">138</a>     <strong class="jxr_keyword">return</strong> object == <strong class="jxr_keyword">this</strong> || delegate().equals(object);
-<a class="jxr_linenumber" name="L139" href="#L139">139</a>   }
-<a class="jxr_linenumber" name="L140" href="#L140">140</a> 
-<a class="jxr_linenumber" name="L141" href="#L141">141</a>   @Override
-<a class="jxr_linenumber" name="L142" href="#L142">142</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> hashCode() {
-<a class="jxr_linenumber" name="L143" href="#L143">143</a>     <strong class="jxr_keyword">return</strong> delegate().hashCode();
-<a class="jxr_linenumber" name="L144" href="#L144">144</a>   }
-<a class="jxr_linenumber" name="L145" href="#L145">145</a> }
+<a class="jxr_linenumber" name="L136" href="#L136">136</a>   @Override <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> equals(@Nullable Object object) {
+<a class="jxr_linenumber" name="L137" href="#L137">137</a>     <strong class="jxr_keyword">return</strong> object == <strong class="jxr_keyword">this</strong> || delegate().equals(object);
+<a class="jxr_linenumber" name="L138" href="#L138">138</a>   }
+<a class="jxr_linenumber" name="L139" href="#L139">139</a> 
+<a class="jxr_linenumber" name="L140" href="#L140">140</a>   @Override <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> hashCode() {
+<a class="jxr_linenumber" name="L141" href="#L141">141</a>     <strong class="jxr_keyword">return</strong> delegate().hashCode();
+<a class="jxr_linenumber" name="L142" href="#L142">142</a>   }
+<a class="jxr_linenumber" name="L143" href="#L143">143</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2015. All rights reserved.</div>

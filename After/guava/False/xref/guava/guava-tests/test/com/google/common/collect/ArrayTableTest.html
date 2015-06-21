@@ -294,13 +294,13 @@
 <a class="jxr_linenumber" name="L286" href="#L286">286</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testRowKeyList() {
 <a class="jxr_linenumber" name="L287" href="#L287">287</a>     ArrayTable&lt;String, Integer, Character&gt; table
 <a class="jxr_linenumber" name="L288" href="#L288">288</a>         = create(<span class="jxr_string">"foo"</span>, 1, 'a', <span class="jxr_string">"bar"</span>, 1, 'b', <span class="jxr_string">"foo"</span>, 3, 'c');
-<a class="jxr_linenumber" name="L289" href="#L289">289</a>     assertThat(table.rowKeyList()).containsExactly(<span class="jxr_string">"foo"</span>, <span class="jxr_string">"bar"</span>, <span class="jxr_string">"cat"</span>).inOrder();
+<a class="jxr_linenumber" name="L289" href="#L289">289</a>     assertThat(table.rowKeyList()).has().exactly(<span class="jxr_string">"foo"</span>, <span class="jxr_string">"bar"</span>, <span class="jxr_string">"cat"</span>).inOrder();
 <a class="jxr_linenumber" name="L290" href="#L290">290</a>   }
 <a class="jxr_linenumber" name="L291" href="#L291">291</a> 
 <a class="jxr_linenumber" name="L292" href="#L292">292</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testColumnKeyList() {
 <a class="jxr_linenumber" name="L293" href="#L293">293</a>     ArrayTable&lt;String, Integer, Character&gt; table
 <a class="jxr_linenumber" name="L294" href="#L294">294</a>         = create(<span class="jxr_string">"foo"</span>, 1, 'a', <span class="jxr_string">"bar"</span>, 1, 'b', <span class="jxr_string">"foo"</span>, 3, 'c');
-<a class="jxr_linenumber" name="L295" href="#L295">295</a>     assertThat(table.columnKeyList()).containsExactly(1, 2, 3).inOrder();
+<a class="jxr_linenumber" name="L295" href="#L295">295</a>     assertThat(table.columnKeyList()).has().exactly(1, 2, 3).inOrder();
 <a class="jxr_linenumber" name="L296" href="#L296">296</a>   }
 <a class="jxr_linenumber" name="L297" href="#L297">297</a> 
 <a class="jxr_linenumber" name="L298" href="#L298">298</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testGetMissingKeys() {
@@ -408,9 +408,9 @@
 <a class="jxr_linenumber" name="L400" href="#L400">400</a>         = create(<span class="jxr_string">"foo"</span>, 1, 'a', <span class="jxr_string">"bar"</span>, 1, 'b', <span class="jxr_string">"foo"</span>, 3, 'c');
 <a class="jxr_linenumber" name="L401" href="#L401">401</a>     Character[][] array = table.toArray(Character.<strong class="jxr_keyword">class</strong>);
 <a class="jxr_linenumber" name="L402" href="#L402">402</a>     assertEquals(3, array.length);
-<a class="jxr_linenumber" name="L403" href="#L403">403</a>     assertThat(array[0]).asList().containsExactly('a', <strong class="jxr_keyword">null</strong>, 'c').inOrder();
-<a class="jxr_linenumber" name="L404" href="#L404">404</a>     assertThat(array[1]).asList().containsExactly('b', <strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>).inOrder();
-<a class="jxr_linenumber" name="L405" href="#L405">405</a>     assertThat(array[2]).asList().containsExactly(<strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>).inOrder();
+<a class="jxr_linenumber" name="L403" href="#L403">403</a>     assertThat(array[0]).asList().has().exactly('a', <strong class="jxr_keyword">null</strong>, 'c').inOrder();
+<a class="jxr_linenumber" name="L404" href="#L404">404</a>     assertThat(array[1]).asList().has().exactly('b', <strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>).inOrder();
+<a class="jxr_linenumber" name="L405" href="#L405">405</a>     assertThat(array[2]).asList().has().exactly(<strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>).inOrder();
 <a class="jxr_linenumber" name="L406" href="#L406">406</a>     table.set(0, 2, 'd');
 <a class="jxr_linenumber" name="L407" href="#L407">407</a>     assertEquals((Character) 'c', array[0][2]);
 <a class="jxr_linenumber" name="L408" href="#L408">408</a>     array[0][2] = 'e';

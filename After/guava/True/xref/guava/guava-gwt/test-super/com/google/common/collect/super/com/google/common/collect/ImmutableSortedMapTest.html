@@ -619,7 +619,7 @@
 <a class="jxr_linenumber" name="L611" href="#L611">611</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testHeadMapInclusive() {
 <a class="jxr_linenumber" name="L612" href="#L612">612</a>     Map&lt;String, Integer&gt; map =
 <a class="jxr_linenumber" name="L613" href="#L613">613</a>         ImmutableSortedMap.of(<span class="jxr_string">"one"</span>, 1, <span class="jxr_string">"two"</span>, 2, <span class="jxr_string">"three"</span>, 3).headMap(<span class="jxr_string">"three"</span>, <strong class="jxr_keyword">true</strong>);
-<a class="jxr_linenumber" name="L614" href="#L614">614</a>     assertThat(map.entrySet()).containsExactly(
+<a class="jxr_linenumber" name="L614" href="#L614">614</a>     assertThat(map.entrySet()).has().exactly(
 <a class="jxr_linenumber" name="L615" href="#L615">615</a>         Maps.immutableEntry(<span class="jxr_string">"one"</span>, 1),
 <a class="jxr_linenumber" name="L616" href="#L616">616</a>         Maps.immutableEntry(<span class="jxr_string">"three"</span>, 3)).inOrder();
 <a class="jxr_linenumber" name="L617" href="#L617">617</a>   }
@@ -628,14 +628,14 @@
 <a class="jxr_linenumber" name="L620" href="#L620">620</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testHeadMapExclusive() {
 <a class="jxr_linenumber" name="L621" href="#L621">621</a>     Map&lt;String, Integer&gt; map =
 <a class="jxr_linenumber" name="L622" href="#L622">622</a>         ImmutableSortedMap.of(<span class="jxr_string">"one"</span>, 1, <span class="jxr_string">"two"</span>, 2, <span class="jxr_string">"three"</span>, 3).headMap(<span class="jxr_string">"three"</span>, false);
-<a class="jxr_linenumber" name="L623" href="#L623">623</a>     assertThat(map.entrySet()).containsExactly(Maps.immutableEntry(<span class="jxr_string">"one"</span>, 1));
+<a class="jxr_linenumber" name="L623" href="#L623">623</a>     assertThat(map.entrySet()).has().exactly(Maps.immutableEntry(<span class="jxr_string">"one"</span>, 1)).inOrder();
 <a class="jxr_linenumber" name="L624" href="#L624">624</a>   }
 <a class="jxr_linenumber" name="L625" href="#L625">625</a> 
 <a class="jxr_linenumber" name="L626" href="#L626">626</a>   @SuppressWarnings(<span class="jxr_string">"unchecked"</span>) <em class="jxr_comment">// varargs</em>
 <a class="jxr_linenumber" name="L627" href="#L627">627</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testTailMapInclusive() {
 <a class="jxr_linenumber" name="L628" href="#L628">628</a>     Map&lt;String, Integer&gt; map =
 <a class="jxr_linenumber" name="L629" href="#L629">629</a>         ImmutableSortedMap.of(<span class="jxr_string">"one"</span>, 1, <span class="jxr_string">"two"</span>, 2, <span class="jxr_string">"three"</span>, 3).tailMap(<span class="jxr_string">"three"</span>, <strong class="jxr_keyword">true</strong>);
-<a class="jxr_linenumber" name="L630" href="#L630">630</a>     assertThat(map.entrySet()).containsExactly(Maps.immutableEntry(<span class="jxr_string">"three"</span>, 3),
+<a class="jxr_linenumber" name="L630" href="#L630">630</a>     assertThat(map.entrySet()).has().exactly(Maps.immutableEntry(<span class="jxr_string">"three"</span>, 3),
 <a class="jxr_linenumber" name="L631" href="#L631">631</a>         Maps.immutableEntry(<span class="jxr_string">"two"</span>, 2)).inOrder();
 <a class="jxr_linenumber" name="L632" href="#L632">632</a>   }
 <a class="jxr_linenumber" name="L633" href="#L633">633</a> 
@@ -643,21 +643,21 @@
 <a class="jxr_linenumber" name="L635" href="#L635">635</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testTailMapExclusive() {
 <a class="jxr_linenumber" name="L636" href="#L636">636</a>     Map&lt;String, Integer&gt; map =
 <a class="jxr_linenumber" name="L637" href="#L637">637</a>         ImmutableSortedMap.of(<span class="jxr_string">"one"</span>, 1, <span class="jxr_string">"two"</span>, 2, <span class="jxr_string">"three"</span>, 3).tailMap(<span class="jxr_string">"three"</span>, false);
-<a class="jxr_linenumber" name="L638" href="#L638">638</a>     assertThat(map.entrySet()).containsExactly(Maps.immutableEntry(<span class="jxr_string">"two"</span>, 2));
+<a class="jxr_linenumber" name="L638" href="#L638">638</a>     assertThat(map.entrySet()).has().exactly(Maps.immutableEntry(<span class="jxr_string">"two"</span>, 2)).inOrder();
 <a class="jxr_linenumber" name="L639" href="#L639">639</a>   }
 <a class="jxr_linenumber" name="L640" href="#L640">640</a> 
 <a class="jxr_linenumber" name="L641" href="#L641">641</a>   @SuppressWarnings(<span class="jxr_string">"unchecked"</span>) <em class="jxr_comment">// varargs</em>
 <a class="jxr_linenumber" name="L642" href="#L642">642</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testSubMapExclusiveExclusive() {
 <a class="jxr_linenumber" name="L643" href="#L643">643</a>     Map&lt;String, Integer&gt; map =
 <a class="jxr_linenumber" name="L644" href="#L644">644</a>         ImmutableSortedMap.of(<span class="jxr_string">"one"</span>, 1, <span class="jxr_string">"two"</span>, 2, <span class="jxr_string">"three"</span>, 3).subMap(<span class="jxr_string">"one"</span>, false, <span class="jxr_string">"two"</span>, false);
-<a class="jxr_linenumber" name="L645" href="#L645">645</a>     assertThat(map.entrySet()).containsExactly(Maps.immutableEntry(<span class="jxr_string">"three"</span>, 3));
+<a class="jxr_linenumber" name="L645" href="#L645">645</a>     assertThat(map.entrySet()).has().exactly(Maps.immutableEntry(<span class="jxr_string">"three"</span>, 3)).inOrder();
 <a class="jxr_linenumber" name="L646" href="#L646">646</a>   }
 <a class="jxr_linenumber" name="L647" href="#L647">647</a> 
 <a class="jxr_linenumber" name="L648" href="#L648">648</a>   @SuppressWarnings(<span class="jxr_string">"unchecked"</span>) <em class="jxr_comment">// varargs</em>
 <a class="jxr_linenumber" name="L649" href="#L649">649</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testSubMapInclusiveExclusive() {
 <a class="jxr_linenumber" name="L650" href="#L650">650</a>     Map&lt;String, Integer&gt; map =
 <a class="jxr_linenumber" name="L651" href="#L651">651</a>         ImmutableSortedMap.of(<span class="jxr_string">"one"</span>, 1, <span class="jxr_string">"two"</span>, 2, <span class="jxr_string">"three"</span>, 3).subMap(<span class="jxr_string">"one"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"two"</span>, false);
-<a class="jxr_linenumber" name="L652" href="#L652">652</a>     assertThat(map.entrySet()).containsExactly(Maps.immutableEntry(<span class="jxr_string">"one"</span>, 1),
+<a class="jxr_linenumber" name="L652" href="#L652">652</a>     assertThat(map.entrySet()).has().exactly(Maps.immutableEntry(<span class="jxr_string">"one"</span>, 1),
 <a class="jxr_linenumber" name="L653" href="#L653">653</a>         Maps.immutableEntry(<span class="jxr_string">"three"</span>, 3)).inOrder();
 <a class="jxr_linenumber" name="L654" href="#L654">654</a>   }
 <a class="jxr_linenumber" name="L655" href="#L655">655</a> 
@@ -665,7 +665,7 @@
 <a class="jxr_linenumber" name="L657" href="#L657">657</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testSubMapExclusiveInclusive() {
 <a class="jxr_linenumber" name="L658" href="#L658">658</a>     Map&lt;String, Integer&gt; map =
 <a class="jxr_linenumber" name="L659" href="#L659">659</a>         ImmutableSortedMap.of(<span class="jxr_string">"one"</span>, 1, <span class="jxr_string">"two"</span>, 2, <span class="jxr_string">"three"</span>, 3).subMap(<span class="jxr_string">"one"</span>, false, <span class="jxr_string">"two"</span>, <strong class="jxr_keyword">true</strong>);
-<a class="jxr_linenumber" name="L660" href="#L660">660</a>     assertThat(map.entrySet()).containsExactly(Maps.immutableEntry(<span class="jxr_string">"three"</span>, 3),
+<a class="jxr_linenumber" name="L660" href="#L660">660</a>     assertThat(map.entrySet()).has().exactly(Maps.immutableEntry(<span class="jxr_string">"three"</span>, 3),
 <a class="jxr_linenumber" name="L661" href="#L661">661</a>         Maps.immutableEntry(<span class="jxr_string">"two"</span>, 2)).inOrder();
 <a class="jxr_linenumber" name="L662" href="#L662">662</a>   }
 <a class="jxr_linenumber" name="L663" href="#L663">663</a> 
@@ -673,7 +673,7 @@
 <a class="jxr_linenumber" name="L665" href="#L665">665</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testSubMapInclusiveInclusive() {
 <a class="jxr_linenumber" name="L666" href="#L666">666</a>     Map&lt;String, Integer&gt; map =
 <a class="jxr_linenumber" name="L667" href="#L667">667</a>         ImmutableSortedMap.of(<span class="jxr_string">"one"</span>, 1, <span class="jxr_string">"two"</span>, 2, <span class="jxr_string">"three"</span>, 3).subMap(<span class="jxr_string">"one"</span>, <strong class="jxr_keyword">true</strong>, <span class="jxr_string">"two"</span>, <strong class="jxr_keyword">true</strong>);
-<a class="jxr_linenumber" name="L668" href="#L668">668</a>     assertThat(map.entrySet()).containsExactly(Maps.immutableEntry(<span class="jxr_string">"one"</span>, 1),
+<a class="jxr_linenumber" name="L668" href="#L668">668</a>     assertThat(map.entrySet()).has().exactly(Maps.immutableEntry(<span class="jxr_string">"one"</span>, 1),
 <a class="jxr_linenumber" name="L669" href="#L669">669</a>         Maps.immutableEntry(<span class="jxr_string">"three"</span>, 3), Maps.immutableEntry(<span class="jxr_string">"two"</span>, 2)).inOrder();
 <a class="jxr_linenumber" name="L670" href="#L670">670</a>   }
 <a class="jxr_linenumber" name="L671" href="#L671">671</a> 

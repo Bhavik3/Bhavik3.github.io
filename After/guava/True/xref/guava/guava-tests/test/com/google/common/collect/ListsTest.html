@@ -426,7 +426,7 @@
 <a class="jxr_linenumber" name="L418" href="#L418">418</a>   }
 <a class="jxr_linenumber" name="L419" href="#L419">419</a> 
 <a class="jxr_linenumber" name="L420" href="#L420">420</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> checkFooBarBazList(List&lt;String&gt; list) {
-<a class="jxr_linenumber" name="L421" href="#L421">421</a>     assertThat(list).containsExactly(<span class="jxr_string">"foo"</span>, <span class="jxr_string">"bar"</span>, <span class="jxr_string">"baz"</span>).inOrder();
+<a class="jxr_linenumber" name="L421" href="#L421">421</a>     assertThat(list).has().exactly(<span class="jxr_string">"foo"</span>, <span class="jxr_string">"bar"</span>, <span class="jxr_string">"baz"</span>).inOrder();
 <a class="jxr_linenumber" name="L422" href="#L422">422</a>     assertEquals(3, list.size());
 <a class="jxr_linenumber" name="L423" href="#L423">423</a>     assertIndexIsOutOfBounds(list, -1);
 <a class="jxr_linenumber" name="L424" href="#L424">424</a>     assertEquals(<span class="jxr_string">"foo"</span>, list.get(0));
@@ -437,7 +437,7 @@
 <a class="jxr_linenumber" name="L429" href="#L429">429</a> 
 <a class="jxr_linenumber" name="L430" href="#L430">430</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testAsList1Small() {
 <a class="jxr_linenumber" name="L431" href="#L431">431</a>     List&lt;String&gt; list = Lists.asList(<span class="jxr_string">"foo"</span>, <strong class="jxr_keyword">new</strong> String[0]);
-<a class="jxr_linenumber" name="L432" href="#L432">432</a>     assertThat(list).contains(<span class="jxr_string">"foo"</span>);
+<a class="jxr_linenumber" name="L432" href="#L432">432</a>     assertThat(list).has().item(<span class="jxr_string">"foo"</span>);
 <a class="jxr_linenumber" name="L433" href="#L433">433</a>     assertEquals(1, list.size());
 <a class="jxr_linenumber" name="L434" href="#L434">434</a>     assertIndexIsOutOfBounds(list, -1);
 <a class="jxr_linenumber" name="L435" href="#L435">435</a>     assertEquals(<span class="jxr_string">"foo"</span>, list.get(0));
@@ -468,7 +468,7 @@
 <a class="jxr_linenumber" name="L460" href="#L460">460</a>   @GwtIncompatible(<span class="jxr_string">"SerializableTester"</span>)
 <a class="jxr_linenumber" name="L461" href="#L461">461</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testAsList2Small() {
 <a class="jxr_linenumber" name="L462" href="#L462">462</a>     List&lt;String&gt; list = Lists.asList(<span class="jxr_string">"foo"</span>, <span class="jxr_string">"bar"</span>, <strong class="jxr_keyword">new</strong> String[0]);
-<a class="jxr_linenumber" name="L463" href="#L463">463</a>     assertThat(list).containsExactly(<span class="jxr_string">"foo"</span>, <span class="jxr_string">"bar"</span>).inOrder();
+<a class="jxr_linenumber" name="L463" href="#L463">463</a>     assertThat(list).has().exactly(<span class="jxr_string">"foo"</span>, <span class="jxr_string">"bar"</span>).inOrder();
 <a class="jxr_linenumber" name="L464" href="#L464">464</a>     assertEquals(2, list.size());
 <a class="jxr_linenumber" name="L465" href="#L465">465</a>     assertIndexIsOutOfBounds(list, -1);
 <a class="jxr_linenumber" name="L466" href="#L466">466</a>     assertEquals(<span class="jxr_string">"foo"</span>, list.get(0));
@@ -540,24 +540,24 @@
 <a class="jxr_linenumber" name="L532" href="#L532">532</a> 
 <a class="jxr_linenumber" name="L533" href="#L533">533</a>   @SuppressWarnings(<span class="jxr_string">"unchecked"</span>) <em class="jxr_comment">// varargs!</em>
 <a class="jxr_linenumber" name="L534" href="#L534">534</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testCartesianProduct_binary1x1() {
-<a class="jxr_linenumber" name="L535" href="#L535">535</a>     assertThat(Lists.cartesianProduct(list(1), list(2))).contains(list(1, 2));
+<a class="jxr_linenumber" name="L535" href="#L535">535</a>     assertThat(Lists.cartesianProduct(list(1), list(2))).has().item(list(1, 2));
 <a class="jxr_linenumber" name="L536" href="#L536">536</a>   }
 <a class="jxr_linenumber" name="L537" href="#L537">537</a> 
 <a class="jxr_linenumber" name="L538" href="#L538">538</a>   @SuppressWarnings(<span class="jxr_string">"unchecked"</span>) <em class="jxr_comment">// varargs!</em>
 <a class="jxr_linenumber" name="L539" href="#L539">539</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testCartesianProduct_binary1x2() {
 <a class="jxr_linenumber" name="L540" href="#L540">540</a>     assertThat(Lists.cartesianProduct(list(1), list(2, 3)))
-<a class="jxr_linenumber" name="L541" href="#L541">541</a>         .containsExactly(list(1, 2), list(1, 3)).inOrder();
+<a class="jxr_linenumber" name="L541" href="#L541">541</a>         .has().exactly(list(1, 2), list(1, 3)).inOrder();
 <a class="jxr_linenumber" name="L542" href="#L542">542</a>   }
 <a class="jxr_linenumber" name="L543" href="#L543">543</a> 
 <a class="jxr_linenumber" name="L544" href="#L544">544</a>   @SuppressWarnings(<span class="jxr_string">"unchecked"</span>) <em class="jxr_comment">// varargs!</em>
 <a class="jxr_linenumber" name="L545" href="#L545">545</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testCartesianProduct_binary2x2() {
 <a class="jxr_linenumber" name="L546" href="#L546">546</a>     assertThat(Lists.cartesianProduct(list(1, 2), list(3, 4)))
-<a class="jxr_linenumber" name="L547" href="#L547">547</a>         .containsExactly(list(1, 3), list(1, 4), list(2, 3), list(2, 4)).inOrder();
+<a class="jxr_linenumber" name="L547" href="#L547">547</a>         .has().exactly(list(1, 3), list(1, 4), list(2, 3), list(2, 4)).inOrder();
 <a class="jxr_linenumber" name="L548" href="#L548">548</a>   }
 <a class="jxr_linenumber" name="L549" href="#L549">549</a> 
 <a class="jxr_linenumber" name="L550" href="#L550">550</a>   @SuppressWarnings(<span class="jxr_string">"unchecked"</span>) <em class="jxr_comment">// varargs!</em>
 <a class="jxr_linenumber" name="L551" href="#L551">551</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testCartesianProduct_2x2x2() {
-<a class="jxr_linenumber" name="L552" href="#L552">552</a>     assertThat(Lists.cartesianProduct(list(0, 1), list(0, 1), list(0, 1))).containsExactly(
+<a class="jxr_linenumber" name="L552" href="#L552">552</a>     assertThat(Lists.cartesianProduct(list(0, 1), list(0, 1), list(0, 1))).has().exactly(
 <a class="jxr_linenumber" name="L553" href="#L553">553</a>         list(0, 0, 0), list(0, 0, 1), list(0, 1, 0), list(0, 1, 1),
 <a class="jxr_linenumber" name="L554" href="#L554">554</a>         list(1, 0, 0), list(1, 0, 1), list(1, 1, 0), list(1, 1, 1)).inOrder();
 <a class="jxr_linenumber" name="L555" href="#L555">555</a>   }
@@ -583,7 +583,7 @@
 <a class="jxr_linenumber" name="L575" href="#L575">575</a>     List&lt;Object&gt; exp4 = list((Object) 2, <span class="jxr_string">"4"</span>);
 <a class="jxr_linenumber" name="L576" href="#L576">576</a> 
 <a class="jxr_linenumber" name="L577" href="#L577">577</a>     assertThat(Lists.&lt;Object&gt;cartesianProduct(x, y))
-<a class="jxr_linenumber" name="L578" href="#L578">578</a>         .containsExactly(exp1, exp2, exp3, exp4).inOrder();
+<a class="jxr_linenumber" name="L578" href="#L578">578</a>         .has().exactly(exp1, exp2, exp3, exp4).inOrder();
 <a class="jxr_linenumber" name="L579" href="#L579">579</a>   }
 <a class="jxr_linenumber" name="L580" href="#L580">580</a> 
 <a class="jxr_linenumber" name="L581" href="#L581">581</a>   @SuppressWarnings(<span class="jxr_string">"unchecked"</span>) <em class="jxr_comment">// varargs!</em>

@@ -55,19 +55,19 @@
 <a class="jxr_linenumber" name="L47" href="#L47">47</a>    @CollectionFeature.Require(SUPPORTS_ADD)
 <a class="jxr_linenumber" name="L48" href="#L48">48</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testAdd_supportedNotPresent() {
 <a class="jxr_linenumber" name="L49" href="#L49">49</a>      assertTrue(<span class="jxr_string">"add(notPresent) should return true"</span>,
-<a class="jxr_linenumber" name="L50" href="#L50">50</a>          collection.add(e3()));
-<a class="jxr_linenumber" name="L51" href="#L51">51</a>      expectAdded(e3());
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>          collection.add(samples.e3));
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>      expectAdded(samples.e3);
 <a class="jxr_linenumber" name="L52" href="#L52">52</a>    }
 <a class="jxr_linenumber" name="L53" href="#L53">53</a>  
 <a class="jxr_linenumber" name="L54" href="#L54">54</a>    @CollectionFeature.Require(absent = SUPPORTS_ADD)
 <a class="jxr_linenumber" name="L55" href="#L55">55</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testAdd_unsupportedNotPresent() {
 <a class="jxr_linenumber" name="L56" href="#L56">56</a>      <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L57" href="#L57">57</a>        collection.add(e3());
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>        collection.add(samples.e3);
 <a class="jxr_linenumber" name="L58" href="#L58">58</a>        fail(<span class="jxr_string">"add(notPresent) should throw"</span>);
 <a class="jxr_linenumber" name="L59" href="#L59">59</a>      } <strong class="jxr_keyword">catch</strong> (UnsupportedOperationException expected) {
 <a class="jxr_linenumber" name="L60" href="#L60">60</a>      }
 <a class="jxr_linenumber" name="L61" href="#L61">61</a>      expectUnchanged();
-<a class="jxr_linenumber" name="L62" href="#L62">62</a>      expectMissing(e3());
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>      expectMissing(samples.e3);
 <a class="jxr_linenumber" name="L63" href="#L63">63</a>    }
 <a class="jxr_linenumber" name="L64" href="#L64">64</a>  
 <a class="jxr_linenumber" name="L65" href="#L65">65</a>    @CollectionFeature.Require(absent = SUPPORTS_ADD)
@@ -75,7 +75,7 @@
 <a class="jxr_linenumber" name="L67" href="#L67">67</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testAdd_unsupportedPresent() {
 <a class="jxr_linenumber" name="L68" href="#L68">68</a>      <strong class="jxr_keyword">try</strong> {
 <a class="jxr_linenumber" name="L69" href="#L69">69</a>        assertFalse(<span class="jxr_string">"add(present) should return false or throw"</span>,
-<a class="jxr_linenumber" name="L70" href="#L70">70</a>            collection.add(e0()));
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>            collection.add(samples.e0));
 <a class="jxr_linenumber" name="L71" href="#L71">71</a>      } <strong class="jxr_keyword">catch</strong> (UnsupportedOperationException tolerated) {
 <a class="jxr_linenumber" name="L72" href="#L72">72</a>      }
 <a class="jxr_linenumber" name="L73" href="#L73">73</a>      expectUnchanged();
@@ -108,7 +108,7 @@
 <a class="jxr_linenumber" name="L100" href="#L100">100</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testAddConcurrentWithIteration() {
 <a class="jxr_linenumber" name="L101" href="#L101">101</a>     <strong class="jxr_keyword">try</strong> {
 <a class="jxr_linenumber" name="L102" href="#L102">102</a>       Iterator&lt;E&gt; iterator = collection.iterator();
-<a class="jxr_linenumber" name="L103" href="#L103">103</a>       assertTrue(collection.add(e3()));
+<a class="jxr_linenumber" name="L103" href="#L103">103</a>       assertTrue(collection.add(samples.e3));
 <a class="jxr_linenumber" name="L104" href="#L104">104</a>       iterator.next();
 <a class="jxr_linenumber" name="L105" href="#L105">105</a>       fail(<span class="jxr_string">"Expected ConcurrentModificationException"</span>);
 <a class="jxr_linenumber" name="L106" href="#L106">106</a>     } <strong class="jxr_keyword">catch</strong> (ConcurrentModificationException expected) {

@@ -102,7 +102,7 @@
 <a class="jxr_linenumber" name="L94" href="#L94">94</a>        assertSame(value1, cache.getUnchecked(key1));
 <a class="jxr_linenumber" name="L95" href="#L95">95</a>        assertSame(value2, cache.getUnchecked(key2));
 <a class="jxr_linenumber" name="L96" href="#L96">96</a>        assertEquals(ImmutableSet.of(key1, key2), cache.asMap().keySet());
-<a class="jxr_linenumber" name="L97" href="#L97">97</a>        assertThat(cache.asMap().values()).containsExactly(value1, value2);
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>        assertThat(cache.asMap().values()).has().exactly(value1, value2);
 <a class="jxr_linenumber" name="L98" href="#L98">98</a>        assertEquals(ImmutableSet.of(immutableEntry(key1, value1), immutableEntry(key2, value2)),
 <a class="jxr_linenumber" name="L99" href="#L99">99</a>            cache.asMap().entrySet());
 <a class="jxr_linenumber" name="L100" href="#L100">100</a>     }
@@ -121,7 +121,7 @@
 <a class="jxr_linenumber" name="L113" href="#L113">113</a>       assertTrue(cache.asMap().containsKey(key2));
 <a class="jxr_linenumber" name="L114" href="#L114">114</a>       assertEquals(1, cache.size());
 <a class="jxr_linenumber" name="L115" href="#L115">115</a>       assertEquals(ImmutableSet.of(key2), cache.asMap().keySet());
-<a class="jxr_linenumber" name="L116" href="#L116">116</a>       assertThat(cache.asMap().values()).contains(value2);
+<a class="jxr_linenumber" name="L116" href="#L116">116</a>       assertThat(cache.asMap().values()).has().item(value2);
 <a class="jxr_linenumber" name="L117" href="#L117">117</a>       assertEquals(ImmutableSet.of(immutableEntry(key2, value2)), cache.asMap().entrySet());
 <a class="jxr_linenumber" name="L118" href="#L118">118</a>     }
 <a class="jxr_linenumber" name="L119" href="#L119">119</a>   }

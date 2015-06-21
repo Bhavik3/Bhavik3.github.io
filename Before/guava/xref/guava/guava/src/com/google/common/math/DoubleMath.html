@@ -391,124 +391,95 @@
 <a class="jxr_linenumber" name="L383" href="#L383">383</a>     }
 <a class="jxr_linenumber" name="L384" href="#L384">384</a>   }
 <a class="jxr_linenumber" name="L385" href="#L385">385</a> 
-<a class="jxr_linenumber" name="L386" href="#L386">386</a>   <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L387" href="#L387">387</a> <em class="jxr_javadoccomment">   * Returns the &lt;a href="<a href="http://en.wikipedia.org/wiki/Arithmetic_mean" target="alexandria_uri">http://en.wikipedia.org/wiki/Arithmetic_mean</a>"&gt;arithmetic mean&lt;/a&gt; of</em>
-<a class="jxr_linenumber" name="L388" href="#L388">388</a> <em class="jxr_javadoccomment">   * {@code values}.</em>
-<a class="jxr_linenumber" name="L389" href="#L389">389</a> <em class="jxr_javadoccomment">   *</em>
-<a class="jxr_linenumber" name="L390" href="#L390">390</a> <em class="jxr_javadoccomment">   * &lt;p&gt;If these values are a sample drawn from a population, this is also an unbiased estimator of</em>
-<a class="jxr_linenumber" name="L391" href="#L391">391</a> <em class="jxr_javadoccomment">   * the arithmetic mean of the population.</em>
-<a class="jxr_linenumber" name="L392" href="#L392">392</a> <em class="jxr_javadoccomment">   *</em>
-<a class="jxr_linenumber" name="L393" href="#L393">393</a> <em class="jxr_javadoccomment">   * @param values a nonempty series of values</em>
-<a class="jxr_linenumber" name="L394" href="#L394">394</a> <em class="jxr_javadoccomment">   * @throws IllegalArgumentException if {@code values} is empty or contains any non-finite value</em>
-<a class="jxr_linenumber" name="L395" href="#L395">395</a> <em class="jxr_javadoccomment">   */</em>
-<a class="jxr_linenumber" name="L396" href="#L396">396</a>   @GwtIncompatible(<span class="jxr_string">"com.google.common.math.DoubleUtils"</span>)
-<a class="jxr_linenumber" name="L397" href="#L397">397</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">double</strong> mean(<strong class="jxr_keyword">double</strong>... values) {
-<a class="jxr_linenumber" name="L398" href="#L398">398</a>     checkArgument(values.length &gt; 0, <span class="jxr_string">"Cannot take mean of 0 values"</span>);
-<a class="jxr_linenumber" name="L399" href="#L399">399</a>     <strong class="jxr_keyword">long</strong> count = 1;
-<a class="jxr_linenumber" name="L400" href="#L400">400</a>     <strong class="jxr_keyword">double</strong> mean = checkFinite(values[0]);
-<a class="jxr_linenumber" name="L401" href="#L401">401</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> index = 1; index &lt; values.length; ++index) {
-<a class="jxr_linenumber" name="L402" href="#L402">402</a>       checkFinite(values[index]);
-<a class="jxr_linenumber" name="L403" href="#L403">403</a>       count++;
-<a class="jxr_linenumber" name="L404" href="#L404">404</a>       <em class="jxr_comment">// Art of Computer Programming vol. 2, Knuth, 4.2.2, (15)</em>
-<a class="jxr_linenumber" name="L405" href="#L405">405</a>       mean += (values[index] - mean) / count;
-<a class="jxr_linenumber" name="L406" href="#L406">406</a>     }
-<a class="jxr_linenumber" name="L407" href="#L407">407</a>     <strong class="jxr_keyword">return</strong> mean;
-<a class="jxr_linenumber" name="L408" href="#L408">408</a>   }
-<a class="jxr_linenumber" name="L409" href="#L409">409</a> 
-<a class="jxr_linenumber" name="L410" href="#L410">410</a>   <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L411" href="#L411">411</a> <em class="jxr_javadoccomment">   * Returns the &lt;a href="<a href="http://en.wikipedia.org/wiki/Arithmetic_mean" target="alexandria_uri">http://en.wikipedia.org/wiki/Arithmetic_mean</a>"&gt;arithmetic mean&lt;/a&gt; of</em>
-<a class="jxr_linenumber" name="L412" href="#L412">412</a> <em class="jxr_javadoccomment">   * {@code values}.</em>
-<a class="jxr_linenumber" name="L413" href="#L413">413</a> <em class="jxr_javadoccomment">   *</em>
-<a class="jxr_linenumber" name="L414" href="#L414">414</a> <em class="jxr_javadoccomment">   * &lt;p&gt;If these values are a sample drawn from a population, this is also an unbiased estimator of</em>
-<a class="jxr_linenumber" name="L415" href="#L415">415</a> <em class="jxr_javadoccomment">   * the arithmetic mean of the population.</em>
-<a class="jxr_linenumber" name="L416" href="#L416">416</a> <em class="jxr_javadoccomment">   *</em>
-<a class="jxr_linenumber" name="L417" href="#L417">417</a> <em class="jxr_javadoccomment">   * @param values a nonempty series of values</em>
-<a class="jxr_linenumber" name="L418" href="#L418">418</a> <em class="jxr_javadoccomment">   * @throws IllegalArgumentException if {@code values} is empty</em>
-<a class="jxr_linenumber" name="L419" href="#L419">419</a> <em class="jxr_javadoccomment">   */</em>
-<a class="jxr_linenumber" name="L420" href="#L420">420</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">double</strong> mean(<strong class="jxr_keyword">int</strong>... values) {
-<a class="jxr_linenumber" name="L421" href="#L421">421</a>     checkArgument(values.length &gt; 0, <span class="jxr_string">"Cannot take mean of 0 values"</span>);
-<a class="jxr_linenumber" name="L422" href="#L422">422</a>     <em class="jxr_comment">// The upper bound on the the length of an array and the bounds on the int values mean that, in</em>
-<a class="jxr_linenumber" name="L423" href="#L423">423</a>     <em class="jxr_comment">// this case only, we can compute the sum as a long without risking overflow or loss of</em>
-<a class="jxr_linenumber" name="L424" href="#L424">424</a>     <em class="jxr_comment">// precision. So we do that, as it's slightly quicker than the Knuth algorithm.</em>
-<a class="jxr_linenumber" name="L425" href="#L425">425</a>     <strong class="jxr_keyword">long</strong> sum = 0;
-<a class="jxr_linenumber" name="L426" href="#L426">426</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> index = 0; index &lt; values.length; ++index) {
-<a class="jxr_linenumber" name="L427" href="#L427">427</a>       sum += values[index];
-<a class="jxr_linenumber" name="L428" href="#L428">428</a>     }
-<a class="jxr_linenumber" name="L429" href="#L429">429</a>     <strong class="jxr_keyword">return</strong> (<strong class="jxr_keyword">double</strong>) sum / values.length;
-<a class="jxr_linenumber" name="L430" href="#L430">430</a>   }
-<a class="jxr_linenumber" name="L431" href="#L431">431</a> 
-<a class="jxr_linenumber" name="L432" href="#L432">432</a>   <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L433" href="#L433">433</a> <em class="jxr_javadoccomment">   * Returns the &lt;a href="<a href="http://en.wikipedia.org/wiki/Arithmetic_mean" target="alexandria_uri">http://en.wikipedia.org/wiki/Arithmetic_mean</a>"&gt;arithmetic mean&lt;/a&gt; of</em>
-<a class="jxr_linenumber" name="L434" href="#L434">434</a> <em class="jxr_javadoccomment">   * {@code values}.</em>
-<a class="jxr_linenumber" name="L435" href="#L435">435</a> <em class="jxr_javadoccomment">   *</em>
-<a class="jxr_linenumber" name="L436" href="#L436">436</a> <em class="jxr_javadoccomment">   * &lt;p&gt;If these values are a sample drawn from a population, this is also an unbiased estimator of</em>
-<a class="jxr_linenumber" name="L437" href="#L437">437</a> <em class="jxr_javadoccomment">   * the arithmetic mean of the population.</em>
-<a class="jxr_linenumber" name="L438" href="#L438">438</a> <em class="jxr_javadoccomment">   *</em>
-<a class="jxr_linenumber" name="L439" href="#L439">439</a> <em class="jxr_javadoccomment">   * @param values a nonempty series of values, which will be converted to {@code double} values</em>
-<a class="jxr_linenumber" name="L440" href="#L440">440</a> <em class="jxr_javadoccomment">   *     (this may cause loss of precision for longs of magnitude over 2^53 (slightly over 9e15))</em>
-<a class="jxr_linenumber" name="L441" href="#L441">441</a> <em class="jxr_javadoccomment">   * @throws IllegalArgumentException if {@code values} is empty</em>
-<a class="jxr_linenumber" name="L442" href="#L442">442</a> <em class="jxr_javadoccomment">   */</em>
-<a class="jxr_linenumber" name="L443" href="#L443">443</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">double</strong> mean(<strong class="jxr_keyword">long</strong>... values) {
-<a class="jxr_linenumber" name="L444" href="#L444">444</a>     checkArgument(values.length &gt; 0, <span class="jxr_string">"Cannot take mean of 0 values"</span>);
-<a class="jxr_linenumber" name="L445" href="#L445">445</a>     <strong class="jxr_keyword">long</strong> count = 1;
-<a class="jxr_linenumber" name="L446" href="#L446">446</a>     <strong class="jxr_keyword">double</strong> mean = values[0];
-<a class="jxr_linenumber" name="L447" href="#L447">447</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> index = 1; index &lt; values.length; ++index) {
-<a class="jxr_linenumber" name="L448" href="#L448">448</a>       count++;
-<a class="jxr_linenumber" name="L449" href="#L449">449</a>       <em class="jxr_comment">// Art of Computer Programming vol. 2, Knuth, 4.2.2, (15)</em>
-<a class="jxr_linenumber" name="L450" href="#L450">450</a>       mean += (values[index] - mean) / count;
-<a class="jxr_linenumber" name="L451" href="#L451">451</a>     }
-<a class="jxr_linenumber" name="L452" href="#L452">452</a>     <strong class="jxr_keyword">return</strong> mean;
-<a class="jxr_linenumber" name="L453" href="#L453">453</a>   }
-<a class="jxr_linenumber" name="L454" href="#L454">454</a> 
-<a class="jxr_linenumber" name="L455" href="#L455">455</a>   <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L456" href="#L456">456</a> <em class="jxr_javadoccomment">   * Returns the &lt;a href="<a href="http://en.wikipedia.org/wiki/Arithmetic_mean" target="alexandria_uri">http://en.wikipedia.org/wiki/Arithmetic_mean</a>"&gt;arithmetic mean&lt;/a&gt; of</em>
-<a class="jxr_linenumber" name="L457" href="#L457">457</a> <em class="jxr_javadoccomment">   * {@code values}.</em>
-<a class="jxr_linenumber" name="L458" href="#L458">458</a> <em class="jxr_javadoccomment">   *</em>
-<a class="jxr_linenumber" name="L459" href="#L459">459</a> <em class="jxr_javadoccomment">   * &lt;p&gt;If these values are a sample drawn from a population, this is also an unbiased estimator of</em>
-<a class="jxr_linenumber" name="L460" href="#L460">460</a> <em class="jxr_javadoccomment">   * the arithmetic mean of the population.</em>
-<a class="jxr_linenumber" name="L461" href="#L461">461</a> <em class="jxr_javadoccomment">   *</em>
-<a class="jxr_linenumber" name="L462" href="#L462">462</a> <em class="jxr_javadoccomment">   * @param values a nonempty series of values, which will be converted to {@code double} values</em>
-<a class="jxr_linenumber" name="L463" href="#L463">463</a> <em class="jxr_javadoccomment">   *     (this may cause loss of precision)</em>
-<a class="jxr_linenumber" name="L464" href="#L464">464</a> <em class="jxr_javadoccomment">   * @throws IllegalArgumentException if {@code values} is empty or contains any non-finite value</em>
-<a class="jxr_linenumber" name="L465" href="#L465">465</a> <em class="jxr_javadoccomment">   */</em>
-<a class="jxr_linenumber" name="L466" href="#L466">466</a>   @GwtIncompatible(<span class="jxr_string">"com.google.common.math.DoubleUtils"</span>)
-<a class="jxr_linenumber" name="L467" href="#L467">467</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">double</strong> mean(Iterable&lt;? <strong class="jxr_keyword">extends</strong> Number&gt; values) {
-<a class="jxr_linenumber" name="L468" href="#L468">468</a>     <strong class="jxr_keyword">return</strong> mean(values.iterator());
-<a class="jxr_linenumber" name="L469" href="#L469">469</a>   }
-<a class="jxr_linenumber" name="L470" href="#L470">470</a> 
-<a class="jxr_linenumber" name="L471" href="#L471">471</a>   <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L472" href="#L472">472</a> <em class="jxr_javadoccomment">   * Returns the &lt;a href="<a href="http://en.wikipedia.org/wiki/Arithmetic_mean" target="alexandria_uri">http://en.wikipedia.org/wiki/Arithmetic_mean</a>"&gt;arithmetic mean&lt;/a&gt; of</em>
-<a class="jxr_linenumber" name="L473" href="#L473">473</a> <em class="jxr_javadoccomment">   * {@code values}.</em>
-<a class="jxr_linenumber" name="L474" href="#L474">474</a> <em class="jxr_javadoccomment">   *</em>
-<a class="jxr_linenumber" name="L475" href="#L475">475</a> <em class="jxr_javadoccomment">   * &lt;p&gt;If these values are a sample drawn from a population, this is also an unbiased estimator of</em>
-<a class="jxr_linenumber" name="L476" href="#L476">476</a> <em class="jxr_javadoccomment">   * the arithmetic mean of the population.</em>
-<a class="jxr_linenumber" name="L477" href="#L477">477</a> <em class="jxr_javadoccomment">   *</em>
-<a class="jxr_linenumber" name="L478" href="#L478">478</a> <em class="jxr_javadoccomment">   * @param values a nonempty series of values, which will be converted to {@code double} values</em>
-<a class="jxr_linenumber" name="L479" href="#L479">479</a> <em class="jxr_javadoccomment">   *     (this may cause loss of precision)</em>
-<a class="jxr_linenumber" name="L480" href="#L480">480</a> <em class="jxr_javadoccomment">   * @throws IllegalArgumentException if {@code values} is empty or contains any non-finite value</em>
-<a class="jxr_linenumber" name="L481" href="#L481">481</a> <em class="jxr_javadoccomment">   */</em>
-<a class="jxr_linenumber" name="L482" href="#L482">482</a>   @GwtIncompatible(<span class="jxr_string">"com.google.common.math.DoubleUtils"</span>)
-<a class="jxr_linenumber" name="L483" href="#L483">483</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">double</strong> mean(Iterator&lt;? <strong class="jxr_keyword">extends</strong> Number&gt; values) {
-<a class="jxr_linenumber" name="L484" href="#L484">484</a>     checkArgument(values.hasNext(), <span class="jxr_string">"Cannot take mean of 0 values"</span>);
-<a class="jxr_linenumber" name="L485" href="#L485">485</a>     <strong class="jxr_keyword">long</strong> count = 1;
-<a class="jxr_linenumber" name="L486" href="#L486">486</a>     <strong class="jxr_keyword">double</strong> mean = checkFinite(values.next().doubleValue());
-<a class="jxr_linenumber" name="L487" href="#L487">487</a>     <strong class="jxr_keyword">while</strong> (values.hasNext()) {
-<a class="jxr_linenumber" name="L488" href="#L488">488</a>       <strong class="jxr_keyword">double</strong> value = checkFinite(values.next().doubleValue());
-<a class="jxr_linenumber" name="L489" href="#L489">489</a>       count++;
-<a class="jxr_linenumber" name="L490" href="#L490">490</a>       <em class="jxr_comment">// Art of Computer Programming vol. 2, Knuth, 4.2.2, (15)</em>
-<a class="jxr_linenumber" name="L491" href="#L491">491</a>       mean += (value - mean) / count;
-<a class="jxr_linenumber" name="L492" href="#L492">492</a>     }
-<a class="jxr_linenumber" name="L493" href="#L493">493</a>     <strong class="jxr_keyword">return</strong> mean;
-<a class="jxr_linenumber" name="L494" href="#L494">494</a>   }
-<a class="jxr_linenumber" name="L495" href="#L495">495</a> 
-<a class="jxr_linenumber" name="L496" href="#L496">496</a>   @GwtIncompatible(<span class="jxr_string">"com.google.common.math.DoubleUtils"</span>)
-<a class="jxr_linenumber" name="L497" href="#L497">497</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">double</strong> checkFinite(<strong class="jxr_keyword">double</strong> argument) {
-<a class="jxr_linenumber" name="L498" href="#L498">498</a>     checkArgument(isFinite(argument));
-<a class="jxr_linenumber" name="L499" href="#L499">499</a>     <strong class="jxr_keyword">return</strong> argument;
-<a class="jxr_linenumber" name="L500" href="#L500">500</a>   }
-<a class="jxr_linenumber" name="L501" href="#L501">501</a> 
-<a class="jxr_linenumber" name="L502" href="#L502">502</a>   <strong class="jxr_keyword">private</strong> <a href="../../../../com/google/common/math/DoubleMath.html">DoubleMath</a>() {}
-<a class="jxr_linenumber" name="L503" href="#L503">503</a> }
+<a class="jxr_linenumber" name="L386" href="#L386">386</a>   @GwtIncompatible(<span class="jxr_string">"com.google.common.math.DoubleUtils"</span>)
+<a class="jxr_linenumber" name="L387" href="#L387">387</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../com/google/common/math/DoubleMath.html">MeanAccumulator</a> {
+<a class="jxr_linenumber" name="L388" href="#L388">388</a> 
+<a class="jxr_linenumber" name="L389" href="#L389">389</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">long</strong> count = 0;
+<a class="jxr_linenumber" name="L390" href="#L390">390</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">double</strong> mean = 0.0;
+<a class="jxr_linenumber" name="L391" href="#L391">391</a> 
+<a class="jxr_linenumber" name="L392" href="#L392">392</a>     <strong class="jxr_keyword">void</strong> add(<strong class="jxr_keyword">double</strong> value) {
+<a class="jxr_linenumber" name="L393" href="#L393">393</a>       checkArgument(isFinite(value));
+<a class="jxr_linenumber" name="L394" href="#L394">394</a>       ++count;
+<a class="jxr_linenumber" name="L395" href="#L395">395</a>       <em class="jxr_comment">// Art of Computer Programming vol. 2, Knuth, 4.2.2, (15)</em>
+<a class="jxr_linenumber" name="L396" href="#L396">396</a>       mean += (value - mean) / count;
+<a class="jxr_linenumber" name="L397" href="#L397">397</a>     }
+<a class="jxr_linenumber" name="L398" href="#L398">398</a> 
+<a class="jxr_linenumber" name="L399" href="#L399">399</a>     <strong class="jxr_keyword">double</strong> mean() {
+<a class="jxr_linenumber" name="L400" href="#L400">400</a>       checkArgument(count &gt; 0, <span class="jxr_string">"Cannot take mean of 0 values"</span>);
+<a class="jxr_linenumber" name="L401" href="#L401">401</a>       <strong class="jxr_keyword">return</strong> mean;
+<a class="jxr_linenumber" name="L402" href="#L402">402</a>     }
+<a class="jxr_linenumber" name="L403" href="#L403">403</a>   }
+<a class="jxr_linenumber" name="L404" href="#L404">404</a> 
+<a class="jxr_linenumber" name="L405" href="#L405">405</a>   <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L406" href="#L406">406</a> <em class="jxr_javadoccomment">   * Returns the arithmetic mean of the values. There must be at least one value, and they must all</em>
+<a class="jxr_linenumber" name="L407" href="#L407">407</a> <em class="jxr_javadoccomment">   * be finite.</em>
+<a class="jxr_linenumber" name="L408" href="#L408">408</a> <em class="jxr_javadoccomment">   */</em>
+<a class="jxr_linenumber" name="L409" href="#L409">409</a>   @GwtIncompatible(<span class="jxr_string">"MeanAccumulator"</span>)
+<a class="jxr_linenumber" name="L410" href="#L410">410</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">double</strong> mean(<strong class="jxr_keyword">double</strong>... values) {
+<a class="jxr_linenumber" name="L411" href="#L411">411</a>     <a href="../../../../com/google/common/math/DoubleMath.html">MeanAccumulator</a> accumulator = <strong class="jxr_keyword">new</strong> <a href="../../../../com/google/common/math/DoubleMath.html">MeanAccumulator</a>();
+<a class="jxr_linenumber" name="L412" href="#L412">412</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">double</strong> value : values) {
+<a class="jxr_linenumber" name="L413" href="#L413">413</a>       accumulator.add(value);
+<a class="jxr_linenumber" name="L414" href="#L414">414</a>     }
+<a class="jxr_linenumber" name="L415" href="#L415">415</a>     <strong class="jxr_keyword">return</strong> accumulator.mean();
+<a class="jxr_linenumber" name="L416" href="#L416">416</a>   }
+<a class="jxr_linenumber" name="L417" href="#L417">417</a> 
+<a class="jxr_linenumber" name="L418" href="#L418">418</a>   <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L419" href="#L419">419</a> <em class="jxr_javadoccomment">   * Returns the arithmetic mean of the values. There must be at least one value. The values will</em>
+<a class="jxr_linenumber" name="L420" href="#L420">420</a> <em class="jxr_javadoccomment">   * be converted to doubles, which does not cause any loss of precision for ints.</em>
+<a class="jxr_linenumber" name="L421" href="#L421">421</a> <em class="jxr_javadoccomment">   */</em>
+<a class="jxr_linenumber" name="L422" href="#L422">422</a>   @GwtIncompatible(<span class="jxr_string">"MeanAccumulator"</span>)
+<a class="jxr_linenumber" name="L423" href="#L423">423</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">double</strong> mean(<strong class="jxr_keyword">int</strong>... values) {
+<a class="jxr_linenumber" name="L424" href="#L424">424</a>     <a href="../../../../com/google/common/math/DoubleMath.html">MeanAccumulator</a> accumulator = <strong class="jxr_keyword">new</strong> <a href="../../../../com/google/common/math/DoubleMath.html">MeanAccumulator</a>();
+<a class="jxr_linenumber" name="L425" href="#L425">425</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> value : values) {
+<a class="jxr_linenumber" name="L426" href="#L426">426</a>       accumulator.add(value);
+<a class="jxr_linenumber" name="L427" href="#L427">427</a>     }
+<a class="jxr_linenumber" name="L428" href="#L428">428</a>     <strong class="jxr_keyword">return</strong> accumulator.mean();
+<a class="jxr_linenumber" name="L429" href="#L429">429</a>   }
+<a class="jxr_linenumber" name="L430" href="#L430">430</a> 
+<a class="jxr_linenumber" name="L431" href="#L431">431</a>   <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L432" href="#L432">432</a> <em class="jxr_javadoccomment">   * Returns the arithmetic mean of the values. There must be at least one value. The values will</em>
+<a class="jxr_linenumber" name="L433" href="#L433">433</a> <em class="jxr_javadoccomment">   * be converted to doubles, which causes loss of precision for longs of magnitude over 2^53</em>
+<a class="jxr_linenumber" name="L434" href="#L434">434</a> <em class="jxr_javadoccomment">   * (slightly over 9e15).</em>
+<a class="jxr_linenumber" name="L435" href="#L435">435</a> <em class="jxr_javadoccomment">   */</em>
+<a class="jxr_linenumber" name="L436" href="#L436">436</a>   @GwtIncompatible(<span class="jxr_string">"MeanAccumulator"</span>)
+<a class="jxr_linenumber" name="L437" href="#L437">437</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">double</strong> mean(<strong class="jxr_keyword">long</strong>... values) {
+<a class="jxr_linenumber" name="L438" href="#L438">438</a>     <a href="../../../../com/google/common/math/DoubleMath.html">MeanAccumulator</a> accumulator = <strong class="jxr_keyword">new</strong> <a href="../../../../com/google/common/math/DoubleMath.html">MeanAccumulator</a>();
+<a class="jxr_linenumber" name="L439" href="#L439">439</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">long</strong> value : values) {
+<a class="jxr_linenumber" name="L440" href="#L440">440</a>       accumulator.add(value);
+<a class="jxr_linenumber" name="L441" href="#L441">441</a>     }
+<a class="jxr_linenumber" name="L442" href="#L442">442</a>     <strong class="jxr_keyword">return</strong> accumulator.mean();
+<a class="jxr_linenumber" name="L443" href="#L443">443</a>   }
+<a class="jxr_linenumber" name="L444" href="#L444">444</a> 
+<a class="jxr_linenumber" name="L445" href="#L445">445</a>   <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L446" href="#L446">446</a> <em class="jxr_javadoccomment">   * Returns the arithmetic mean of the values. There must be at least one value, and they must all</em>
+<a class="jxr_linenumber" name="L447" href="#L447">447</a> <em class="jxr_javadoccomment">   * be finite. The values will be converted to doubles, which may cause loss of precision for some</em>
+<a class="jxr_linenumber" name="L448" href="#L448">448</a> <em class="jxr_javadoccomment">   * numeric types.</em>
+<a class="jxr_linenumber" name="L449" href="#L449">449</a> <em class="jxr_javadoccomment">   */</em>
+<a class="jxr_linenumber" name="L450" href="#L450">450</a>   @GwtIncompatible(<span class="jxr_string">"MeanAccumulator"</span>)
+<a class="jxr_linenumber" name="L451" href="#L451">451</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">double</strong> mean(Iterable&lt;? <strong class="jxr_keyword">extends</strong> Number&gt; values) {
+<a class="jxr_linenumber" name="L452" href="#L452">452</a>     <a href="../../../../com/google/common/math/DoubleMath.html">MeanAccumulator</a> accumulator = <strong class="jxr_keyword">new</strong> <a href="../../../../com/google/common/math/DoubleMath.html">MeanAccumulator</a>();
+<a class="jxr_linenumber" name="L453" href="#L453">453</a>     <strong class="jxr_keyword">for</strong> (Number value : values) {
+<a class="jxr_linenumber" name="L454" href="#L454">454</a>       accumulator.add(value.doubleValue());
+<a class="jxr_linenumber" name="L455" href="#L455">455</a>     }
+<a class="jxr_linenumber" name="L456" href="#L456">456</a>     <strong class="jxr_keyword">return</strong> accumulator.mean();
+<a class="jxr_linenumber" name="L457" href="#L457">457</a>   }
+<a class="jxr_linenumber" name="L458" href="#L458">458</a> 
+<a class="jxr_linenumber" name="L459" href="#L459">459</a>   <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L460" href="#L460">460</a> <em class="jxr_javadoccomment">   * Returns the arithmetic mean of the values. There must be at least one value, and they must all</em>
+<a class="jxr_linenumber" name="L461" href="#L461">461</a> <em class="jxr_javadoccomment">   * be finite. The values will be converted to doubles, which may cause loss of precision for some</em>
+<a class="jxr_linenumber" name="L462" href="#L462">462</a> <em class="jxr_javadoccomment">   * numeric types.</em>
+<a class="jxr_linenumber" name="L463" href="#L463">463</a> <em class="jxr_javadoccomment">   */</em>
+<a class="jxr_linenumber" name="L464" href="#L464">464</a>   @GwtIncompatible(<span class="jxr_string">"MeanAccumulator"</span>)
+<a class="jxr_linenumber" name="L465" href="#L465">465</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">double</strong> mean(Iterator&lt;? <strong class="jxr_keyword">extends</strong> Number&gt; values) {
+<a class="jxr_linenumber" name="L466" href="#L466">466</a>     <a href="../../../../com/google/common/math/DoubleMath.html">MeanAccumulator</a> accumulator = <strong class="jxr_keyword">new</strong> <a href="../../../../com/google/common/math/DoubleMath.html">MeanAccumulator</a>();
+<a class="jxr_linenumber" name="L467" href="#L467">467</a>     <strong class="jxr_keyword">while</strong> (values.hasNext()) {
+<a class="jxr_linenumber" name="L468" href="#L468">468</a>       accumulator.add(values.next().doubleValue());
+<a class="jxr_linenumber" name="L469" href="#L469">469</a>     }
+<a class="jxr_linenumber" name="L470" href="#L470">470</a>     <strong class="jxr_keyword">return</strong> accumulator.mean();
+<a class="jxr_linenumber" name="L471" href="#L471">471</a>   }
+<a class="jxr_linenumber" name="L472" href="#L472">472</a> 
+<a class="jxr_linenumber" name="L473" href="#L473">473</a>   <strong class="jxr_keyword">private</strong> <a href="../../../../com/google/common/math/DoubleMath.html">DoubleMath</a>() {}
+<a class="jxr_linenumber" name="L474" href="#L474">474</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2015. All rights reserved.</div>

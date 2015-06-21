@@ -54,13 +54,13 @@
 <a class="jxr_linenumber" name="L46" href="#L46">46</a>    <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">int</strong> smear(<strong class="jxr_keyword">int</strong> hashCode) {
 <a class="jxr_linenumber" name="L47" href="#L47">47</a>      <strong class="jxr_keyword">return</strong> C2 * Integer.rotateLeft(hashCode * C1, 15);
 <a class="jxr_linenumber" name="L48" href="#L48">48</a>    }
-<a class="jxr_linenumber" name="L49" href="#L49">49</a>  
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>    
 <a class="jxr_linenumber" name="L50" href="#L50">50</a>    <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">int</strong> smearedHash(@Nullable Object o) {
 <a class="jxr_linenumber" name="L51" href="#L51">51</a>      <strong class="jxr_keyword">return</strong> smear((o == <strong class="jxr_keyword">null</strong>) ? 0 : o.hashCode());
 <a class="jxr_linenumber" name="L52" href="#L52">52</a>    }
-<a class="jxr_linenumber" name="L53" href="#L53">53</a>  
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>    
 <a class="jxr_linenumber" name="L54" href="#L54">54</a>    <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">int</strong> MAX_TABLE_SIZE = Ints.MAX_POWER_OF_TWO;
-<a class="jxr_linenumber" name="L55" href="#L55">55</a>  
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>    
 <a class="jxr_linenumber" name="L56" href="#L56">56</a>    <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">int</strong> closedTableSize(<strong class="jxr_keyword">int</strong> expectedEntries, <strong class="jxr_keyword">double</strong> loadFactor) {
 <a class="jxr_linenumber" name="L57" href="#L57">57</a>      <em class="jxr_comment">// Get the recommended table size.</em>
 <a class="jxr_linenumber" name="L58" href="#L58">58</a>      <em class="jxr_comment">// Round down to the nearest power of 2.</em>
@@ -73,7 +73,7 @@
 <a class="jxr_linenumber" name="L65" href="#L65">65</a>      }
 <a class="jxr_linenumber" name="L66" href="#L66">66</a>      <strong class="jxr_keyword">return</strong> tableSize;
 <a class="jxr_linenumber" name="L67" href="#L67">67</a>    }
-<a class="jxr_linenumber" name="L68" href="#L68">68</a>  
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>    
 <a class="jxr_linenumber" name="L69" href="#L69">69</a>    <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">boolean</strong> needsResizing(<strong class="jxr_keyword">int</strong> size, <strong class="jxr_keyword">int</strong> tableSize, <strong class="jxr_keyword">double</strong> loadFactor) {
 <a class="jxr_linenumber" name="L70" href="#L70">70</a>      <strong class="jxr_keyword">return</strong> size &gt; loadFactor * tableSize &amp;&amp; tableSize &lt; MAX_TABLE_SIZE;
 <a class="jxr_linenumber" name="L71" href="#L71">71</a>    }

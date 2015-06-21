@@ -134,7 +134,7 @@
 <a class="jxr_linenumber" name="L126" href="#L126">126</a>   }
 <a class="jxr_linenumber" name="L127" href="#L127">127</a> 
 <a class="jxr_linenumber" name="L128" href="#L128">128</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testValues() {
-<a class="jxr_linenumber" name="L129" href="#L129">129</a>     assertThat(testTable.values()).contains(<span class="jxr_string">"blah"</span>);
+<a class="jxr_linenumber" name="L129" href="#L129">129</a>     assertThat(testTable.values()).has().item(<span class="jxr_string">"blah"</span>);
 <a class="jxr_linenumber" name="L130" href="#L130">130</a>   }
 <a class="jxr_linenumber" name="L131" href="#L131">131</a> 
 <a class="jxr_linenumber" name="L132" href="#L132">132</a>   @Override Iterable&lt;ImmutableTable&lt;Character, Integer, String&gt;&gt; getTestInstances() {

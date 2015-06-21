@@ -2085,14 +2085,14 @@
 <a class="jxr_linenumber" name="L2077" href="#L2077">2077</a> <em class="jxr_javadoccomment">     * A queue of elements currently in the map, ordered by access time. Elements are added to the</em>
 <a class="jxr_linenumber" name="L2078" href="#L2078">2078</a> <em class="jxr_javadoccomment">     * tail of the queue on access/write.</em>
 <a class="jxr_linenumber" name="L2079" href="#L2079">2079</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L2080" href="#L2080">2080</a>     @GuardedBy(<span class="jxr_string">"this"</span>)
+<a class="jxr_linenumber" name="L2080" href="#L2080">2080</a>     @GuardedBy(<span class="jxr_string">"Segment.this"</span>)
 <a class="jxr_linenumber" name="L2081" href="#L2081">2081</a>     <strong class="jxr_keyword">final</strong> Queue&lt;ReferenceEntry&lt;K, V&gt;&gt; evictionQueue;
 <a class="jxr_linenumber" name="L2082" href="#L2082">2082</a> 
 <a class="jxr_linenumber" name="L2083" href="#L2083">2083</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L2084" href="#L2084">2084</a> <em class="jxr_javadoccomment">     * A queue of elements currently in the map, ordered by expiration time (either access or write</em>
 <a class="jxr_linenumber" name="L2085" href="#L2085">2085</a> <em class="jxr_javadoccomment">     * time). Elements are added to the tail of the queue on access/write.</em>
 <a class="jxr_linenumber" name="L2086" href="#L2086">2086</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L2087" href="#L2087">2087</a>     @GuardedBy(<span class="jxr_string">"this"</span>)
+<a class="jxr_linenumber" name="L2087" href="#L2087">2087</a>     @GuardedBy(<span class="jxr_string">"Segment.this"</span>)
 <a class="jxr_linenumber" name="L2088" href="#L2088">2088</a>     <strong class="jxr_keyword">final</strong> Queue&lt;ReferenceEntry&lt;K, V&gt;&gt; expirationQueue;
 <a class="jxr_linenumber" name="L2089" href="#L2089">2089</a> 
 <a class="jxr_linenumber" name="L2090" href="#L2090">2090</a>     <a href="../../../../com/google/common/collect/MapMakerInternalMap.html">Segment</a>(MapMakerInternalMap&lt;K, V&gt; map, <strong class="jxr_keyword">int</strong> initialCapacity, <strong class="jxr_keyword">int</strong> maxSegmentSize) {
@@ -2132,7 +2132,7 @@
 <a class="jxr_linenumber" name="L2124" href="#L2124">2124</a>       <strong class="jxr_keyword">this</strong>.table = newTable;
 <a class="jxr_linenumber" name="L2125" href="#L2125">2125</a>     }
 <a class="jxr_linenumber" name="L2126" href="#L2126">2126</a> 
-<a class="jxr_linenumber" name="L2127" href="#L2127">2127</a>     @GuardedBy(<span class="jxr_string">"this"</span>)
+<a class="jxr_linenumber" name="L2127" href="#L2127">2127</a>     @GuardedBy(<span class="jxr_string">"Segment.this"</span>)
 <a class="jxr_linenumber" name="L2128" href="#L2128">2128</a>     ReferenceEntry&lt;K, V&gt; newEntry(K key, <strong class="jxr_keyword">int</strong> hash, @Nullable ReferenceEntry&lt;K, V&gt; next) {
 <a class="jxr_linenumber" name="L2129" href="#L2129">2129</a>       <strong class="jxr_keyword">return</strong> map.entryFactory.newEntry(<strong class="jxr_keyword">this</strong>, key, hash, next);
 <a class="jxr_linenumber" name="L2130" href="#L2130">2130</a>     }
@@ -2141,7 +2141,7 @@
 <a class="jxr_linenumber" name="L2133" href="#L2133">2133</a> <em class="jxr_javadoccomment">     * Copies {@code original} into a new entry chained to {@code newNext}. Returns the new entry,</em>
 <a class="jxr_linenumber" name="L2134" href="#L2134">2134</a> <em class="jxr_javadoccomment">     * or {@code null} if {@code original} was already garbage collected.</em>
 <a class="jxr_linenumber" name="L2135" href="#L2135">2135</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L2136" href="#L2136">2136</a>     @GuardedBy(<span class="jxr_string">"this"</span>)
+<a class="jxr_linenumber" name="L2136" href="#L2136">2136</a>     @GuardedBy(<span class="jxr_string">"Segment.this"</span>)
 <a class="jxr_linenumber" name="L2137" href="#L2137">2137</a>     ReferenceEntry&lt;K, V&gt; copyEntry(ReferenceEntry&lt;K, V&gt; original, ReferenceEntry&lt;K, V&gt; newNext) {
 <a class="jxr_linenumber" name="L2138" href="#L2138">2138</a>       <strong class="jxr_keyword">if</strong> (original.getKey() == <strong class="jxr_keyword">null</strong>) {
 <a class="jxr_linenumber" name="L2139" href="#L2139">2139</a>         <em class="jxr_comment">// key collected</em>
@@ -2163,7 +2163,7 @@
 <a class="jxr_linenumber" name="L2155" href="#L2155">2155</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L2156" href="#L2156">2156</a> <em class="jxr_javadoccomment">     * Sets a new value of an entry. Adds newly created entries at the end of the expiration queue.</em>
 <a class="jxr_linenumber" name="L2157" href="#L2157">2157</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L2158" href="#L2158">2158</a>     @GuardedBy(<span class="jxr_string">"this"</span>)
+<a class="jxr_linenumber" name="L2158" href="#L2158">2158</a>     @GuardedBy(<span class="jxr_string">"Segment.this"</span>)
 <a class="jxr_linenumber" name="L2159" href="#L2159">2159</a>     <strong class="jxr_keyword">void</strong> setValue(ReferenceEntry&lt;K, V&gt; entry, V value) {
 <a class="jxr_linenumber" name="L2160" href="#L2160">2160</a>       ValueReference&lt;K, V&gt; valueReference = map.valueStrength.referenceValue(<strong class="jxr_keyword">this</strong>, entry, value);
 <a class="jxr_linenumber" name="L2161" href="#L2161">2161</a>       entry.setValueReference(valueReference);
@@ -2189,7 +2189,7 @@
 <a class="jxr_linenumber" name="L2181" href="#L2181">2181</a> <em class="jxr_javadoccomment">     * Drain the key and value reference queues, cleaning up internal entries containing garbage</em>
 <a class="jxr_linenumber" name="L2182" href="#L2182">2182</a> <em class="jxr_javadoccomment">     * collected keys or values.</em>
 <a class="jxr_linenumber" name="L2183" href="#L2183">2183</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L2184" href="#L2184">2184</a>     @GuardedBy(<span class="jxr_string">"this"</span>)
+<a class="jxr_linenumber" name="L2184" href="#L2184">2184</a>     @GuardedBy(<span class="jxr_string">"Segment.this"</span>)
 <a class="jxr_linenumber" name="L2185" href="#L2185">2185</a>     <strong class="jxr_keyword">void</strong> drainReferenceQueues() {
 <a class="jxr_linenumber" name="L2186" href="#L2186">2186</a>       <strong class="jxr_keyword">if</strong> (map.usesKeyReferences()) {
 <a class="jxr_linenumber" name="L2187" href="#L2187">2187</a>         drainKeyReferenceQueue();
@@ -2199,7 +2199,7 @@
 <a class="jxr_linenumber" name="L2191" href="#L2191">2191</a>       }
 <a class="jxr_linenumber" name="L2192" href="#L2192">2192</a>     }
 <a class="jxr_linenumber" name="L2193" href="#L2193">2193</a> 
-<a class="jxr_linenumber" name="L2194" href="#L2194">2194</a>     @GuardedBy(<span class="jxr_string">"this"</span>)
+<a class="jxr_linenumber" name="L2194" href="#L2194">2194</a>     @GuardedBy(<span class="jxr_string">"Segment.this"</span>)
 <a class="jxr_linenumber" name="L2195" href="#L2195">2195</a>     <strong class="jxr_keyword">void</strong> drainKeyReferenceQueue() {
 <a class="jxr_linenumber" name="L2196" href="#L2196">2196</a>       Reference&lt;? <strong class="jxr_keyword">extends</strong> K&gt; ref;
 <a class="jxr_linenumber" name="L2197" href="#L2197">2197</a>       <strong class="jxr_keyword">int</strong> i = 0;
@@ -2213,7 +2213,7 @@
 <a class="jxr_linenumber" name="L2205" href="#L2205">2205</a>       }
 <a class="jxr_linenumber" name="L2206" href="#L2206">2206</a>     }
 <a class="jxr_linenumber" name="L2207" href="#L2207">2207</a> 
-<a class="jxr_linenumber" name="L2208" href="#L2208">2208</a>     @GuardedBy(<span class="jxr_string">"this"</span>)
+<a class="jxr_linenumber" name="L2208" href="#L2208">2208</a>     @GuardedBy(<span class="jxr_string">"Segment.this"</span>)
 <a class="jxr_linenumber" name="L2209" href="#L2209">2209</a>     <strong class="jxr_keyword">void</strong> drainValueReferenceQueue() {
 <a class="jxr_linenumber" name="L2210" href="#L2210">2210</a>       Reference&lt;? <strong class="jxr_keyword">extends</strong> V&gt; ref;
 <a class="jxr_linenumber" name="L2211" href="#L2211">2211</a>       <strong class="jxr_keyword">int</strong> i = 0;
@@ -2270,7 +2270,7 @@
 <a class="jxr_linenumber" name="L2262" href="#L2262">2262</a> <em class="jxr_javadoccomment">     * &lt;p&gt;Note: this method should only be called under lock, as it directly manipulates the</em>
 <a class="jxr_linenumber" name="L2263" href="#L2263">2263</a> <em class="jxr_javadoccomment">     * eviction queues. Unlocked reads should use {@link #recordRead}.</em>
 <a class="jxr_linenumber" name="L2264" href="#L2264">2264</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L2265" href="#L2265">2265</a>     @GuardedBy(<span class="jxr_string">"this"</span>)
+<a class="jxr_linenumber" name="L2265" href="#L2265">2265</a>     @GuardedBy(<span class="jxr_string">"Segment.this"</span>)
 <a class="jxr_linenumber" name="L2266" href="#L2266">2266</a>     <strong class="jxr_keyword">void</strong> recordLockedRead(ReferenceEntry&lt;K, V&gt; entry) {
 <a class="jxr_linenumber" name="L2267" href="#L2267">2267</a>       evictionQueue.add(entry);
 <a class="jxr_linenumber" name="L2268" href="#L2268">2268</a>       <strong class="jxr_keyword">if</strong> (map.expiresAfterAccess()) {
@@ -2283,7 +2283,7 @@
 <a class="jxr_linenumber" name="L2275" href="#L2275">2275</a> <em class="jxr_javadoccomment">     * Updates eviction metadata that {@code entry} was just written. This currently amounts to</em>
 <a class="jxr_linenumber" name="L2276" href="#L2276">2276</a> <em class="jxr_javadoccomment">     * adding {@code entry} to relevant eviction lists.</em>
 <a class="jxr_linenumber" name="L2277" href="#L2277">2277</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L2278" href="#L2278">2278</a>     @GuardedBy(<span class="jxr_string">"this"</span>)
+<a class="jxr_linenumber" name="L2278" href="#L2278">2278</a>     @GuardedBy(<span class="jxr_string">"Segment.this"</span>)
 <a class="jxr_linenumber" name="L2279" href="#L2279">2279</a>     <strong class="jxr_keyword">void</strong> recordWrite(ReferenceEntry&lt;K, V&gt; entry) {
 <a class="jxr_linenumber" name="L2280" href="#L2280">2280</a>       <em class="jxr_comment">// we are already under lock, so drain the recency queue immediately</em>
 <a class="jxr_linenumber" name="L2281" href="#L2281">2281</a>       drainRecencyQueue();
@@ -2305,7 +2305,7 @@
 <a class="jxr_linenumber" name="L2297" href="#L2297">2297</a> <em class="jxr_javadoccomment">     * lists (accounting for the fact that they could have been removed from the map since being</em>
 <a class="jxr_linenumber" name="L2298" href="#L2298">2298</a> <em class="jxr_javadoccomment">     * added to the recency queue).</em>
 <a class="jxr_linenumber" name="L2299" href="#L2299">2299</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L2300" href="#L2300">2300</a>     @GuardedBy(<span class="jxr_string">"this"</span>)
+<a class="jxr_linenumber" name="L2300" href="#L2300">2300</a>     @GuardedBy(<span class="jxr_string">"Segment.this"</span>)
 <a class="jxr_linenumber" name="L2301" href="#L2301">2301</a>     <strong class="jxr_keyword">void</strong> drainRecencyQueue() {
 <a class="jxr_linenumber" name="L2302" href="#L2302">2302</a>       ReferenceEntry&lt;K, V&gt; e;
 <a class="jxr_linenumber" name="L2303" href="#L2303">2303</a>       <strong class="jxr_keyword">while</strong> ((e = recencyQueue.poll()) != <strong class="jxr_keyword">null</strong>) {
@@ -2343,7 +2343,7 @@
 <a class="jxr_linenumber" name="L2335" href="#L2335">2335</a>       }
 <a class="jxr_linenumber" name="L2336" href="#L2336">2336</a>     }
 <a class="jxr_linenumber" name="L2337" href="#L2337">2337</a> 
-<a class="jxr_linenumber" name="L2338" href="#L2338">2338</a>     @GuardedBy(<span class="jxr_string">"this"</span>)
+<a class="jxr_linenumber" name="L2338" href="#L2338">2338</a>     @GuardedBy(<span class="jxr_string">"Segment.this"</span>)
 <a class="jxr_linenumber" name="L2339" href="#L2339">2339</a>     <strong class="jxr_keyword">void</strong> expireEntries() {
 <a class="jxr_linenumber" name="L2340" href="#L2340">2340</a>       drainRecencyQueue();
 <a class="jxr_linenumber" name="L2341" href="#L2341">2341</a> 
@@ -2380,7 +2380,7 @@
 <a class="jxr_linenumber" name="L2372" href="#L2372">2372</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2373" href="#L2373">2373</a> <em class="jxr_javadoccomment">     * @return {@code true} if eviction occurred</em>
 <a class="jxr_linenumber" name="L2374" href="#L2374">2374</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L2375" href="#L2375">2375</a>     @GuardedBy(<span class="jxr_string">"this"</span>)
+<a class="jxr_linenumber" name="L2375" href="#L2375">2375</a>     @GuardedBy(<span class="jxr_string">"Segment.this"</span>)
 <a class="jxr_linenumber" name="L2376" href="#L2376">2376</a>     <strong class="jxr_keyword">boolean</strong> evictEntries() {
 <a class="jxr_linenumber" name="L2377" href="#L2377">2377</a>       <strong class="jxr_keyword">if</strong> (map.evictsBySize() &amp;&amp; count &gt;= maxSegmentSize) {
 <a class="jxr_linenumber" name="L2378" href="#L2378">2378</a>         drainRecencyQueue();
@@ -2573,7 +2573,7 @@
 <a class="jxr_linenumber" name="L2565" href="#L2565">2565</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L2566" href="#L2566">2566</a> <em class="jxr_javadoccomment">     * Expands the table if possible.</em>
 <a class="jxr_linenumber" name="L2567" href="#L2567">2567</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L2568" href="#L2568">2568</a>     @GuardedBy(<span class="jxr_string">"this"</span>)
+<a class="jxr_linenumber" name="L2568" href="#L2568">2568</a>     @GuardedBy(<span class="jxr_string">"Segment.this"</span>)
 <a class="jxr_linenumber" name="L2569" href="#L2569">2569</a>     <strong class="jxr_keyword">void</strong> expand() {
 <a class="jxr_linenumber" name="L2570" href="#L2570">2570</a>       AtomicReferenceArray&lt;ReferenceEntry&lt;K, V&gt;&gt; oldTable = table;
 <a class="jxr_linenumber" name="L2571" href="#L2571">2571</a>       <strong class="jxr_keyword">int</strong> oldCapacity = oldTable.length();
@@ -2867,7 +2867,7 @@
 <a class="jxr_linenumber" name="L2859" href="#L2859">2859</a> <em class="jxr_javadoccomment">     * @param entry the entry being removed from the table</em>
 <a class="jxr_linenumber" name="L2860" href="#L2860">2860</a> <em class="jxr_javadoccomment">     * @return the new first entry for the table</em>
 <a class="jxr_linenumber" name="L2861" href="#L2861">2861</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L2862" href="#L2862">2862</a>     @GuardedBy(<span class="jxr_string">"this"</span>)
+<a class="jxr_linenumber" name="L2862" href="#L2862">2862</a>     @GuardedBy(<span class="jxr_string">"Segment.this"</span>)
 <a class="jxr_linenumber" name="L2863" href="#L2863">2863</a>     ReferenceEntry&lt;K, V&gt; removeFromChain(ReferenceEntry&lt;K, V&gt; first, ReferenceEntry&lt;K, V&gt; entry) {
 <a class="jxr_linenumber" name="L2864" href="#L2864">2864</a>       evictionQueue.remove(entry);
 <a class="jxr_linenumber" name="L2865" href="#L2865">2865</a>       expirationQueue.remove(entry);
@@ -2993,7 +2993,7 @@
 <a class="jxr_linenumber" name="L2985" href="#L2985">2985</a>       }
 <a class="jxr_linenumber" name="L2986" href="#L2986">2986</a>     }
 <a class="jxr_linenumber" name="L2987" href="#L2987">2987</a> 
-<a class="jxr_linenumber" name="L2988" href="#L2988">2988</a>     @GuardedBy(<span class="jxr_string">"this"</span>)
+<a class="jxr_linenumber" name="L2988" href="#L2988">2988</a>     @GuardedBy(<span class="jxr_string">"Segment.this"</span>)
 <a class="jxr_linenumber" name="L2989" href="#L2989">2989</a>     <strong class="jxr_keyword">boolean</strong> removeEntry(ReferenceEntry&lt;K, V&gt; entry, <strong class="jxr_keyword">int</strong> hash, <a href="../../../../com/google/common/collect/MapMaker.html">RemovalCause</a> cause) {
 <a class="jxr_linenumber" name="L2990" href="#L2990">2990</a>       <strong class="jxr_keyword">int</strong> newCount = <strong class="jxr_keyword">this</strong>.count - 1;
 <a class="jxr_linenumber" name="L2991" href="#L2991">2991</a>       AtomicReferenceArray&lt;ReferenceEntry&lt;K, V&gt;&gt; table = <strong class="jxr_keyword">this</strong>.table;
@@ -3065,7 +3065,7 @@
 <a class="jxr_linenumber" name="L3057" href="#L3057">3057</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L3058" href="#L3058">3058</a> <em class="jxr_javadoccomment">     * &lt;p&gt;Post-condition: expireEntries has been run.</em>
 <a class="jxr_linenumber" name="L3059" href="#L3059">3059</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L3060" href="#L3060">3060</a>     @GuardedBy(<span class="jxr_string">"this"</span>)
+<a class="jxr_linenumber" name="L3060" href="#L3060">3060</a>     @GuardedBy(<span class="jxr_string">"Segment.this"</span>)
 <a class="jxr_linenumber" name="L3061" href="#L3061">3061</a>     <strong class="jxr_keyword">void</strong> preWriteCleanup() {
 <a class="jxr_linenumber" name="L3062" href="#L3062">3062</a>       runLockedCleanup();
 <a class="jxr_linenumber" name="L3063" href="#L3063">3063</a>     }
@@ -3380,7 +3380,7 @@
 <a class="jxr_linenumber" name="L3372" href="#L3372">3372</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> run() {
 <a class="jxr_linenumber" name="L3373" href="#L3373">3373</a>       MapMakerInternalMap&lt;?, ?&gt; map = mapReference.get();
 <a class="jxr_linenumber" name="L3374" href="#L3374">3374</a>       <strong class="jxr_keyword">if</strong> (map == <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L3375" href="#L3375">3375</a>         <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../java/util/concurrent/CancellationException.html">CancellationException</a>();
+<a class="jxr_linenumber" name="L3375" href="#L3375">3375</a>         <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> CancellationException();
 <a class="jxr_linenumber" name="L3376" href="#L3376">3376</a>       }
 <a class="jxr_linenumber" name="L3377" href="#L3377">3377</a> 
 <a class="jxr_linenumber" name="L3378" href="#L3378">3378</a>       <strong class="jxr_keyword">for</strong> (Segment&lt;?, ?&gt; segment : map.segments) {

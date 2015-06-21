@@ -39,7 +39,7 @@
 <a class="jxr_linenumber" name="L31" href="#L31">31</a>  
 <a class="jxr_linenumber" name="L32" href="#L32">32</a>  <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L33" href="#L33">33</a>  <em class="jxr_javadoccomment"> * Implementation for {@link FilteredMultimap#values()}.</em>
-<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <em class="jxr_javadoccomment"> *</em>
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <em class="jxr_javadoccomment"> * </em>
 <a class="jxr_linenumber" name="L35" href="#L35">35</a>  <em class="jxr_javadoccomment"> * @author Louis Wasserman</em>
 <a class="jxr_linenumber" name="L36" href="#L36">36</a>  <em class="jxr_javadoccomment"> */</em>
 <a class="jxr_linenumber" name="L37" href="#L37">37</a>  @GwtCompatible
@@ -81,28 +81,25 @@
 <a class="jxr_linenumber" name="L73" href="#L73">73</a>  
 <a class="jxr_linenumber" name="L74" href="#L74">74</a>    @Override
 <a class="jxr_linenumber" name="L75" href="#L75">75</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> removeAll(Collection&lt;?&gt; c) {
-<a class="jxr_linenumber" name="L76" href="#L76">76</a>      <strong class="jxr_keyword">return</strong> Iterables.removeIf(
-<a class="jxr_linenumber" name="L77" href="#L77">77</a>          multimap.unfiltered().entries(),
-<a class="jxr_linenumber" name="L78" href="#L78">78</a>          <em class="jxr_comment">// explicit &lt;Entry&lt;K, V&gt;&gt; is required to build with JDK6</em>
-<a class="jxr_linenumber" name="L79" href="#L79">79</a>          Predicates.&lt;Entry&lt;K, V&gt;&gt;and(
-<a class="jxr_linenumber" name="L80" href="#L80">80</a>              multimap.entryPredicate(), Maps.&lt;V&gt;valuePredicateOnEntries(Predicates.in(c))));
-<a class="jxr_linenumber" name="L81" href="#L81">81</a>    }
-<a class="jxr_linenumber" name="L82" href="#L82">82</a>  
-<a class="jxr_linenumber" name="L83" href="#L83">83</a>    @Override
-<a class="jxr_linenumber" name="L84" href="#L84">84</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> retainAll(Collection&lt;?&gt; c) {
-<a class="jxr_linenumber" name="L85" href="#L85">85</a>      <strong class="jxr_keyword">return</strong> Iterables.removeIf(
-<a class="jxr_linenumber" name="L86" href="#L86">86</a>          multimap.unfiltered().entries(),
-<a class="jxr_linenumber" name="L87" href="#L87">87</a>          <em class="jxr_comment">// explicit &lt;Entry&lt;K, V&gt;&gt; is required to build with JDK6</em>
-<a class="jxr_linenumber" name="L88" href="#L88">88</a>          Predicates.&lt;Entry&lt;K, V&gt;&gt;and(
-<a class="jxr_linenumber" name="L89" href="#L89">89</a>              multimap.entryPredicate(),
-<a class="jxr_linenumber" name="L90" href="#L90">90</a>              Maps.&lt;V&gt;valuePredicateOnEntries(Predicates.not(Predicates.in(c)))));
-<a class="jxr_linenumber" name="L91" href="#L91">91</a>    }
-<a class="jxr_linenumber" name="L92" href="#L92">92</a>  
-<a class="jxr_linenumber" name="L93" href="#L93">93</a>    @Override
-<a class="jxr_linenumber" name="L94" href="#L94">94</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> clear() {
-<a class="jxr_linenumber" name="L95" href="#L95">95</a>      multimap.clear();
-<a class="jxr_linenumber" name="L96" href="#L96">96</a>    }
-<a class="jxr_linenumber" name="L97" href="#L97">97</a>  }
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>      <strong class="jxr_keyword">return</strong> Iterables.removeIf(multimap.unfiltered().entries(),
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>          <em class="jxr_comment">// explicit &lt;Entry&lt;K, V&gt;&gt; is required to build with JDK6</em>
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>          Predicates.&lt;Entry&lt;K, V&gt;&gt;and(multimap.entryPredicate(),
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>              Maps.&lt;V&gt;valuePredicateOnEntries(Predicates.in(c))));
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>    }
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>  
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>    @Override
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> retainAll(Collection&lt;?&gt; c) {
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>      <strong class="jxr_keyword">return</strong> Iterables.removeIf(multimap.unfiltered().entries(),
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>          <em class="jxr_comment">// explicit &lt;Entry&lt;K, V&gt;&gt; is required to build with JDK6</em>
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>          Predicates.&lt;Entry&lt;K, V&gt;&gt;and(multimap.entryPredicate(),
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>              Maps.&lt;V&gt;valuePredicateOnEntries(Predicates.not(Predicates.in(c)))));
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>    }
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>  
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>    @Override
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> clear() {
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>      multimap.clear();
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>    }
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>  }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2015. All rights reserved.</div>

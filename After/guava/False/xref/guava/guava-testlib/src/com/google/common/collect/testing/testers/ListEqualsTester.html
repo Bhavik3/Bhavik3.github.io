@@ -51,7 +51,7 @@
 <a class="jxr_linenumber" name="L43" href="#L43">43</a>    @CollectionSize.Require(absent = CollectionSize.ZERO)
 <a class="jxr_linenumber" name="L44" href="#L44">44</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testEquals_otherListWithDifferentElements() {
 <a class="jxr_linenumber" name="L45" href="#L45">45</a>      ArrayList&lt;E&gt; other = <strong class="jxr_keyword">new</strong> ArrayList&lt;E&gt;(getSampleElements());
-<a class="jxr_linenumber" name="L46" href="#L46">46</a>      other.set(other.size() / 2, getSubjectGenerator().samples().e3());
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>      other.set(other.size() / 2, getSubjectGenerator().samples().e3);
 <a class="jxr_linenumber" name="L47" href="#L47">47</a>      assertFalse(
 <a class="jxr_linenumber" name="L48" href="#L48">48</a>          <span class="jxr_string">"A List should not equal another List containing different elements."</span>,
 <a class="jxr_linenumber" name="L49" href="#L49">49</a>          getList().equals(other));

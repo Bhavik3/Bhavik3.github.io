@@ -191,7 +191,7 @@
 <a class="jxr_linenumber" name="L183" href="#L183">183</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testColumnSetPartialOverlap() {
 <a class="jxr_linenumber" name="L184" href="#L184">184</a>     table = create(
 <a class="jxr_linenumber" name="L185" href="#L185">185</a>         <span class="jxr_string">"foo"</span>, 1, 'a', <span class="jxr_string">"bar"</span>, 1, 'b', <span class="jxr_string">"foo"</span>, 2, 'c', <span class="jxr_string">"bar"</span>, 3, 'd');
-<a class="jxr_linenumber" name="L186" href="#L186">186</a>     assertThat(table.columnKeySet()).containsExactly(1, 2, 3);
+<a class="jxr_linenumber" name="L186" href="#L186">186</a>     assertThat(table.columnKeySet()).has().exactly(1, 2, 3);
 <a class="jxr_linenumber" name="L187" href="#L187">187</a>   }
 <a class="jxr_linenumber" name="L188" href="#L188">188</a> 
 <a class="jxr_linenumber" name="L189" href="#L189">189</a>   @GwtIncompatible(<span class="jxr_string">"NullPointerTester"</span>)

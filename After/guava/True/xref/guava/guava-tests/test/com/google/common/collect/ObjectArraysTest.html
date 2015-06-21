@@ -106,7 +106,7 @@
 <a class="jxr_linenumber" name="L98" href="#L98">98</a>      String[] result = ObjectArrays.concat(
 <a class="jxr_linenumber" name="L99" href="#L99">99</a>          <strong class="jxr_keyword">new</strong> String[0], <strong class="jxr_keyword">new</strong> String[] { <span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span> }, String.<strong class="jxr_keyword">class</strong>);
 <a class="jxr_linenumber" name="L100" href="#L100">100</a>     assertEquals(String[].<strong class="jxr_keyword">class</strong>, result.getClass());
-<a class="jxr_linenumber" name="L101" href="#L101">101</a>     assertThat(result).asList().containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>).inOrder();
+<a class="jxr_linenumber" name="L101" href="#L101">101</a>     assertThat(result).asList().has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>).inOrder();
 <a class="jxr_linenumber" name="L102" href="#L102">102</a>   }
 <a class="jxr_linenumber" name="L103" href="#L103">103</a> 
 <a class="jxr_linenumber" name="L104" href="#L104">104</a>   @GwtIncompatible(<span class="jxr_string">"ObjectArrays.concat(Object[], Object[], Class)"</span>)
@@ -114,7 +114,7 @@
 <a class="jxr_linenumber" name="L106" href="#L106">106</a>     String[] result = ObjectArrays.concat(
 <a class="jxr_linenumber" name="L107" href="#L107">107</a>         <strong class="jxr_keyword">new</strong> String[] { <span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span> }, <strong class="jxr_keyword">new</strong> String[0], String.<strong class="jxr_keyword">class</strong>);
 <a class="jxr_linenumber" name="L108" href="#L108">108</a>     assertEquals(String[].<strong class="jxr_keyword">class</strong>, result.getClass());
-<a class="jxr_linenumber" name="L109" href="#L109">109</a>     assertThat(result).asList().containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>).inOrder();
+<a class="jxr_linenumber" name="L109" href="#L109">109</a>     assertThat(result).asList().has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>).inOrder();
 <a class="jxr_linenumber" name="L110" href="#L110">110</a>   }
 <a class="jxr_linenumber" name="L111" href="#L111">111</a> 
 <a class="jxr_linenumber" name="L112" href="#L112">112</a>   @GwtIncompatible(<span class="jxr_string">"ObjectArrays.concat(Object[], Object[], Class)"</span>)
@@ -122,7 +122,7 @@
 <a class="jxr_linenumber" name="L114" href="#L114">114</a>     String[] result = ObjectArrays.concat(
 <a class="jxr_linenumber" name="L115" href="#L115">115</a>         <strong class="jxr_keyword">new</strong> String[] { <span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span> }, <strong class="jxr_keyword">new</strong> String[] { <span class="jxr_string">"c"</span>, <span class="jxr_string">"d"</span> }, String.<strong class="jxr_keyword">class</strong>);
 <a class="jxr_linenumber" name="L116" href="#L116">116</a>     assertEquals(String[].<strong class="jxr_keyword">class</strong>, result.getClass());
-<a class="jxr_linenumber" name="L117" href="#L117">117</a>     assertThat(result).asList().containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"d"</span>).inOrder();
+<a class="jxr_linenumber" name="L117" href="#L117">117</a>     assertThat(result).asList().has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"d"</span>).inOrder();
 <a class="jxr_linenumber" name="L118" href="#L118">118</a>   }
 <a class="jxr_linenumber" name="L119" href="#L119">119</a> 
 <a class="jxr_linenumber" name="L120" href="#L120">120</a>   @GwtIncompatible(<span class="jxr_string">"ObjectArrays.concat(Object[], Object[], Class)"</span>)
@@ -178,32 +178,32 @@
 <a class="jxr_linenumber" name="L170" href="#L170">170</a> 
 <a class="jxr_linenumber" name="L171" href="#L171">171</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testPrependZeroElements() {
 <a class="jxr_linenumber" name="L172" href="#L172">172</a>     String[] result = ObjectArrays.concat(<span class="jxr_string">"foo"</span>, <strong class="jxr_keyword">new</strong> String[] {});
-<a class="jxr_linenumber" name="L173" href="#L173">173</a>     assertThat(result).asList().contains(<span class="jxr_string">"foo"</span>);
+<a class="jxr_linenumber" name="L173" href="#L173">173</a>     assertThat(result).asList().has().item(<span class="jxr_string">"foo"</span>);
 <a class="jxr_linenumber" name="L174" href="#L174">174</a>   }
 <a class="jxr_linenumber" name="L175" href="#L175">175</a> 
 <a class="jxr_linenumber" name="L176" href="#L176">176</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testPrependOneElement() {
 <a class="jxr_linenumber" name="L177" href="#L177">177</a>     String[] result = ObjectArrays.concat(<span class="jxr_string">"foo"</span>, <strong class="jxr_keyword">new</strong> String[] { <span class="jxr_string">"bar"</span> });
-<a class="jxr_linenumber" name="L178" href="#L178">178</a>     assertThat(result).asList().containsExactly(<span class="jxr_string">"foo"</span>, <span class="jxr_string">"bar"</span>).inOrder();
+<a class="jxr_linenumber" name="L178" href="#L178">178</a>     assertThat(result).asList().has().exactly(<span class="jxr_string">"foo"</span>, <span class="jxr_string">"bar"</span>).inOrder();
 <a class="jxr_linenumber" name="L179" href="#L179">179</a>   }
 <a class="jxr_linenumber" name="L180" href="#L180">180</a> 
 <a class="jxr_linenumber" name="L181" href="#L181">181</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testPrependTwoElements() {
 <a class="jxr_linenumber" name="L182" href="#L182">182</a>     String[] result = ObjectArrays.concat(<span class="jxr_string">"foo"</span>, <strong class="jxr_keyword">new</strong> String[] { <span class="jxr_string">"bar"</span>, <span class="jxr_string">"baz"</span> });
-<a class="jxr_linenumber" name="L183" href="#L183">183</a>     assertThat(result).asList().containsExactly(<span class="jxr_string">"foo"</span>, <span class="jxr_string">"bar"</span>, <span class="jxr_string">"baz"</span>).inOrder();
+<a class="jxr_linenumber" name="L183" href="#L183">183</a>     assertThat(result).asList().has().exactly(<span class="jxr_string">"foo"</span>, <span class="jxr_string">"bar"</span>, <span class="jxr_string">"baz"</span>).inOrder();
 <a class="jxr_linenumber" name="L184" href="#L184">184</a>   }
 <a class="jxr_linenumber" name="L185" href="#L185">185</a> 
 <a class="jxr_linenumber" name="L186" href="#L186">186</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testAppendZeroElements() {
 <a class="jxr_linenumber" name="L187" href="#L187">187</a>     String[] result = ObjectArrays.concat(<strong class="jxr_keyword">new</strong> String[] {}, <span class="jxr_string">"foo"</span>);
-<a class="jxr_linenumber" name="L188" href="#L188">188</a>     assertThat(result).asList().contains(<span class="jxr_string">"foo"</span>);
+<a class="jxr_linenumber" name="L188" href="#L188">188</a>     assertThat(result).asList().has().item(<span class="jxr_string">"foo"</span>);
 <a class="jxr_linenumber" name="L189" href="#L189">189</a>   }
 <a class="jxr_linenumber" name="L190" href="#L190">190</a> 
 <a class="jxr_linenumber" name="L191" href="#L191">191</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testAppendOneElement() {
 <a class="jxr_linenumber" name="L192" href="#L192">192</a>     String[] result = ObjectArrays.concat(<strong class="jxr_keyword">new</strong> String[] { <span class="jxr_string">"foo"</span> }, <span class="jxr_string">"bar"</span>);
-<a class="jxr_linenumber" name="L193" href="#L193">193</a>     assertThat(result).asList().containsExactly(<span class="jxr_string">"foo"</span>, <span class="jxr_string">"bar"</span>).inOrder();
+<a class="jxr_linenumber" name="L193" href="#L193">193</a>     assertThat(result).asList().has().exactly(<span class="jxr_string">"foo"</span>, <span class="jxr_string">"bar"</span>).inOrder();
 <a class="jxr_linenumber" name="L194" href="#L194">194</a>   }
 <a class="jxr_linenumber" name="L195" href="#L195">195</a> 
 <a class="jxr_linenumber" name="L196" href="#L196">196</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testAppendTwoElements() {
 <a class="jxr_linenumber" name="L197" href="#L197">197</a>     String[] result = ObjectArrays.concat(<strong class="jxr_keyword">new</strong> String[] { <span class="jxr_string">"foo"</span>, <span class="jxr_string">"bar"</span> }, <span class="jxr_string">"baz"</span>);
-<a class="jxr_linenumber" name="L198" href="#L198">198</a>     assertThat(result).asList().containsExactly(<span class="jxr_string">"foo"</span>, <span class="jxr_string">"bar"</span>, <span class="jxr_string">"baz"</span>).inOrder();
+<a class="jxr_linenumber" name="L198" href="#L198">198</a>     assertThat(result).asList().has().exactly(<span class="jxr_string">"foo"</span>, <span class="jxr_string">"bar"</span>, <span class="jxr_string">"baz"</span>).inOrder();
 <a class="jxr_linenumber" name="L199" href="#L199">199</a>   }
 <a class="jxr_linenumber" name="L200" href="#L200">200</a> 
 <a class="jxr_linenumber" name="L201" href="#L201">201</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testEmptyArrayToEmpty() {

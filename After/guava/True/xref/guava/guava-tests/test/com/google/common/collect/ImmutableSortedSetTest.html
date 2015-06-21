@@ -272,7 +272,7 @@
 <a class="jxr_linenumber" name="L264" href="#L264">264</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testSingle_headSet() {
 <a class="jxr_linenumber" name="L265" href="#L265">265</a>     SortedSet&lt;String&gt; set = of(<span class="jxr_string">"e"</span>);
 <a class="jxr_linenumber" name="L266" href="#L266">266</a>     assertTrue(set.headSet(<span class="jxr_string">"g"</span>) instanceof <a href="../../../../com/google/common/collect/ImmutableSortedSet.html">ImmutableSortedSet</a>);
-<a class="jxr_linenumber" name="L267" href="#L267">267</a>     assertThat(set.headSet(<span class="jxr_string">"g"</span>)).contains(<span class="jxr_string">"e"</span>);
+<a class="jxr_linenumber" name="L267" href="#L267">267</a>     assertThat(set.headSet(<span class="jxr_string">"g"</span>)).has().item(<span class="jxr_string">"e"</span>);
 <a class="jxr_linenumber" name="L268" href="#L268">268</a>     assertSame(of(), set.headSet(<span class="jxr_string">"c"</span>));
 <a class="jxr_linenumber" name="L269" href="#L269">269</a>     assertSame(of(), set.headSet(<span class="jxr_string">"e"</span>));
 <a class="jxr_linenumber" name="L270" href="#L270">270</a>   }
@@ -280,16 +280,16 @@
 <a class="jxr_linenumber" name="L272" href="#L272">272</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testSingle_tailSet() {
 <a class="jxr_linenumber" name="L273" href="#L273">273</a>     SortedSet&lt;String&gt; set = of(<span class="jxr_string">"e"</span>);
 <a class="jxr_linenumber" name="L274" href="#L274">274</a>     assertTrue(set.tailSet(<span class="jxr_string">"c"</span>) instanceof <a href="../../../../com/google/common/collect/ImmutableSortedSet.html">ImmutableSortedSet</a>);
-<a class="jxr_linenumber" name="L275" href="#L275">275</a>     assertThat(set.tailSet(<span class="jxr_string">"c"</span>)).contains(<span class="jxr_string">"e"</span>);
-<a class="jxr_linenumber" name="L276" href="#L276">276</a>     assertThat(set.tailSet(<span class="jxr_string">"e"</span>)).contains(<span class="jxr_string">"e"</span>);
+<a class="jxr_linenumber" name="L275" href="#L275">275</a>     assertThat(set.tailSet(<span class="jxr_string">"c"</span>)).has().item(<span class="jxr_string">"e"</span>);
+<a class="jxr_linenumber" name="L276" href="#L276">276</a>     assertThat(set.tailSet(<span class="jxr_string">"e"</span>)).has().item(<span class="jxr_string">"e"</span>);
 <a class="jxr_linenumber" name="L277" href="#L277">277</a>     assertSame(of(), set.tailSet(<span class="jxr_string">"g"</span>));
 <a class="jxr_linenumber" name="L278" href="#L278">278</a>   }
 <a class="jxr_linenumber" name="L279" href="#L279">279</a> 
 <a class="jxr_linenumber" name="L280" href="#L280">280</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testSingle_subSet() {
 <a class="jxr_linenumber" name="L281" href="#L281">281</a>     SortedSet&lt;String&gt; set = of(<span class="jxr_string">"e"</span>);
 <a class="jxr_linenumber" name="L282" href="#L282">282</a>     assertTrue(set.subSet(<span class="jxr_string">"c"</span>, <span class="jxr_string">"g"</span>) instanceof <a href="../../../../com/google/common/collect/ImmutableSortedSet.html">ImmutableSortedSet</a>);
-<a class="jxr_linenumber" name="L283" href="#L283">283</a>     assertThat(set.subSet(<span class="jxr_string">"c"</span>, <span class="jxr_string">"g"</span>)).contains(<span class="jxr_string">"e"</span>);
-<a class="jxr_linenumber" name="L284" href="#L284">284</a>     assertThat(set.subSet(<span class="jxr_string">"e"</span>, <span class="jxr_string">"g"</span>)).contains(<span class="jxr_string">"e"</span>);
+<a class="jxr_linenumber" name="L283" href="#L283">283</a>     assertThat(set.subSet(<span class="jxr_string">"c"</span>, <span class="jxr_string">"g"</span>)).has().item(<span class="jxr_string">"e"</span>);
+<a class="jxr_linenumber" name="L284" href="#L284">284</a>     assertThat(set.subSet(<span class="jxr_string">"e"</span>, <span class="jxr_string">"g"</span>)).has().item(<span class="jxr_string">"e"</span>);
 <a class="jxr_linenumber" name="L285" href="#L285">285</a>     assertSame(of(), set.subSet(<span class="jxr_string">"f"</span>, <span class="jxr_string">"g"</span>));
 <a class="jxr_linenumber" name="L286" href="#L286">286</a>     assertSame(of(), set.subSet(<span class="jxr_string">"c"</span>, <span class="jxr_string">"e"</span>));
 <a class="jxr_linenumber" name="L287" href="#L287">287</a>     assertSame(of(), set.subSet(<span class="jxr_string">"c"</span>, <span class="jxr_string">"d"</span>));
@@ -314,7 +314,7 @@
 <a class="jxr_linenumber" name="L306" href="#L306">306</a> 
 <a class="jxr_linenumber" name="L307" href="#L307">307</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testOf_ordering() {
 <a class="jxr_linenumber" name="L308" href="#L308">308</a>     SortedSet&lt;String&gt; set = of(<span class="jxr_string">"e"</span>, <span class="jxr_string">"a"</span>, <span class="jxr_string">"f"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"d"</span>, <span class="jxr_string">"c"</span>);
-<a class="jxr_linenumber" name="L309" href="#L309">309</a>     assertThat(set).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"d"</span>, <span class="jxr_string">"e"</span>, <span class="jxr_string">"f"</span>).inOrder();
+<a class="jxr_linenumber" name="L309" href="#L309">309</a>     assertThat(set).has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"d"</span>, <span class="jxr_string">"e"</span>, <span class="jxr_string">"f"</span>).inOrder();
 <a class="jxr_linenumber" name="L310" href="#L310">310</a>   }
 <a class="jxr_linenumber" name="L311" href="#L311">311</a> 
 <a class="jxr_linenumber" name="L312" href="#L312">312</a>   <em class="jxr_comment">/*</em>
@@ -363,7 +363,7 @@
 <a class="jxr_linenumber" name="L355" href="#L355">355</a> 
 <a class="jxr_linenumber" name="L356" href="#L356">356</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testOf_ordering_dupes() {
 <a class="jxr_linenumber" name="L357" href="#L357">357</a>     SortedSet&lt;String&gt; set = of(<span class="jxr_string">"e"</span>, <span class="jxr_string">"a"</span>, <span class="jxr_string">"e"</span>, <span class="jxr_string">"f"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"d"</span>, <span class="jxr_string">"a"</span>, <span class="jxr_string">"c"</span>);
-<a class="jxr_linenumber" name="L358" href="#L358">358</a>     assertThat(set).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"d"</span>, <span class="jxr_string">"e"</span>, <span class="jxr_string">"f"</span>).inOrder();
+<a class="jxr_linenumber" name="L358" href="#L358">358</a>     assertThat(set).has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"d"</span>, <span class="jxr_string">"e"</span>, <span class="jxr_string">"f"</span>).inOrder();
 <a class="jxr_linenumber" name="L359" href="#L359">359</a>   }
 <a class="jxr_linenumber" name="L360" href="#L360">360</a> 
 <a class="jxr_linenumber" name="L361" href="#L361">361</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testOf_comparator() {
@@ -374,8 +374,8 @@
 <a class="jxr_linenumber" name="L366" href="#L366">366</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testOf_headSet() {
 <a class="jxr_linenumber" name="L367" href="#L367">367</a>     SortedSet&lt;String&gt; set = of(<span class="jxr_string">"e"</span>, <span class="jxr_string">"f"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"d"</span>, <span class="jxr_string">"c"</span>);
 <a class="jxr_linenumber" name="L368" href="#L368">368</a>     assertTrue(set.headSet(<span class="jxr_string">"e"</span>) instanceof <a href="../../../../com/google/common/collect/ImmutableSortedSet.html">ImmutableSortedSet</a>);
-<a class="jxr_linenumber" name="L369" href="#L369">369</a>     assertThat(set.headSet(<span class="jxr_string">"e"</span>)).containsExactly(<span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"d"</span>).inOrder();
-<a class="jxr_linenumber" name="L370" href="#L370">370</a>     assertThat(set.headSet(<span class="jxr_string">"g"</span>)).containsExactly(<span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"d"</span>, <span class="jxr_string">"e"</span>, <span class="jxr_string">"f"</span>).inOrder();
+<a class="jxr_linenumber" name="L369" href="#L369">369</a>     assertThat(set.headSet(<span class="jxr_string">"e"</span>)).has().exactly(<span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"d"</span>).inOrder();
+<a class="jxr_linenumber" name="L370" href="#L370">370</a>     assertThat(set.headSet(<span class="jxr_string">"g"</span>)).has().exactly(<span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"d"</span>, <span class="jxr_string">"e"</span>, <span class="jxr_string">"f"</span>).inOrder();
 <a class="jxr_linenumber" name="L371" href="#L371">371</a>     assertSame(of(), set.headSet(<span class="jxr_string">"a"</span>));
 <a class="jxr_linenumber" name="L372" href="#L372">372</a>     assertSame(of(), set.headSet(<span class="jxr_string">"b"</span>));
 <a class="jxr_linenumber" name="L373" href="#L373">373</a>   }
@@ -383,16 +383,16 @@
 <a class="jxr_linenumber" name="L375" href="#L375">375</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testOf_tailSet() {
 <a class="jxr_linenumber" name="L376" href="#L376">376</a>     SortedSet&lt;String&gt; set = of(<span class="jxr_string">"e"</span>, <span class="jxr_string">"f"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"d"</span>, <span class="jxr_string">"c"</span>);
 <a class="jxr_linenumber" name="L377" href="#L377">377</a>     assertTrue(set.tailSet(<span class="jxr_string">"e"</span>) instanceof <a href="../../../../com/google/common/collect/ImmutableSortedSet.html">ImmutableSortedSet</a>);
-<a class="jxr_linenumber" name="L378" href="#L378">378</a>     assertThat(set.tailSet(<span class="jxr_string">"e"</span>)).containsExactly(<span class="jxr_string">"e"</span>, <span class="jxr_string">"f"</span>).inOrder();
-<a class="jxr_linenumber" name="L379" href="#L379">379</a>     assertThat(set.tailSet(<span class="jxr_string">"a"</span>)).containsExactly(<span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"d"</span>, <span class="jxr_string">"e"</span>, <span class="jxr_string">"f"</span>).inOrder();
+<a class="jxr_linenumber" name="L378" href="#L378">378</a>     assertThat(set.tailSet(<span class="jxr_string">"e"</span>)).has().exactly(<span class="jxr_string">"e"</span>, <span class="jxr_string">"f"</span>).inOrder();
+<a class="jxr_linenumber" name="L379" href="#L379">379</a>     assertThat(set.tailSet(<span class="jxr_string">"a"</span>)).has().exactly(<span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"d"</span>, <span class="jxr_string">"e"</span>, <span class="jxr_string">"f"</span>).inOrder();
 <a class="jxr_linenumber" name="L380" href="#L380">380</a>     assertSame(of(), set.tailSet(<span class="jxr_string">"g"</span>));
 <a class="jxr_linenumber" name="L381" href="#L381">381</a>   }
 <a class="jxr_linenumber" name="L382" href="#L382">382</a> 
 <a class="jxr_linenumber" name="L383" href="#L383">383</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testOf_subSet() {
 <a class="jxr_linenumber" name="L384" href="#L384">384</a>     SortedSet&lt;String&gt; set = of(<span class="jxr_string">"e"</span>, <span class="jxr_string">"f"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"d"</span>, <span class="jxr_string">"c"</span>);
 <a class="jxr_linenumber" name="L385" href="#L385">385</a>     assertTrue(set.subSet(<span class="jxr_string">"c"</span>, <span class="jxr_string">"e"</span>) instanceof <a href="../../../../com/google/common/collect/ImmutableSortedSet.html">ImmutableSortedSet</a>);
-<a class="jxr_linenumber" name="L386" href="#L386">386</a>     assertThat(set.subSet(<span class="jxr_string">"c"</span>, <span class="jxr_string">"e"</span>)).containsExactly(<span class="jxr_string">"c"</span>, <span class="jxr_string">"d"</span>).inOrder();
-<a class="jxr_linenumber" name="L387" href="#L387">387</a>     assertThat(set.subSet(<span class="jxr_string">"a"</span>, <span class="jxr_string">"g"</span>)).containsExactly(<span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"d"</span>, <span class="jxr_string">"e"</span>, <span class="jxr_string">"f"</span>).inOrder();
+<a class="jxr_linenumber" name="L386" href="#L386">386</a>     assertThat(set.subSet(<span class="jxr_string">"c"</span>, <span class="jxr_string">"e"</span>)).has().exactly(<span class="jxr_string">"c"</span>, <span class="jxr_string">"d"</span>).inOrder();
+<a class="jxr_linenumber" name="L387" href="#L387">387</a>     assertThat(set.subSet(<span class="jxr_string">"a"</span>, <span class="jxr_string">"g"</span>)).has().exactly(<span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"d"</span>, <span class="jxr_string">"e"</span>, <span class="jxr_string">"f"</span>).inOrder();
 <a class="jxr_linenumber" name="L388" href="#L388">388</a>     assertSame(of(), set.subSet(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>));
 <a class="jxr_linenumber" name="L389" href="#L389">389</a>     assertSame(of(), set.subSet(<span class="jxr_string">"g"</span>, <span class="jxr_string">"h"</span>));
 <a class="jxr_linenumber" name="L390" href="#L390">390</a>     assertSame(of(), set.subSet(<span class="jxr_string">"c"</span>, <span class="jxr_string">"c"</span>));
@@ -432,14 +432,14 @@
 <a class="jxr_linenumber" name="L424" href="#L424">424</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testExplicit_ordering() {
 <a class="jxr_linenumber" name="L425" href="#L425">425</a>     SortedSet&lt;String&gt; set = ImmutableSortedSet.orderedBy(STRING_LENGTH).add(
 <a class="jxr_linenumber" name="L426" href="#L426">426</a>         <span class="jxr_string">"in"</span>, <span class="jxr_string">"the"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"jumped"</span>, <span class="jxr_string">"over"</span>, <span class="jxr_string">"a"</span>).build();
-<a class="jxr_linenumber" name="L427" href="#L427">427</a>     assertThat(set).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"in"</span>, <span class="jxr_string">"the"</span>, <span class="jxr_string">"over"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"jumped"</span>).inOrder();
+<a class="jxr_linenumber" name="L427" href="#L427">427</a>     assertThat(set).has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"in"</span>, <span class="jxr_string">"the"</span>, <span class="jxr_string">"over"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"jumped"</span>).inOrder();
 <a class="jxr_linenumber" name="L428" href="#L428">428</a>   }
 <a class="jxr_linenumber" name="L429" href="#L429">429</a> 
 <a class="jxr_linenumber" name="L430" href="#L430">430</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testExplicit_ordering_dupes() {
 <a class="jxr_linenumber" name="L431" href="#L431">431</a>     SortedSet&lt;String&gt; set = ImmutableSortedSet.orderedBy(STRING_LENGTH).add(
 <a class="jxr_linenumber" name="L432" href="#L432">432</a>         <span class="jxr_string">"in"</span>, <span class="jxr_string">"the"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"brown"</span>, <span class="jxr_string">"fox"</span>, <span class="jxr_string">"jumped"</span>,
 <a class="jxr_linenumber" name="L433" href="#L433">433</a>         <span class="jxr_string">"over"</span>, <span class="jxr_string">"a"</span>, <span class="jxr_string">"lazy"</span>, <span class="jxr_string">"dog"</span>).build();
-<a class="jxr_linenumber" name="L434" href="#L434">434</a>     assertThat(set).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"in"</span>, <span class="jxr_string">"the"</span>, <span class="jxr_string">"over"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"jumped"</span>).inOrder();
+<a class="jxr_linenumber" name="L434" href="#L434">434</a>     assertThat(set).has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"in"</span>, <span class="jxr_string">"the"</span>, <span class="jxr_string">"over"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"jumped"</span>).inOrder();
 <a class="jxr_linenumber" name="L435" href="#L435">435</a>   }
 <a class="jxr_linenumber" name="L436" href="#L436">436</a> 
 <a class="jxr_linenumber" name="L437" href="#L437">437</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testExplicit_contains() {
@@ -469,9 +469,9 @@
 <a class="jxr_linenumber" name="L461" href="#L461">461</a>         <span class="jxr_string">"in"</span>, <span class="jxr_string">"the"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"jumped"</span>, <span class="jxr_string">"over"</span>, <span class="jxr_string">"a"</span>).build();
 <a class="jxr_linenumber" name="L462" href="#L462">462</a>     assertTrue(set.headSet(<span class="jxr_string">"a"</span>) instanceof <a href="../../../../com/google/common/collect/ImmutableSortedSet.html">ImmutableSortedSet</a>);
 <a class="jxr_linenumber" name="L463" href="#L463">463</a>     assertTrue(set.headSet(<span class="jxr_string">"fish"</span>) instanceof <a href="../../../../com/google/common/collect/ImmutableSortedSet.html">ImmutableSortedSet</a>);
-<a class="jxr_linenumber" name="L464" href="#L464">464</a>     assertThat(set.headSet(<span class="jxr_string">"fish"</span>)).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"in"</span>, <span class="jxr_string">"the"</span>).inOrder();
-<a class="jxr_linenumber" name="L465" href="#L465">465</a>     assertThat(set.headSet(<span class="jxr_string">"california"</span>))
-<a class="jxr_linenumber" name="L466" href="#L466">466</a>         .containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"in"</span>, <span class="jxr_string">"the"</span>, <span class="jxr_string">"over"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"jumped"</span>).inOrder();
+<a class="jxr_linenumber" name="L464" href="#L464">464</a>     assertThat(set.headSet(<span class="jxr_string">"fish"</span>)).has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"in"</span>, <span class="jxr_string">"the"</span>).inOrder();
+<a class="jxr_linenumber" name="L465" href="#L465">465</a>     assertThat(set.headSet(<span class="jxr_string">"california"</span>)).has()
+<a class="jxr_linenumber" name="L466" href="#L466">466</a>         .exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"in"</span>, <span class="jxr_string">"the"</span>, <span class="jxr_string">"over"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"jumped"</span>).inOrder();
 <a class="jxr_linenumber" name="L467" href="#L467">467</a>     assertTrue(set.headSet(<span class="jxr_string">"a"</span>).isEmpty());
 <a class="jxr_linenumber" name="L468" href="#L468">468</a>     assertTrue(set.headSet(<span class="jxr_string">""</span>).isEmpty());
 <a class="jxr_linenumber" name="L469" href="#L469">469</a>   }
@@ -481,9 +481,9 @@
 <a class="jxr_linenumber" name="L473" href="#L473">473</a>         <span class="jxr_string">"in"</span>, <span class="jxr_string">"the"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"jumped"</span>, <span class="jxr_string">"over"</span>, <span class="jxr_string">"a"</span>).build();
 <a class="jxr_linenumber" name="L474" href="#L474">474</a>     assertTrue(set.tailSet(<span class="jxr_string">"california"</span>) instanceof <a href="../../../../com/google/common/collect/ImmutableSortedSet.html">ImmutableSortedSet</a>);
 <a class="jxr_linenumber" name="L475" href="#L475">475</a>     assertTrue(set.tailSet(<span class="jxr_string">"fish"</span>) instanceof <a href="../../../../com/google/common/collect/ImmutableSortedSet.html">ImmutableSortedSet</a>);
-<a class="jxr_linenumber" name="L476" href="#L476">476</a>     assertThat(set.tailSet(<span class="jxr_string">"fish"</span>)).containsExactly(<span class="jxr_string">"over"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"jumped"</span>).inOrder();
+<a class="jxr_linenumber" name="L476" href="#L476">476</a>     assertThat(set.tailSet(<span class="jxr_string">"fish"</span>)).has().exactly(<span class="jxr_string">"over"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"jumped"</span>).inOrder();
 <a class="jxr_linenumber" name="L477" href="#L477">477</a>     assertThat(
-<a class="jxr_linenumber" name="L478" href="#L478">478</a>         set.tailSet(<span class="jxr_string">"a"</span>)).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"in"</span>, <span class="jxr_string">"the"</span>, <span class="jxr_string">"over"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"jumped"</span>).inOrder();
+<a class="jxr_linenumber" name="L478" href="#L478">478</a>         set.tailSet(<span class="jxr_string">"a"</span>)).has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"in"</span>, <span class="jxr_string">"the"</span>, <span class="jxr_string">"over"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"jumped"</span>).inOrder();
 <a class="jxr_linenumber" name="L479" href="#L479">479</a>     assertTrue(set.tailSet(<span class="jxr_string">"california"</span>).isEmpty());
 <a class="jxr_linenumber" name="L480" href="#L480">480</a>   }
 <a class="jxr_linenumber" name="L481" href="#L481">481</a> 
@@ -492,9 +492,9 @@
 <a class="jxr_linenumber" name="L484" href="#L484">484</a>         <span class="jxr_string">"in"</span>, <span class="jxr_string">"the"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"jumped"</span>, <span class="jxr_string">"over"</span>, <span class="jxr_string">"a"</span>).build();
 <a class="jxr_linenumber" name="L485" href="#L485">485</a>     assertTrue(set.subSet(<span class="jxr_string">"the"</span>, <span class="jxr_string">"quick"</span>) instanceof <a href="../../../../com/google/common/collect/ImmutableSortedSet.html">ImmutableSortedSet</a>);
 <a class="jxr_linenumber" name="L486" href="#L486">486</a>     assertTrue(set.subSet(<span class="jxr_string">""</span>, <span class="jxr_string">"b"</span>) instanceof <a href="../../../../com/google/common/collect/ImmutableSortedSet.html">ImmutableSortedSet</a>);
-<a class="jxr_linenumber" name="L487" href="#L487">487</a>     assertThat(set.subSet(<span class="jxr_string">"the"</span>, <span class="jxr_string">"quick"</span>)).containsExactly(<span class="jxr_string">"the"</span>, <span class="jxr_string">"over"</span>).inOrder();
+<a class="jxr_linenumber" name="L487" href="#L487">487</a>     assertThat(set.subSet(<span class="jxr_string">"the"</span>, <span class="jxr_string">"quick"</span>)).has().exactly(<span class="jxr_string">"the"</span>, <span class="jxr_string">"over"</span>).inOrder();
 <a class="jxr_linenumber" name="L488" href="#L488">488</a>     assertThat(set.subSet(<span class="jxr_string">"a"</span>, <span class="jxr_string">"california"</span>))
-<a class="jxr_linenumber" name="L489" href="#L489">489</a>         .containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"in"</span>, <span class="jxr_string">"the"</span>, <span class="jxr_string">"over"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"jumped"</span>).inOrder();
+<a class="jxr_linenumber" name="L489" href="#L489">489</a>         .has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"in"</span>, <span class="jxr_string">"the"</span>, <span class="jxr_string">"over"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"jumped"</span>).inOrder();
 <a class="jxr_linenumber" name="L490" href="#L490">490</a>     assertTrue(set.subSet(<span class="jxr_string">""</span>, <span class="jxr_string">"b"</span>).isEmpty());
 <a class="jxr_linenumber" name="L491" href="#L491">491</a>     assertTrue(set.subSet(<span class="jxr_string">"vermont"</span>, <span class="jxr_string">"california"</span>).isEmpty());
 <a class="jxr_linenumber" name="L492" href="#L492">492</a>     assertTrue(set.subSet(<span class="jxr_string">"aaa"</span>, <span class="jxr_string">"zzz"</span>).isEmpty());
@@ -538,13 +538,13 @@
 <a class="jxr_linenumber" name="L530" href="#L530">530</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testCopyOf_ordering() {
 <a class="jxr_linenumber" name="L531" href="#L531">531</a>     SortedSet&lt;String&gt; set =
 <a class="jxr_linenumber" name="L532" href="#L532">532</a>         copyOf(asList(<span class="jxr_string">"e"</span>, <span class="jxr_string">"a"</span>, <span class="jxr_string">"f"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"d"</span>, <span class="jxr_string">"c"</span>));
-<a class="jxr_linenumber" name="L533" href="#L533">533</a>     assertThat(set).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"d"</span>, <span class="jxr_string">"e"</span>, <span class="jxr_string">"f"</span>).inOrder();
+<a class="jxr_linenumber" name="L533" href="#L533">533</a>     assertThat(set).has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"d"</span>, <span class="jxr_string">"e"</span>, <span class="jxr_string">"f"</span>).inOrder();
 <a class="jxr_linenumber" name="L534" href="#L534">534</a>   }
 <a class="jxr_linenumber" name="L535" href="#L535">535</a> 
 <a class="jxr_linenumber" name="L536" href="#L536">536</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testCopyOf_ordering_dupes() {
 <a class="jxr_linenumber" name="L537" href="#L537">537</a>     SortedSet&lt;String&gt; set =
 <a class="jxr_linenumber" name="L538" href="#L538">538</a>         copyOf(asList(<span class="jxr_string">"e"</span>, <span class="jxr_string">"a"</span>, <span class="jxr_string">"e"</span>, <span class="jxr_string">"f"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"d"</span>, <span class="jxr_string">"a"</span>, <span class="jxr_string">"c"</span>));
-<a class="jxr_linenumber" name="L539" href="#L539">539</a>     assertThat(set).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"d"</span>, <span class="jxr_string">"e"</span>, <span class="jxr_string">"f"</span>).inOrder();
+<a class="jxr_linenumber" name="L539" href="#L539">539</a>     assertThat(set).has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"d"</span>, <span class="jxr_string">"e"</span>, <span class="jxr_string">"f"</span>).inOrder();
 <a class="jxr_linenumber" name="L540" href="#L540">540</a>   }
 <a class="jxr_linenumber" name="L541" href="#L541">541</a> 
 <a class="jxr_linenumber" name="L542" href="#L542">542</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testCopyOf_subSet() {
@@ -575,13 +575,13 @@
 <a class="jxr_linenumber" name="L567" href="#L567">567</a> 
 <a class="jxr_linenumber" name="L568" href="#L568">568</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testCopyOf_iterator_ordering() {
 <a class="jxr_linenumber" name="L569" href="#L569">569</a>     SortedSet&lt;String&gt; set = copyOf(asIterator(<span class="jxr_string">"e"</span>, <span class="jxr_string">"a"</span>, <span class="jxr_string">"f"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"d"</span>, <span class="jxr_string">"c"</span>));
-<a class="jxr_linenumber" name="L570" href="#L570">570</a>     assertThat(set).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"d"</span>, <span class="jxr_string">"e"</span>, <span class="jxr_string">"f"</span>).inOrder();
+<a class="jxr_linenumber" name="L570" href="#L570">570</a>     assertThat(set).has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"d"</span>, <span class="jxr_string">"e"</span>, <span class="jxr_string">"f"</span>).inOrder();
 <a class="jxr_linenumber" name="L571" href="#L571">571</a>   }
 <a class="jxr_linenumber" name="L572" href="#L572">572</a> 
 <a class="jxr_linenumber" name="L573" href="#L573">573</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testCopyOf_iterator_ordering_dupes() {
 <a class="jxr_linenumber" name="L574" href="#L574">574</a>     SortedSet&lt;String&gt; set =
 <a class="jxr_linenumber" name="L575" href="#L575">575</a>         copyOf(asIterator(<span class="jxr_string">"e"</span>, <span class="jxr_string">"a"</span>, <span class="jxr_string">"e"</span>, <span class="jxr_string">"f"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"d"</span>, <span class="jxr_string">"a"</span>, <span class="jxr_string">"c"</span>));
-<a class="jxr_linenumber" name="L576" href="#L576">576</a>     assertThat(set).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"d"</span>, <span class="jxr_string">"e"</span>, <span class="jxr_string">"f"</span>).inOrder();
+<a class="jxr_linenumber" name="L576" href="#L576">576</a>     assertThat(set).has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"d"</span>, <span class="jxr_string">"e"</span>, <span class="jxr_string">"f"</span>).inOrder();
 <a class="jxr_linenumber" name="L577" href="#L577">577</a>   }
 <a class="jxr_linenumber" name="L578" href="#L578">578</a> 
 <a class="jxr_linenumber" name="L579" href="#L579">579</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testCopyOf_iterator_comparator() {
@@ -592,7 +592,7 @@
 <a class="jxr_linenumber" name="L584" href="#L584">584</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testCopyOf_sortedSet_ordering() {
 <a class="jxr_linenumber" name="L585" href="#L585">585</a>     SortedSet&lt;String&gt; set =
 <a class="jxr_linenumber" name="L586" href="#L586">586</a>         copyOf(Sets.newTreeSet(asList(<span class="jxr_string">"e"</span>, <span class="jxr_string">"a"</span>, <span class="jxr_string">"f"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"d"</span>, <span class="jxr_string">"c"</span>)));
-<a class="jxr_linenumber" name="L587" href="#L587">587</a>     assertThat(set).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"d"</span>, <span class="jxr_string">"e"</span>, <span class="jxr_string">"f"</span>).inOrder();
+<a class="jxr_linenumber" name="L587" href="#L587">587</a>     assertThat(set).has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>, <span class="jxr_string">"d"</span>, <span class="jxr_string">"e"</span>, <span class="jxr_string">"f"</span>).inOrder();
 <a class="jxr_linenumber" name="L588" href="#L588">588</a>   }
 <a class="jxr_linenumber" name="L589" href="#L589">589</a> 
 <a class="jxr_linenumber" name="L590" href="#L590">590</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testCopyOf_sortedSet_comparator() {
@@ -604,7 +604,7 @@
 <a class="jxr_linenumber" name="L596" href="#L596">596</a>     SortedSet&lt;String&gt; set =
 <a class="jxr_linenumber" name="L597" href="#L597">597</a>         ImmutableSortedSet.copyOf(STRING_LENGTH, asList(
 <a class="jxr_linenumber" name="L598" href="#L598">598</a>             <span class="jxr_string">"in"</span>, <span class="jxr_string">"the"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"jumped"</span>, <span class="jxr_string">"over"</span>, <span class="jxr_string">"a"</span>));
-<a class="jxr_linenumber" name="L599" href="#L599">599</a>     assertThat(set).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"in"</span>, <span class="jxr_string">"the"</span>, <span class="jxr_string">"over"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"jumped"</span>).inOrder();
+<a class="jxr_linenumber" name="L599" href="#L599">599</a>     assertThat(set).has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"in"</span>, <span class="jxr_string">"the"</span>, <span class="jxr_string">"over"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"jumped"</span>).inOrder();
 <a class="jxr_linenumber" name="L600" href="#L600">600</a>   }
 <a class="jxr_linenumber" name="L601" href="#L601">601</a> 
 <a class="jxr_linenumber" name="L602" href="#L602">602</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testCopyOfExplicit_ordering_dupes() {
@@ -612,7 +612,7 @@
 <a class="jxr_linenumber" name="L604" href="#L604">604</a>         ImmutableSortedSet.copyOf(STRING_LENGTH, asList(
 <a class="jxr_linenumber" name="L605" href="#L605">605</a>             <span class="jxr_string">"in"</span>, <span class="jxr_string">"the"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"brown"</span>, <span class="jxr_string">"fox"</span>, <span class="jxr_string">"jumped"</span>, <span class="jxr_string">"over"</span>, <span class="jxr_string">"a"</span>,
 <a class="jxr_linenumber" name="L606" href="#L606">606</a>             <span class="jxr_string">"lazy"</span>, <span class="jxr_string">"dog"</span>));
-<a class="jxr_linenumber" name="L607" href="#L607">607</a>     assertThat(set).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"in"</span>, <span class="jxr_string">"the"</span>, <span class="jxr_string">"over"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"jumped"</span>).inOrder();
+<a class="jxr_linenumber" name="L607" href="#L607">607</a>     assertThat(set).has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"in"</span>, <span class="jxr_string">"the"</span>, <span class="jxr_string">"over"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"jumped"</span>).inOrder();
 <a class="jxr_linenumber" name="L608" href="#L608">608</a>   }
 <a class="jxr_linenumber" name="L609" href="#L609">609</a> 
 <a class="jxr_linenumber" name="L610" href="#L610">610</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testCopyOfExplicit_comparator() {
@@ -626,7 +626,7 @@
 <a class="jxr_linenumber" name="L618" href="#L618">618</a>     SortedSet&lt;String&gt; set =
 <a class="jxr_linenumber" name="L619" href="#L619">619</a>         ImmutableSortedSet.copyOf(STRING_LENGTH, asIterator(
 <a class="jxr_linenumber" name="L620" href="#L620">620</a>             <span class="jxr_string">"in"</span>, <span class="jxr_string">"the"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"jumped"</span>, <span class="jxr_string">"over"</span>, <span class="jxr_string">"a"</span>));
-<a class="jxr_linenumber" name="L621" href="#L621">621</a>     assertThat(set).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"in"</span>, <span class="jxr_string">"the"</span>, <span class="jxr_string">"over"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"jumped"</span>).inOrder();
+<a class="jxr_linenumber" name="L621" href="#L621">621</a>     assertThat(set).has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"in"</span>, <span class="jxr_string">"the"</span>, <span class="jxr_string">"over"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"jumped"</span>).inOrder();
 <a class="jxr_linenumber" name="L622" href="#L622">622</a>   }
 <a class="jxr_linenumber" name="L623" href="#L623">623</a> 
 <a class="jxr_linenumber" name="L624" href="#L624">624</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testCopyOfExplicit_iterator_ordering_dupes() {
@@ -634,7 +634,7 @@
 <a class="jxr_linenumber" name="L626" href="#L626">626</a>         ImmutableSortedSet.copyOf(STRING_LENGTH, asIterator(
 <a class="jxr_linenumber" name="L627" href="#L627">627</a>             <span class="jxr_string">"in"</span>, <span class="jxr_string">"the"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"brown"</span>, <span class="jxr_string">"fox"</span>, <span class="jxr_string">"jumped"</span>, <span class="jxr_string">"over"</span>, <span class="jxr_string">"a"</span>,
 <a class="jxr_linenumber" name="L628" href="#L628">628</a>             <span class="jxr_string">"lazy"</span>, <span class="jxr_string">"dog"</span>));
-<a class="jxr_linenumber" name="L629" href="#L629">629</a>     assertThat(set).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"in"</span>, <span class="jxr_string">"the"</span>, <span class="jxr_string">"over"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"jumped"</span>).inOrder();
+<a class="jxr_linenumber" name="L629" href="#L629">629</a>     assertThat(set).has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"in"</span>, <span class="jxr_string">"the"</span>, <span class="jxr_string">"over"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"jumped"</span>).inOrder();
 <a class="jxr_linenumber" name="L630" href="#L630">630</a>   }
 <a class="jxr_linenumber" name="L631" href="#L631">631</a> 
 <a class="jxr_linenumber" name="L632" href="#L632">632</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testCopyOfExplicit_iterator_comparator() {
@@ -648,14 +648,14 @@
 <a class="jxr_linenumber" name="L640" href="#L640">640</a>     SortedSet&lt;String&gt; input = Sets.newTreeSet(STRING_LENGTH);
 <a class="jxr_linenumber" name="L641" href="#L641">641</a>     Collections.addAll(input, <span class="jxr_string">"in"</span>, <span class="jxr_string">"the"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"jumped"</span>, <span class="jxr_string">"over"</span>, <span class="jxr_string">"a"</span>);
 <a class="jxr_linenumber" name="L642" href="#L642">642</a>     SortedSet&lt;String&gt; set = copyOf(input);
-<a class="jxr_linenumber" name="L643" href="#L643">643</a>     assertThat(set).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"in"</span>, <span class="jxr_string">"jumped"</span>, <span class="jxr_string">"over"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"the"</span>).inOrder();
+<a class="jxr_linenumber" name="L643" href="#L643">643</a>     assertThat(set).has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"in"</span>, <span class="jxr_string">"jumped"</span>, <span class="jxr_string">"over"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"the"</span>).inOrder();
 <a class="jxr_linenumber" name="L644" href="#L644">644</a>   }
 <a class="jxr_linenumber" name="L645" href="#L645">645</a> 
 <a class="jxr_linenumber" name="L646" href="#L646">646</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testCopyOfSorted_natural_ordering() {
 <a class="jxr_linenumber" name="L647" href="#L647">647</a>     SortedSet&lt;String&gt; input = Sets.newTreeSet(
 <a class="jxr_linenumber" name="L648" href="#L648">648</a>         asList(<span class="jxr_string">"in"</span>, <span class="jxr_string">"the"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"jumped"</span>, <span class="jxr_string">"over"</span>, <span class="jxr_string">"a"</span>));
 <a class="jxr_linenumber" name="L649" href="#L649">649</a>     SortedSet&lt;String&gt; set = ImmutableSortedSet.copyOfSorted(input);
-<a class="jxr_linenumber" name="L650" href="#L650">650</a>     assertThat(set).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"in"</span>, <span class="jxr_string">"jumped"</span>, <span class="jxr_string">"over"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"the"</span>).inOrder();
+<a class="jxr_linenumber" name="L650" href="#L650">650</a>     assertThat(set).has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"in"</span>, <span class="jxr_string">"jumped"</span>, <span class="jxr_string">"over"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"the"</span>).inOrder();
 <a class="jxr_linenumber" name="L651" href="#L651">651</a>   }
 <a class="jxr_linenumber" name="L652" href="#L652">652</a> 
 <a class="jxr_linenumber" name="L653" href="#L653">653</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testCopyOfSorted_natural_comparator() {
@@ -669,7 +669,7 @@
 <a class="jxr_linenumber" name="L661" href="#L661">661</a>     SortedSet&lt;String&gt; input = Sets.newTreeSet(STRING_LENGTH);
 <a class="jxr_linenumber" name="L662" href="#L662">662</a>     Collections.addAll(input, <span class="jxr_string">"in"</span>, <span class="jxr_string">"the"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"jumped"</span>, <span class="jxr_string">"over"</span>, <span class="jxr_string">"a"</span>);
 <a class="jxr_linenumber" name="L663" href="#L663">663</a>     SortedSet&lt;String&gt; set = ImmutableSortedSet.copyOfSorted(input);
-<a class="jxr_linenumber" name="L664" href="#L664">664</a>     assertThat(set).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"in"</span>, <span class="jxr_string">"the"</span>, <span class="jxr_string">"over"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"jumped"</span>).inOrder();
+<a class="jxr_linenumber" name="L664" href="#L664">664</a>     assertThat(set).has().exactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"in"</span>, <span class="jxr_string">"the"</span>, <span class="jxr_string">"over"</span>, <span class="jxr_string">"quick"</span>, <span class="jxr_string">"jumped"</span>).inOrder();
 <a class="jxr_linenumber" name="L665" href="#L665">665</a>     assertSame(STRING_LENGTH, set.comparator());
 <a class="jxr_linenumber" name="L666" href="#L666">666</a>   }
 <a class="jxr_linenumber" name="L667" href="#L667">667</a> 
@@ -768,7 +768,7 @@
 <a class="jxr_linenumber" name="L760" href="#L760">760</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testReverseOrder() {
 <a class="jxr_linenumber" name="L761" href="#L761">761</a>     SortedSet&lt;String&gt; set = ImmutableSortedSet.&lt;String&gt;reverseOrder()
 <a class="jxr_linenumber" name="L762" href="#L762">762</a>         .add(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"c"</span>).build();
-<a class="jxr_linenumber" name="L763" href="#L763">763</a>     assertThat(set).containsExactly(<span class="jxr_string">"c"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"a"</span>).inOrder();
+<a class="jxr_linenumber" name="L763" href="#L763">763</a>     assertThat(set).has().exactly(<span class="jxr_string">"c"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"a"</span>).inOrder();
 <a class="jxr_linenumber" name="L764" href="#L764">764</a>     assertEquals(Ordering.natural().reverse(), set.comparator());
 <a class="jxr_linenumber" name="L765" href="#L765">765</a>   }
 <a class="jxr_linenumber" name="L766" href="#L766">766</a> 
@@ -783,13 +783,13 @@
 <a class="jxr_linenumber" name="L775" href="#L775">775</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testSupertypeComparator() {
 <a class="jxr_linenumber" name="L776" href="#L776">776</a>     SortedSet&lt;Integer&gt; set = <strong class="jxr_keyword">new</strong> ImmutableSortedSet.Builder&lt;Integer&gt;(TO_STRING)
 <a class="jxr_linenumber" name="L777" href="#L777">777</a>         .add(3, 12, 101, 44).build();
-<a class="jxr_linenumber" name="L778" href="#L778">778</a>     assertThat(set).containsExactly(101, 12, 3, 44).inOrder();
+<a class="jxr_linenumber" name="L778" href="#L778">778</a>     assertThat(set).has().exactly(101, 12, 3, 44).inOrder();
 <a class="jxr_linenumber" name="L779" href="#L779">779</a>   }
 <a class="jxr_linenumber" name="L780" href="#L780">780</a> 
 <a class="jxr_linenumber" name="L781" href="#L781">781</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testSupertypeComparatorSubtypeElements() {
 <a class="jxr_linenumber" name="L782" href="#L782">782</a>     SortedSet&lt;Number&gt; set = <strong class="jxr_keyword">new</strong> ImmutableSortedSet.Builder&lt;Number&gt;(TO_STRING)
 <a class="jxr_linenumber" name="L783" href="#L783">783</a>         .add(3, 12, 101, 44).build();
-<a class="jxr_linenumber" name="L784" href="#L784">784</a>     assertThat(set).containsExactly(101, 12, 3, 44).inOrder();
+<a class="jxr_linenumber" name="L784" href="#L784">784</a>     assertThat(set).has().exactly(101, 12, 3, 44).inOrder();
 <a class="jxr_linenumber" name="L785" href="#L785">785</a>   }
 <a class="jxr_linenumber" name="L786" href="#L786">786</a> 
 <a class="jxr_linenumber" name="L787" href="#L787">787</a>   @Override &lt;E <strong class="jxr_keyword">extends</strong> Comparable&lt;E&gt;&gt; ImmutableSortedSet.Builder&lt;E&gt; builder() {
@@ -931,125 +931,117 @@
 <a class="jxr_linenumber" name="L923" href="#L923">923</a>     Arrays.sort(strings);
 <a class="jxr_linenumber" name="L924" href="#L924">924</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; strings.length; i++) {
 <a class="jxr_linenumber" name="L925" href="#L925">925</a>       assertThat(set.headSet(strings[i], <strong class="jxr_keyword">true</strong>))
-<a class="jxr_linenumber" name="L926" href="#L926">926</a>           .containsExactlyElementsIn(sortedNumberNames(0, i + 1))
-<a class="jxr_linenumber" name="L927" href="#L927">927</a>           .inOrder();
-<a class="jxr_linenumber" name="L928" href="#L928">928</a>     }
-<a class="jxr_linenumber" name="L929" href="#L929">929</a>   }
-<a class="jxr_linenumber" name="L930" href="#L930">930</a> 
-<a class="jxr_linenumber" name="L931" href="#L931">931</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testHeadSetExclusive() {
-<a class="jxr_linenumber" name="L932" href="#L932">932</a>     String[] strings = NUMBER_NAMES.toArray(<strong class="jxr_keyword">new</strong> String[0]);
-<a class="jxr_linenumber" name="L933" href="#L933">933</a>     ImmutableSortedSet&lt;String&gt; set = ImmutableSortedSet.copyOf(strings);
-<a class="jxr_linenumber" name="L934" href="#L934">934</a>     Arrays.sort(strings);
-<a class="jxr_linenumber" name="L935" href="#L935">935</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; strings.length; i++) {
-<a class="jxr_linenumber" name="L936" href="#L936">936</a>       assertThat(set.headSet(strings[i], false))
-<a class="jxr_linenumber" name="L937" href="#L937">937</a>           .containsExactlyElementsIn(sortedNumberNames(0, i))
-<a class="jxr_linenumber" name="L938" href="#L938">938</a>           .inOrder();
-<a class="jxr_linenumber" name="L939" href="#L939">939</a>     }
-<a class="jxr_linenumber" name="L940" href="#L940">940</a>   }
-<a class="jxr_linenumber" name="L941" href="#L941">941</a> 
-<a class="jxr_linenumber" name="L942" href="#L942">942</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testTailSetInclusive() {
-<a class="jxr_linenumber" name="L943" href="#L943">943</a>     String[] strings = NUMBER_NAMES.toArray(<strong class="jxr_keyword">new</strong> String[0]);
-<a class="jxr_linenumber" name="L944" href="#L944">944</a>     ImmutableSortedSet&lt;String&gt; set = ImmutableSortedSet.copyOf(strings);
-<a class="jxr_linenumber" name="L945" href="#L945">945</a>     Arrays.sort(strings);
-<a class="jxr_linenumber" name="L946" href="#L946">946</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; strings.length; i++) {
-<a class="jxr_linenumber" name="L947" href="#L947">947</a>       assertThat(set.tailSet(strings[i], <strong class="jxr_keyword">true</strong>))
-<a class="jxr_linenumber" name="L948" href="#L948">948</a>           .containsExactlyElementsIn(sortedNumberNames(i, strings.length))
-<a class="jxr_linenumber" name="L949" href="#L949">949</a>           .inOrder();
-<a class="jxr_linenumber" name="L950" href="#L950">950</a>     }
-<a class="jxr_linenumber" name="L951" href="#L951">951</a>   }
-<a class="jxr_linenumber" name="L952" href="#L952">952</a> 
-<a class="jxr_linenumber" name="L953" href="#L953">953</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testTailSetExclusive() {
-<a class="jxr_linenumber" name="L954" href="#L954">954</a>     String[] strings = NUMBER_NAMES.toArray(<strong class="jxr_keyword">new</strong> String[0]);
-<a class="jxr_linenumber" name="L955" href="#L955">955</a>     ImmutableSortedSet&lt;String&gt; set = ImmutableSortedSet.copyOf(strings);
-<a class="jxr_linenumber" name="L956" href="#L956">956</a>     Arrays.sort(strings);
-<a class="jxr_linenumber" name="L957" href="#L957">957</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; strings.length; i++) {
-<a class="jxr_linenumber" name="L958" href="#L958">958</a>       assertThat(set.tailSet(strings[i], false))
-<a class="jxr_linenumber" name="L959" href="#L959">959</a>           .containsExactlyElementsIn(sortedNumberNames(i + 1, strings.length))
-<a class="jxr_linenumber" name="L960" href="#L960">960</a>           .inOrder();
-<a class="jxr_linenumber" name="L961" href="#L961">961</a>     }
-<a class="jxr_linenumber" name="L962" href="#L962">962</a>   }
-<a class="jxr_linenumber" name="L963" href="#L963">963</a> 
-<a class="jxr_linenumber" name="L964" href="#L964">964</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testSubSetExclusiveExclusive() {
-<a class="jxr_linenumber" name="L965" href="#L965">965</a>     String[] strings = NUMBER_NAMES.toArray(<strong class="jxr_keyword">new</strong> String[0]);
-<a class="jxr_linenumber" name="L966" href="#L966">966</a>     ImmutableSortedSet&lt;String&gt; set = ImmutableSortedSet.copyOf(strings);
-<a class="jxr_linenumber" name="L967" href="#L967">967</a>     Arrays.sort(strings);
-<a class="jxr_linenumber" name="L968" href="#L968">968</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; strings.length; i++) {
-<a class="jxr_linenumber" name="L969" href="#L969">969</a>       <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> j = i; j &lt; strings.length; j++) {
-<a class="jxr_linenumber" name="L970" href="#L970">970</a>         assertThat(set.subSet(strings[i], false, strings[j], false))
-<a class="jxr_linenumber" name="L971" href="#L971">971</a>             .containsExactlyElementsIn(sortedNumberNames(Math.min(i + 1, j), j))
-<a class="jxr_linenumber" name="L972" href="#L972">972</a>             .inOrder();
-<a class="jxr_linenumber" name="L973" href="#L973">973</a>       }
-<a class="jxr_linenumber" name="L974" href="#L974">974</a>     }
-<a class="jxr_linenumber" name="L975" href="#L975">975</a>   }
-<a class="jxr_linenumber" name="L976" href="#L976">976</a> 
-<a class="jxr_linenumber" name="L977" href="#L977">977</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testSubSetInclusiveExclusive() {
-<a class="jxr_linenumber" name="L978" href="#L978">978</a>     String[] strings = NUMBER_NAMES.toArray(<strong class="jxr_keyword">new</strong> String[0]);
-<a class="jxr_linenumber" name="L979" href="#L979">979</a>     ImmutableSortedSet&lt;String&gt; set = ImmutableSortedSet.copyOf(strings);
-<a class="jxr_linenumber" name="L980" href="#L980">980</a>     Arrays.sort(strings);
-<a class="jxr_linenumber" name="L981" href="#L981">981</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; strings.length; i++) {
-<a class="jxr_linenumber" name="L982" href="#L982">982</a>       <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> j = i; j &lt; strings.length; j++) {
-<a class="jxr_linenumber" name="L983" href="#L983">983</a>         assertThat(set.subSet(strings[i], <strong class="jxr_keyword">true</strong>, strings[j], false))
-<a class="jxr_linenumber" name="L984" href="#L984">984</a>             .containsExactlyElementsIn(sortedNumberNames(i, j))
-<a class="jxr_linenumber" name="L985" href="#L985">985</a>             .inOrder();
-<a class="jxr_linenumber" name="L986" href="#L986">986</a>       }
-<a class="jxr_linenumber" name="L987" href="#L987">987</a>     }
-<a class="jxr_linenumber" name="L988" href="#L988">988</a>   }
-<a class="jxr_linenumber" name="L989" href="#L989">989</a> 
-<a class="jxr_linenumber" name="L990" href="#L990">990</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testSubSetExclusiveInclusive() {
-<a class="jxr_linenumber" name="L991" href="#L991">991</a>     String[] strings = NUMBER_NAMES.toArray(<strong class="jxr_keyword">new</strong> String[0]);
-<a class="jxr_linenumber" name="L992" href="#L992">992</a>     ImmutableSortedSet&lt;String&gt; set = ImmutableSortedSet.copyOf(strings);
-<a class="jxr_linenumber" name="L993" href="#L993">993</a>     Arrays.sort(strings);
-<a class="jxr_linenumber" name="L994" href="#L994">994</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; strings.length; i++) {
-<a class="jxr_linenumber" name="L995" href="#L995">995</a>       <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> j = i; j &lt; strings.length; j++) {
-<a class="jxr_linenumber" name="L996" href="#L996">996</a>         assertThat(set.subSet(strings[i], false, strings[j], <strong class="jxr_keyword">true</strong>))
-<a class="jxr_linenumber" name="L997" href="#L997">997</a>             .containsExactlyElementsIn(sortedNumberNames(i + 1, j + 1))
-<a class="jxr_linenumber" name="L998" href="#L998">998</a>             .inOrder();
-<a class="jxr_linenumber" name="L999" href="#L999">999</a>       }
-<a class="jxr_linenumber" name="L1000" href="#L1000">1000</a>     }
-<a class="jxr_linenumber" name="L1001" href="#L1001">1001</a>   }
-<a class="jxr_linenumber" name="L1002" href="#L1002">1002</a> 
-<a class="jxr_linenumber" name="L1003" href="#L1003">1003</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testSubSetInclusiveInclusive() {
-<a class="jxr_linenumber" name="L1004" href="#L1004">1004</a>     String[] strings = NUMBER_NAMES.toArray(<strong class="jxr_keyword">new</strong> String[0]);
-<a class="jxr_linenumber" name="L1005" href="#L1005">1005</a>     ImmutableSortedSet&lt;String&gt; set = ImmutableSortedSet.copyOf(strings);
-<a class="jxr_linenumber" name="L1006" href="#L1006">1006</a>     Arrays.sort(strings);
-<a class="jxr_linenumber" name="L1007" href="#L1007">1007</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; strings.length; i++) {
-<a class="jxr_linenumber" name="L1008" href="#L1008">1008</a>       <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> j = i; j &lt; strings.length; j++) {
-<a class="jxr_linenumber" name="L1009" href="#L1009">1009</a>         assertThat(set.subSet(strings[i], <strong class="jxr_keyword">true</strong>, strings[j], <strong class="jxr_keyword">true</strong>))
-<a class="jxr_linenumber" name="L1010" href="#L1010">1010</a>             .containsExactlyElementsIn(sortedNumberNames(i, j + 1))
-<a class="jxr_linenumber" name="L1011" href="#L1011">1011</a>             .inOrder();
-<a class="jxr_linenumber" name="L1012" href="#L1012">1012</a>       }
-<a class="jxr_linenumber" name="L1013" href="#L1013">1013</a>     }
-<a class="jxr_linenumber" name="L1014" href="#L1014">1014</a>   }
-<a class="jxr_linenumber" name="L1015" href="#L1015">1015</a> 
-<a class="jxr_linenumber" name="L1016" href="#L1016">1016</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> ImmutableList&lt;String&gt; sortedNumberNames(<strong class="jxr_keyword">int</strong> i, <strong class="jxr_keyword">int</strong> j) {
-<a class="jxr_linenumber" name="L1017" href="#L1017">1017</a>     <strong class="jxr_keyword">return</strong> ImmutableList.copyOf(SORTED_NUMBER_NAMES.subList(i, j));
-<a class="jxr_linenumber" name="L1018" href="#L1018">1018</a>   }
-<a class="jxr_linenumber" name="L1019" href="#L1019">1019</a> 
-<a class="jxr_linenumber" name="L1020" href="#L1020">1020</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> ImmutableList&lt;String&gt; NUMBER_NAMES =
-<a class="jxr_linenumber" name="L1021" href="#L1021">1021</a>       ImmutableList.of(<span class="jxr_string">"one"</span>, <span class="jxr_string">"two"</span>, <span class="jxr_string">"three"</span>, <span class="jxr_string">"four"</span>, <span class="jxr_string">"five"</span>, <span class="jxr_string">"six"</span>, <span class="jxr_string">"seven"</span>);
-<a class="jxr_linenumber" name="L1022" href="#L1022">1022</a> 
-<a class="jxr_linenumber" name="L1023" href="#L1023">1023</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> ImmutableList&lt;String&gt; SORTED_NUMBER_NAMES =
-<a class="jxr_linenumber" name="L1024" href="#L1024">1024</a>       Ordering.natural().immutableSortedCopy(NUMBER_NAMES);
-<a class="jxr_linenumber" name="L1025" href="#L1025">1025</a> 
-<a class="jxr_linenumber" name="L1026" href="#L1026">1026</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../com/google/common/collect/ImmutableSortedMapTest.html">SelfComparableExample</a> <strong class="jxr_keyword">implements</strong> Comparable&lt;SelfComparableExample&gt; {
-<a class="jxr_linenumber" name="L1027" href="#L1027">1027</a>     @Override
-<a class="jxr_linenumber" name="L1028" href="#L1028">1028</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> compareTo(<a href="../../../../com/google/common/collect/ImmutableSortedMapTest.html">SelfComparableExample</a> o) {
-<a class="jxr_linenumber" name="L1029" href="#L1029">1029</a>       <strong class="jxr_keyword">return</strong> 0;
-<a class="jxr_linenumber" name="L1030" href="#L1030">1030</a>     }
-<a class="jxr_linenumber" name="L1031" href="#L1031">1031</a>   }
-<a class="jxr_linenumber" name="L1032" href="#L1032">1032</a> 
-<a class="jxr_linenumber" name="L1033" href="#L1033">1033</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testBuilderGenerics_SelfComparable() {
-<a class="jxr_linenumber" name="L1034" href="#L1034">1034</a>     ImmutableSortedSet.Builder&lt;SelfComparableExample&gt; natural = ImmutableSortedSet.naturalOrder();
-<a class="jxr_linenumber" name="L1035" href="#L1035">1035</a>     ImmutableSortedSet.Builder&lt;SelfComparableExample&gt; reverse = ImmutableSortedSet.reverseOrder();
-<a class="jxr_linenumber" name="L1036" href="#L1036">1036</a>   }
-<a class="jxr_linenumber" name="L1037" href="#L1037">1037</a> 
-<a class="jxr_linenumber" name="L1038" href="#L1038">1038</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../com/google/common/collect/ImmutableSortedMapTest.html">SuperComparableExample</a> <strong class="jxr_keyword">extends</strong> <a href="../../../../com/google/common/collect/ImmutableSortedMapTest.html">SelfComparableExample</a> {}
-<a class="jxr_linenumber" name="L1039" href="#L1039">1039</a> 
-<a class="jxr_linenumber" name="L1040" href="#L1040">1040</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testBuilderGenerics_SuperComparable() {
-<a class="jxr_linenumber" name="L1041" href="#L1041">1041</a>     ImmutableSortedSet.Builder&lt;SuperComparableExample&gt; natural = ImmutableSortedSet.naturalOrder();
-<a class="jxr_linenumber" name="L1042" href="#L1042">1042</a>     ImmutableSortedSet.Builder&lt;SuperComparableExample&gt; reverse = ImmutableSortedSet.reverseOrder();
-<a class="jxr_linenumber" name="L1043" href="#L1043">1043</a>   }
-<a class="jxr_linenumber" name="L1044" href="#L1044">1044</a> }
+<a class="jxr_linenumber" name="L926" href="#L926">926</a>           .has().exactlyAs(sortedNumberNames(0, i + 1)).inOrder();
+<a class="jxr_linenumber" name="L927" href="#L927">927</a>     }
+<a class="jxr_linenumber" name="L928" href="#L928">928</a>   }
+<a class="jxr_linenumber" name="L929" href="#L929">929</a> 
+<a class="jxr_linenumber" name="L930" href="#L930">930</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testHeadSetExclusive() {
+<a class="jxr_linenumber" name="L931" href="#L931">931</a>     String[] strings = NUMBER_NAMES.toArray(<strong class="jxr_keyword">new</strong> String[0]);
+<a class="jxr_linenumber" name="L932" href="#L932">932</a>     ImmutableSortedSet&lt;String&gt; set = ImmutableSortedSet.copyOf(strings);
+<a class="jxr_linenumber" name="L933" href="#L933">933</a>     Arrays.sort(strings);
+<a class="jxr_linenumber" name="L934" href="#L934">934</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; strings.length; i++) {
+<a class="jxr_linenumber" name="L935" href="#L935">935</a>       assertThat(set.headSet(strings[i], false)).has().exactlyAs(
+<a class="jxr_linenumber" name="L936" href="#L936">936</a>           sortedNumberNames(0, i)).inOrder();
+<a class="jxr_linenumber" name="L937" href="#L937">937</a>     }
+<a class="jxr_linenumber" name="L938" href="#L938">938</a>   }
+<a class="jxr_linenumber" name="L939" href="#L939">939</a> 
+<a class="jxr_linenumber" name="L940" href="#L940">940</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testTailSetInclusive() {
+<a class="jxr_linenumber" name="L941" href="#L941">941</a>     String[] strings = NUMBER_NAMES.toArray(<strong class="jxr_keyword">new</strong> String[0]);
+<a class="jxr_linenumber" name="L942" href="#L942">942</a>     ImmutableSortedSet&lt;String&gt; set = ImmutableSortedSet.copyOf(strings);
+<a class="jxr_linenumber" name="L943" href="#L943">943</a>     Arrays.sort(strings);
+<a class="jxr_linenumber" name="L944" href="#L944">944</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; strings.length; i++) {
+<a class="jxr_linenumber" name="L945" href="#L945">945</a>       assertThat(set.tailSet(strings[i], <strong class="jxr_keyword">true</strong>)).has().exactlyAs(
+<a class="jxr_linenumber" name="L946" href="#L946">946</a>           sortedNumberNames(i, strings.length)).inOrder();
+<a class="jxr_linenumber" name="L947" href="#L947">947</a>     }
+<a class="jxr_linenumber" name="L948" href="#L948">948</a>   }
+<a class="jxr_linenumber" name="L949" href="#L949">949</a> 
+<a class="jxr_linenumber" name="L950" href="#L950">950</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testTailSetExclusive() {
+<a class="jxr_linenumber" name="L951" href="#L951">951</a>     String[] strings = NUMBER_NAMES.toArray(<strong class="jxr_keyword">new</strong> String[0]);
+<a class="jxr_linenumber" name="L952" href="#L952">952</a>     ImmutableSortedSet&lt;String&gt; set = ImmutableSortedSet.copyOf(strings);
+<a class="jxr_linenumber" name="L953" href="#L953">953</a>     Arrays.sort(strings);
+<a class="jxr_linenumber" name="L954" href="#L954">954</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; strings.length; i++) {
+<a class="jxr_linenumber" name="L955" href="#L955">955</a>       assertThat(set.tailSet(strings[i], false)).has().exactlyAs(
+<a class="jxr_linenumber" name="L956" href="#L956">956</a>           sortedNumberNames(i + 1, strings.length)).inOrder();
+<a class="jxr_linenumber" name="L957" href="#L957">957</a>     }
+<a class="jxr_linenumber" name="L958" href="#L958">958</a>   }
+<a class="jxr_linenumber" name="L959" href="#L959">959</a> 
+<a class="jxr_linenumber" name="L960" href="#L960">960</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testSubSetExclusiveExclusive() {
+<a class="jxr_linenumber" name="L961" href="#L961">961</a>     String[] strings = NUMBER_NAMES.toArray(<strong class="jxr_keyword">new</strong> String[0]);
+<a class="jxr_linenumber" name="L962" href="#L962">962</a>     ImmutableSortedSet&lt;String&gt; set = ImmutableSortedSet.copyOf(strings);
+<a class="jxr_linenumber" name="L963" href="#L963">963</a>     Arrays.sort(strings);
+<a class="jxr_linenumber" name="L964" href="#L964">964</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; strings.length; i++) {
+<a class="jxr_linenumber" name="L965" href="#L965">965</a>       <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> j = i; j &lt; strings.length; j++) {
+<a class="jxr_linenumber" name="L966" href="#L966">966</a>         assertThat(set.subSet(strings[i], false, strings[j], false))
+<a class="jxr_linenumber" name="L967" href="#L967">967</a>             .has().exactlyAs(sortedNumberNames(Math.min(i + 1, j), j)).inOrder();
+<a class="jxr_linenumber" name="L968" href="#L968">968</a>       }
+<a class="jxr_linenumber" name="L969" href="#L969">969</a>     }
+<a class="jxr_linenumber" name="L970" href="#L970">970</a>   }
+<a class="jxr_linenumber" name="L971" href="#L971">971</a> 
+<a class="jxr_linenumber" name="L972" href="#L972">972</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testSubSetInclusiveExclusive() {
+<a class="jxr_linenumber" name="L973" href="#L973">973</a>     String[] strings = NUMBER_NAMES.toArray(<strong class="jxr_keyword">new</strong> String[0]);
+<a class="jxr_linenumber" name="L974" href="#L974">974</a>     ImmutableSortedSet&lt;String&gt; set = ImmutableSortedSet.copyOf(strings);
+<a class="jxr_linenumber" name="L975" href="#L975">975</a>     Arrays.sort(strings);
+<a class="jxr_linenumber" name="L976" href="#L976">976</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; strings.length; i++) {
+<a class="jxr_linenumber" name="L977" href="#L977">977</a>       <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> j = i; j &lt; strings.length; j++) {
+<a class="jxr_linenumber" name="L978" href="#L978">978</a>         assertThat(set.subSet(strings[i], <strong class="jxr_keyword">true</strong>, strings[j], false))
+<a class="jxr_linenumber" name="L979" href="#L979">979</a>             .has().exactlyAs(sortedNumberNames(i, j)).inOrder();
+<a class="jxr_linenumber" name="L980" href="#L980">980</a>       }
+<a class="jxr_linenumber" name="L981" href="#L981">981</a>     }
+<a class="jxr_linenumber" name="L982" href="#L982">982</a>   }
+<a class="jxr_linenumber" name="L983" href="#L983">983</a> 
+<a class="jxr_linenumber" name="L984" href="#L984">984</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testSubSetExclusiveInclusive() {
+<a class="jxr_linenumber" name="L985" href="#L985">985</a>     String[] strings = NUMBER_NAMES.toArray(<strong class="jxr_keyword">new</strong> String[0]);
+<a class="jxr_linenumber" name="L986" href="#L986">986</a>     ImmutableSortedSet&lt;String&gt; set = ImmutableSortedSet.copyOf(strings);
+<a class="jxr_linenumber" name="L987" href="#L987">987</a>     Arrays.sort(strings);
+<a class="jxr_linenumber" name="L988" href="#L988">988</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; strings.length; i++) {
+<a class="jxr_linenumber" name="L989" href="#L989">989</a>       <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> j = i; j &lt; strings.length; j++) {
+<a class="jxr_linenumber" name="L990" href="#L990">990</a>         assertThat(set.subSet(strings[i], false, strings[j], <strong class="jxr_keyword">true</strong>))
+<a class="jxr_linenumber" name="L991" href="#L991">991</a>             .has().exactlyAs(sortedNumberNames(i + 1, j + 1)).inOrder();
+<a class="jxr_linenumber" name="L992" href="#L992">992</a>       }
+<a class="jxr_linenumber" name="L993" href="#L993">993</a>     }
+<a class="jxr_linenumber" name="L994" href="#L994">994</a>   }
+<a class="jxr_linenumber" name="L995" href="#L995">995</a> 
+<a class="jxr_linenumber" name="L996" href="#L996">996</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testSubSetInclusiveInclusive() {
+<a class="jxr_linenumber" name="L997" href="#L997">997</a>     String[] strings = NUMBER_NAMES.toArray(<strong class="jxr_keyword">new</strong> String[0]);
+<a class="jxr_linenumber" name="L998" href="#L998">998</a>     ImmutableSortedSet&lt;String&gt; set = ImmutableSortedSet.copyOf(strings);
+<a class="jxr_linenumber" name="L999" href="#L999">999</a>     Arrays.sort(strings);
+<a class="jxr_linenumber" name="L1000" href="#L1000">1000</a>     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; strings.length; i++) {
+<a class="jxr_linenumber" name="L1001" href="#L1001">1001</a>       <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> j = i; j &lt; strings.length; j++) {
+<a class="jxr_linenumber" name="L1002" href="#L1002">1002</a>         assertThat(set.subSet(strings[i], <strong class="jxr_keyword">true</strong>, strings[j], <strong class="jxr_keyword">true</strong>))
+<a class="jxr_linenumber" name="L1003" href="#L1003">1003</a>             .has().exactlyAs(sortedNumberNames(i, j + 1)).inOrder();
+<a class="jxr_linenumber" name="L1004" href="#L1004">1004</a>       }
+<a class="jxr_linenumber" name="L1005" href="#L1005">1005</a>     }
+<a class="jxr_linenumber" name="L1006" href="#L1006">1006</a>   }
+<a class="jxr_linenumber" name="L1007" href="#L1007">1007</a> 
+<a class="jxr_linenumber" name="L1008" href="#L1008">1008</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> ImmutableList&lt;String&gt; sortedNumberNames(<strong class="jxr_keyword">int</strong> i, <strong class="jxr_keyword">int</strong> j) {
+<a class="jxr_linenumber" name="L1009" href="#L1009">1009</a>     <strong class="jxr_keyword">return</strong> ImmutableList.copyOf(SORTED_NUMBER_NAMES.subList(i, j));
+<a class="jxr_linenumber" name="L1010" href="#L1010">1010</a>   }
+<a class="jxr_linenumber" name="L1011" href="#L1011">1011</a> 
+<a class="jxr_linenumber" name="L1012" href="#L1012">1012</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> ImmutableList&lt;String&gt; NUMBER_NAMES =
+<a class="jxr_linenumber" name="L1013" href="#L1013">1013</a>       ImmutableList.of(<span class="jxr_string">"one"</span>, <span class="jxr_string">"two"</span>, <span class="jxr_string">"three"</span>, <span class="jxr_string">"four"</span>, <span class="jxr_string">"five"</span>, <span class="jxr_string">"six"</span>, <span class="jxr_string">"seven"</span>);
+<a class="jxr_linenumber" name="L1014" href="#L1014">1014</a> 
+<a class="jxr_linenumber" name="L1015" href="#L1015">1015</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> ImmutableList&lt;String&gt; SORTED_NUMBER_NAMES =
+<a class="jxr_linenumber" name="L1016" href="#L1016">1016</a>       Ordering.natural().immutableSortedCopy(NUMBER_NAMES);
+<a class="jxr_linenumber" name="L1017" href="#L1017">1017</a> 
+<a class="jxr_linenumber" name="L1018" href="#L1018">1018</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../com/google/common/collect/ImmutableSortedMapTest.html">SelfComparableExample</a> <strong class="jxr_keyword">implements</strong> Comparable&lt;SelfComparableExample&gt; {
+<a class="jxr_linenumber" name="L1019" href="#L1019">1019</a>     @Override
+<a class="jxr_linenumber" name="L1020" href="#L1020">1020</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> compareTo(<a href="../../../../com/google/common/collect/ImmutableSortedMapTest.html">SelfComparableExample</a> o) {
+<a class="jxr_linenumber" name="L1021" href="#L1021">1021</a>       <strong class="jxr_keyword">return</strong> 0;
+<a class="jxr_linenumber" name="L1022" href="#L1022">1022</a>     }
+<a class="jxr_linenumber" name="L1023" href="#L1023">1023</a>   }
+<a class="jxr_linenumber" name="L1024" href="#L1024">1024</a> 
+<a class="jxr_linenumber" name="L1025" href="#L1025">1025</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testBuilderGenerics_SelfComparable() {
+<a class="jxr_linenumber" name="L1026" href="#L1026">1026</a>     ImmutableSortedSet.Builder&lt;SelfComparableExample&gt; natural = ImmutableSortedSet.naturalOrder();
+<a class="jxr_linenumber" name="L1027" href="#L1027">1027</a>     ImmutableSortedSet.Builder&lt;SelfComparableExample&gt; reverse = ImmutableSortedSet.reverseOrder();
+<a class="jxr_linenumber" name="L1028" href="#L1028">1028</a>   }
+<a class="jxr_linenumber" name="L1029" href="#L1029">1029</a> 
+<a class="jxr_linenumber" name="L1030" href="#L1030">1030</a>   <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../com/google/common/collect/ImmutableSortedMapTest.html">SuperComparableExample</a> <strong class="jxr_keyword">extends</strong> <a href="../../../../com/google/common/collect/ImmutableSortedMapTest.html">SelfComparableExample</a> {}
+<a class="jxr_linenumber" name="L1031" href="#L1031">1031</a> 
+<a class="jxr_linenumber" name="L1032" href="#L1032">1032</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testBuilderGenerics_SuperComparable() {
+<a class="jxr_linenumber" name="L1033" href="#L1033">1033</a>     ImmutableSortedSet.Builder&lt;SuperComparableExample&gt; natural = ImmutableSortedSet.naturalOrder();
+<a class="jxr_linenumber" name="L1034" href="#L1034">1034</a>     ImmutableSortedSet.Builder&lt;SuperComparableExample&gt; reverse = ImmutableSortedSet.reverseOrder();
+<a class="jxr_linenumber" name="L1035" href="#L1035">1035</a>   }
+<a class="jxr_linenumber" name="L1036" href="#L1036">1036</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2015. All rights reserved.</div>

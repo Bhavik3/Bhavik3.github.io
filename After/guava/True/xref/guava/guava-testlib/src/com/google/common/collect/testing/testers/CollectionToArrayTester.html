@@ -129,8 +129,8 @@
 <a class="jxr_linenumber" name="L121" href="#L121">121</a> 
 <a class="jxr_linenumber" name="L122" href="#L122">122</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testToArray_oversizedArray() {
 <a class="jxr_linenumber" name="L123" href="#L123">123</a>     E[] array = getSubjectGenerator().createArray(getNumElements() + 2);
-<a class="jxr_linenumber" name="L124" href="#L124">124</a>     array[getNumElements()] = e3();
-<a class="jxr_linenumber" name="L125" href="#L125">125</a>     array[getNumElements() + 1] = e3();
+<a class="jxr_linenumber" name="L124" href="#L124">124</a>     array[getNumElements()] = samples.e3;
+<a class="jxr_linenumber" name="L125" href="#L125">125</a>     array[getNumElements() + 1] = samples.e3;
 <a class="jxr_linenumber" name="L126" href="#L126">126</a>     assertSame(<span class="jxr_string">"toArray(overSizedE[]) should return the given array"</span>,
 <a class="jxr_linenumber" name="L127" href="#L127">127</a>         array, collection.toArray(array));
 <a class="jxr_linenumber" name="L128" href="#L128">128</a> 
@@ -150,8 +150,8 @@
 <a class="jxr_linenumber" name="L142" href="#L142">142</a>   @CollectionFeature.Require(KNOWN_ORDER)
 <a class="jxr_linenumber" name="L143" href="#L143">143</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testToArray_oversizedArray_ordered() {
 <a class="jxr_linenumber" name="L144" href="#L144">144</a>     E[] array = getSubjectGenerator().createArray(getNumElements() + 2);
-<a class="jxr_linenumber" name="L145" href="#L145">145</a>     array[getNumElements()] = e3();
-<a class="jxr_linenumber" name="L146" href="#L146">146</a>     array[getNumElements() + 1] = e3();
+<a class="jxr_linenumber" name="L145" href="#L145">145</a>     array[getNumElements()] = samples.e3;
+<a class="jxr_linenumber" name="L146" href="#L146">146</a>     array[getNumElements() + 1] = samples.e3;
 <a class="jxr_linenumber" name="L147" href="#L147">147</a>     assertSame(<span class="jxr_string">"toArray(overSizedE[]) should return the given array"</span>,
 <a class="jxr_linenumber" name="L148" href="#L148">148</a>         array, collection.toArray(array));
 <a class="jxr_linenumber" name="L149" href="#L149">149</a> 

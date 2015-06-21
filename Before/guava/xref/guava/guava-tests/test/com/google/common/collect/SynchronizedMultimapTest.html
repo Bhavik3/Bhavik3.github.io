@@ -212,11 +212,11 @@
 <a class="jxr_linenumber" name="L204" href="#L204">204</a>             ArrayListMultimap.&lt;String, Integer&gt;create());
 <a class="jxr_linenumber" name="L205" href="#L205">205</a>     multimap.putAll(<span class="jxr_string">"foo"</span>, Arrays.asList(3, -1, 2, 4, 1));
 <a class="jxr_linenumber" name="L206" href="#L206">206</a>     multimap.putAll(<span class="jxr_string">"bar"</span>, Arrays.asList(1, 2, 3, 1));
-<a class="jxr_linenumber" name="L207" href="#L207">207</a>     assertThat(multimap.removeAll(<span class="jxr_string">"foo"</span>)).containsExactly(3, -1, 2, 4, 1).inOrder();
+<a class="jxr_linenumber" name="L207" href="#L207">207</a>     assertThat(multimap.removeAll(<span class="jxr_string">"foo"</span>)).has().exactly(3, -1, 2, 4, 1).inOrder();
 <a class="jxr_linenumber" name="L208" href="#L208">208</a>     assertFalse(multimap.containsKey(<span class="jxr_string">"foo"</span>));
 <a class="jxr_linenumber" name="L209" href="#L209">209</a>     assertThat(multimap.replaceValues(<span class="jxr_string">"bar"</span>, Arrays.asList(6, 5)))
-<a class="jxr_linenumber" name="L210" href="#L210">210</a>         .containsExactly(1, 2, 3, 1).inOrder();
-<a class="jxr_linenumber" name="L211" href="#L211">211</a>     assertThat(multimap.get(<span class="jxr_string">"bar"</span>)).containsExactly(6, 5).inOrder();
+<a class="jxr_linenumber" name="L210" href="#L210">210</a>         .has().exactly(1, 2, 3, 1).inOrder();
+<a class="jxr_linenumber" name="L211" href="#L211">211</a>     assertThat(multimap.get(<span class="jxr_string">"bar"</span>)).has().exactly(6, 5).inOrder();
 <a class="jxr_linenumber" name="L212" href="#L212">212</a>   }
 <a class="jxr_linenumber" name="L213" href="#L213">213</a> 
 <a class="jxr_linenumber" name="L214" href="#L214">214</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testSynchronizedSortedSetMultimap() {
@@ -225,11 +225,11 @@
 <a class="jxr_linenumber" name="L217" href="#L217">217</a>             TreeMultimap.&lt;String, Integer&gt;create());
 <a class="jxr_linenumber" name="L218" href="#L218">218</a>     multimap.putAll(<span class="jxr_string">"foo"</span>, Arrays.asList(3, -1, 2, 4, 1));
 <a class="jxr_linenumber" name="L219" href="#L219">219</a>     multimap.putAll(<span class="jxr_string">"bar"</span>, Arrays.asList(1, 2, 3, 1));
-<a class="jxr_linenumber" name="L220" href="#L220">220</a>     assertThat(multimap.removeAll(<span class="jxr_string">"foo"</span>)).containsExactly(-1, 1, 2, 3, 4).inOrder();
+<a class="jxr_linenumber" name="L220" href="#L220">220</a>     assertThat(multimap.removeAll(<span class="jxr_string">"foo"</span>)).has().exactly(-1, 1, 2, 3, 4).inOrder();
 <a class="jxr_linenumber" name="L221" href="#L221">221</a>     assertFalse(multimap.containsKey(<span class="jxr_string">"foo"</span>));
 <a class="jxr_linenumber" name="L222" href="#L222">222</a>     assertThat(multimap.replaceValues(<span class="jxr_string">"bar"</span>, Arrays.asList(6, 5)))
-<a class="jxr_linenumber" name="L223" href="#L223">223</a>         .containsExactly(1, 2, 3).inOrder();
-<a class="jxr_linenumber" name="L224" href="#L224">224</a>     assertThat(multimap.get(<span class="jxr_string">"bar"</span>)).containsExactly(5, 6).inOrder();
+<a class="jxr_linenumber" name="L223" href="#L223">223</a>         .has().exactly(1, 2, 3).inOrder();
+<a class="jxr_linenumber" name="L224" href="#L224">224</a>     assertThat(multimap.get(<span class="jxr_string">"bar"</span>)).has().exactly(5, 6).inOrder();
 <a class="jxr_linenumber" name="L225" href="#L225">225</a>   }
 <a class="jxr_linenumber" name="L226" href="#L226">226</a> 
 <a class="jxr_linenumber" name="L227" href="#L227">227</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testSynchronizedArrayListMultimapRandomAccess() {

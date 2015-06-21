@@ -43,16 +43,18 @@
 <a class="jxr_linenumber" name="L35" href="#L35">35</a>  
 <a class="jxr_linenumber" name="L36" href="#L36">36</a>    @MapFeature.Require({SUPPORTS_PUT, SUPPORTS_REMOVE})
 <a class="jxr_linenumber" name="L37" href="#L37">37</a>    <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testReplaceValuesHandlesDuplicates() {
-<a class="jxr_linenumber" name="L38" href="#L38">38</a>      @SuppressWarnings(<span class="jxr_string">"unchecked"</span>)
-<a class="jxr_linenumber" name="L39" href="#L39">39</a>      List&lt;V&gt; values = Arrays.asList(v0(), v1(), v0());
-<a class="jxr_linenumber" name="L40" href="#L40">40</a>  
-<a class="jxr_linenumber" name="L41" href="#L41">41</a>      <strong class="jxr_keyword">for</strong> (K k : sampleKeys()) {
-<a class="jxr_linenumber" name="L42" href="#L42">42</a>        resetContainer();
-<a class="jxr_linenumber" name="L43" href="#L43">43</a>        multimap().replaceValues(k, values);
-<a class="jxr_linenumber" name="L44" href="#L44">44</a>        assertGet(k, v0(), v1());
-<a class="jxr_linenumber" name="L45" href="#L45">45</a>      }
-<a class="jxr_linenumber" name="L46" href="#L46">46</a>    }
-<a class="jxr_linenumber" name="L47" href="#L47">47</a>  }
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>      V v0 = sampleValues().e3;
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>      V v1 = sampleValues().e2;
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>      @SuppressWarnings(<span class="jxr_string">"unchecked"</span>)
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>      List&lt;V&gt; values = Arrays.asList(v0, v1, v0);
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>      <strong class="jxr_keyword">for</strong> (K k : sampleKeys()) {
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>        resetContainer();
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>        multimap().replaceValues(k, values);
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>        assertGet(k, v0, v1);
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>      }
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>    }
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2015. All rights reserved.</div>

@@ -660,15 +660,15 @@
 <a class="jxr_linenumber" name="L652" href="#L652">652</a>     <em class="jxr_comment">// build a precomputed version.</em>
 <a class="jxr_linenumber" name="L653" href="#L653">653</a>     <a href="../../../../com/google/common/base/CharMatcher.html">CharMatcher</a> m1 = is('x');
 <a class="jxr_linenumber" name="L654" href="#L654">654</a>     assertSame(m1, m1.precomputed());
-<a class="jxr_linenumber" name="L655" href="#L655">655</a>     assertEquals(m1.toString(), m1.precomputed().toString());
+<a class="jxr_linenumber" name="L655" href="#L655">655</a>     assertSame(m1.toString(), m1.precomputed().toString());
 <a class="jxr_linenumber" name="L656" href="#L656">656</a> 
 <a class="jxr_linenumber" name="L657" href="#L657">657</a>     <a href="../../../../com/google/common/base/CharMatcher.html">CharMatcher</a> m2 = anyOf(<span class="jxr_string">"Az"</span>);
 <a class="jxr_linenumber" name="L658" href="#L658">658</a>     assertSame(m2, m2.precomputed());
-<a class="jxr_linenumber" name="L659" href="#L659">659</a>     assertEquals(m2.toString(), m2.precomputed().toString());
+<a class="jxr_linenumber" name="L659" href="#L659">659</a>     assertSame(m2.toString(), m2.precomputed().toString());
 <a class="jxr_linenumber" name="L660" href="#L660">660</a> 
 <a class="jxr_linenumber" name="L661" href="#L661">661</a>     <a href="../../../../com/google/common/base/CharMatcher.html">CharMatcher</a> m3 = inRange('A', 'Z');
 <a class="jxr_linenumber" name="L662" href="#L662">662</a>     assertSame(m3, m3.precomputed());
-<a class="jxr_linenumber" name="L663" href="#L663">663</a>     assertEquals(m3.toString(), m3.precomputed().toString());
+<a class="jxr_linenumber" name="L663" href="#L663">663</a>     assertSame(m3.toString(), m3.precomputed().toString());
 <a class="jxr_linenumber" name="L664" href="#L664">664</a> 
 <a class="jxr_linenumber" name="L665" href="#L665">665</a>     assertSame(CharMatcher.NONE, CharMatcher.NONE.precomputed());
 <a class="jxr_linenumber" name="L666" href="#L666">666</a>     assertSame(CharMatcher.ANY, CharMatcher.ANY.precomputed());

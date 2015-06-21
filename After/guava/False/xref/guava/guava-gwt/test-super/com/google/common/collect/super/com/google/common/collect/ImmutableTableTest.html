@@ -192,9 +192,9 @@
 <a class="jxr_linenumber" name="L184" href="#L184">184</a>     validateTableCopies(table);
 <a class="jxr_linenumber" name="L185" href="#L185">185</a>     <em class="jxr_comment">// Even though rowKeySet, columnKeySet, and cellSet have the same</em>
 <a class="jxr_linenumber" name="L186" href="#L186">186</a>     <em class="jxr_comment">// iteration ordering, row has an inconsistent ordering.</em>
-<a class="jxr_linenumber" name="L187" href="#L187">187</a>     assertThat(table.row('b').keySet()).containsExactly(1, 2).inOrder();
+<a class="jxr_linenumber" name="L187" href="#L187">187</a>     assertThat(table.row('b').keySet()).has().exactly(1, 2).inOrder();
 <a class="jxr_linenumber" name="L188" href="#L188">188</a>     assertThat(ImmutableTable.copyOf(table).row('b').keySet())
-<a class="jxr_linenumber" name="L189" href="#L189">189</a>         .containsExactly(2, 1).inOrder();
+<a class="jxr_linenumber" name="L189" href="#L189">189</a>         .has().exactly(2, 1).inOrder();
 <a class="jxr_linenumber" name="L190" href="#L190">190</a>   }
 <a class="jxr_linenumber" name="L191" href="#L191">191</a> 
 <a class="jxr_linenumber" name="L192" href="#L192">192</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testCopyOfSparse() {
@@ -235,10 +235,10 @@
 <a class="jxr_linenumber" name="L227" href="#L227">227</a>         = builder.orderRowsBy(Ordering.natural())
 <a class="jxr_linenumber" name="L228" href="#L228">228</a>             .orderColumnsBy(Ordering.natural())
 <a class="jxr_linenumber" name="L229" href="#L229">229</a>             .putAll(table).build();
-<a class="jxr_linenumber" name="L230" href="#L230">230</a>     assertThat(copy.rowKeySet()).containsExactly('a', 'b').inOrder();
-<a class="jxr_linenumber" name="L231" href="#L231">231</a>     assertThat(copy.columnKeySet()).containsExactly(1, 2).inOrder();
-<a class="jxr_linenumber" name="L232" href="#L232">232</a>     assertThat(copy.values()).containsExactly(<span class="jxr_string">"baz"</span>, <span class="jxr_string">"bar"</span>, <span class="jxr_string">"foo"</span>).inOrder();
-<a class="jxr_linenumber" name="L233" href="#L233">233</a>     assertThat(copy.row('b').keySet()).containsExactly(1, 2).inOrder();
+<a class="jxr_linenumber" name="L230" href="#L230">230</a>     assertThat(copy.rowKeySet()).has().exactly('a', 'b').inOrder();
+<a class="jxr_linenumber" name="L231" href="#L231">231</a>     assertThat(copy.columnKeySet()).has().exactly(1, 2).inOrder();
+<a class="jxr_linenumber" name="L232" href="#L232">232</a>     assertThat(copy.values()).has().exactly(<span class="jxr_string">"baz"</span>, <span class="jxr_string">"bar"</span>, <span class="jxr_string">"foo"</span>).inOrder();
+<a class="jxr_linenumber" name="L233" href="#L233">233</a>     assertThat(copy.row('b').keySet()).has().exactly(1, 2).inOrder();
 <a class="jxr_linenumber" name="L234" href="#L234">234</a>   }
 <a class="jxr_linenumber" name="L235" href="#L235">235</a> 
 <a class="jxr_linenumber" name="L236" href="#L236">236</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testBuilder_orderRowsAndColumnsBy_sparse() {
@@ -256,12 +256,12 @@
 <a class="jxr_linenumber" name="L248" href="#L248">248</a>     builder.put('r', 4, <span class="jxr_string">"foo"</span>);
 <a class="jxr_linenumber" name="L249" href="#L249">249</a>     builder.put('x', 5, <span class="jxr_string">"bar"</span>);
 <a class="jxr_linenumber" name="L250" href="#L250">250</a>     Table&lt;Character, Integer, String&gt; table = builder.build();
-<a class="jxr_linenumber" name="L251" href="#L251">251</a>     assertThat(table.rowKeySet()).containsExactly('b', 'c', 'e', 'r', 'x').inOrder();
-<a class="jxr_linenumber" name="L252" href="#L252">252</a>     assertThat(table.columnKeySet()).containsExactly(0, 1, 2, 3, 4, 5, 7).inOrder();
-<a class="jxr_linenumber" name="L253" href="#L253">253</a>     assertThat(table.values()).containsExactly(<span class="jxr_string">"cat"</span>, <span class="jxr_string">"axe"</span>, <span class="jxr_string">"baz"</span>, <span class="jxr_string">"tub"</span>,
+<a class="jxr_linenumber" name="L251" href="#L251">251</a>     assertThat(table.rowKeySet()).has().exactly('b', 'c', 'e', 'r', 'x').inOrder();
+<a class="jxr_linenumber" name="L252" href="#L252">252</a>     assertThat(table.columnKeySet()).has().exactly(0, 1, 2, 3, 4, 5, 7).inOrder();
+<a class="jxr_linenumber" name="L253" href="#L253">253</a>     assertThat(table.values()).has().exactly(<span class="jxr_string">"cat"</span>, <span class="jxr_string">"axe"</span>, <span class="jxr_string">"baz"</span>, <span class="jxr_string">"tub"</span>,
 <a class="jxr_linenumber" name="L254" href="#L254">254</a>         <span class="jxr_string">"dog"</span>, <span class="jxr_string">"bar"</span>, <span class="jxr_string">"foo"</span>, <span class="jxr_string">"foo"</span>, <span class="jxr_string">"bar"</span>).inOrder();
-<a class="jxr_linenumber" name="L255" href="#L255">255</a>     assertThat(table.row('c').keySet()).containsExactly(0, 3).inOrder();
-<a class="jxr_linenumber" name="L256" href="#L256">256</a>     assertThat(table.column(5).keySet()).containsExactly('e', 'x').inOrder();
+<a class="jxr_linenumber" name="L255" href="#L255">255</a>     assertThat(table.row('c').keySet()).has().exactly(0, 3).inOrder();
+<a class="jxr_linenumber" name="L256" href="#L256">256</a>     assertThat(table.column(5).keySet()).has().exactly('e', 'x').inOrder();
 <a class="jxr_linenumber" name="L257" href="#L257">257</a>   }
 <a class="jxr_linenumber" name="L258" href="#L258">258</a> 
 <a class="jxr_linenumber" name="L259" href="#L259">259</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testBuilder_orderRowsAndColumnsBy_dense() {
@@ -278,12 +278,12 @@
 <a class="jxr_linenumber" name="L270" href="#L270">270</a>     builder.put('a', 2, <span class="jxr_string">"bar"</span>);
 <a class="jxr_linenumber" name="L271" href="#L271">271</a>     builder.put('a', 1, <span class="jxr_string">"baz"</span>);
 <a class="jxr_linenumber" name="L272" href="#L272">272</a>     Table&lt;Character, Integer, String&gt; table = builder.build();
-<a class="jxr_linenumber" name="L273" href="#L273">273</a>     assertThat(table.rowKeySet()).containsExactly('a', 'b', 'c').inOrder();
-<a class="jxr_linenumber" name="L274" href="#L274">274</a>     assertThat(table.columnKeySet()).containsExactly(1, 2, 3).inOrder();
-<a class="jxr_linenumber" name="L275" href="#L275">275</a>     assertThat(table.values()).containsExactly(<span class="jxr_string">"baz"</span>, <span class="jxr_string">"bar"</span>, <span class="jxr_string">"foo"</span>, <span class="jxr_string">"dog"</span>,
+<a class="jxr_linenumber" name="L273" href="#L273">273</a>     assertThat(table.rowKeySet()).has().exactly('a', 'b', 'c').inOrder();
+<a class="jxr_linenumber" name="L274" href="#L274">274</a>     assertThat(table.columnKeySet()).has().exactly(1, 2, 3).inOrder();
+<a class="jxr_linenumber" name="L275" href="#L275">275</a>     assertThat(table.values()).has().exactly(<span class="jxr_string">"baz"</span>, <span class="jxr_string">"bar"</span>, <span class="jxr_string">"foo"</span>, <span class="jxr_string">"dog"</span>,
 <a class="jxr_linenumber" name="L276" href="#L276">276</a>         <span class="jxr_string">"cat"</span>, <span class="jxr_string">"baz"</span>, <span class="jxr_string">"bar"</span>, <span class="jxr_string">"foo"</span>).inOrder();
-<a class="jxr_linenumber" name="L277" href="#L277">277</a>     assertThat(table.row('c').keySet()).containsExactly(1, 2, 3).inOrder();
-<a class="jxr_linenumber" name="L278" href="#L278">278</a>     assertThat(table.column(1).keySet()).containsExactly('a', 'b', 'c').inOrder();
+<a class="jxr_linenumber" name="L277" href="#L277">277</a>     assertThat(table.row('c').keySet()).has().exactly(1, 2, 3).inOrder();
+<a class="jxr_linenumber" name="L278" href="#L278">278</a>     assertThat(table.column(1).keySet()).has().exactly('a', 'b', 'c').inOrder();
 <a class="jxr_linenumber" name="L279" href="#L279">279</a>   }
 <a class="jxr_linenumber" name="L280" href="#L280">280</a> 
 <a class="jxr_linenumber" name="L281" href="#L281">281</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testBuilder_orderRowsBy_sparse() {
@@ -300,8 +300,8 @@
 <a class="jxr_linenumber" name="L292" href="#L292">292</a>     builder.put('r', 4, <span class="jxr_string">"foo"</span>);
 <a class="jxr_linenumber" name="L293" href="#L293">293</a>     builder.put('x', 5, <span class="jxr_string">"bar"</span>);
 <a class="jxr_linenumber" name="L294" href="#L294">294</a>     Table&lt;Character, Integer, String&gt; table = builder.build();
-<a class="jxr_linenumber" name="L295" href="#L295">295</a>     assertThat(table.rowKeySet()).containsExactly('b', 'c', 'e', 'r', 'x').inOrder();
-<a class="jxr_linenumber" name="L296" href="#L296">296</a>     assertThat(table.column(5).keySet()).containsExactly('e', 'x').inOrder();
+<a class="jxr_linenumber" name="L295" href="#L295">295</a>     assertThat(table.rowKeySet()).has().exactly('b', 'c', 'e', 'r', 'x').inOrder();
+<a class="jxr_linenumber" name="L296" href="#L296">296</a>     assertThat(table.column(5).keySet()).has().exactly('e', 'x').inOrder();
 <a class="jxr_linenumber" name="L297" href="#L297">297</a>   }
 <a class="jxr_linenumber" name="L298" href="#L298">298</a> 
 <a class="jxr_linenumber" name="L299" href="#L299">299</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testBuilder_orderRowsBy_dense() {
@@ -317,8 +317,8 @@
 <a class="jxr_linenumber" name="L309" href="#L309">309</a>     builder.put('a', 2, <span class="jxr_string">"bar"</span>);
 <a class="jxr_linenumber" name="L310" href="#L310">310</a>     builder.put('a', 1, <span class="jxr_string">"baz"</span>);
 <a class="jxr_linenumber" name="L311" href="#L311">311</a>     Table&lt;Character, Integer, String&gt; table = builder.build();
-<a class="jxr_linenumber" name="L312" href="#L312">312</a>     assertThat(table.rowKeySet()).containsExactly('a', 'b', 'c').inOrder();
-<a class="jxr_linenumber" name="L313" href="#L313">313</a>     assertThat(table.column(1).keySet()).containsExactly('a', 'b', 'c').inOrder();
+<a class="jxr_linenumber" name="L312" href="#L312">312</a>     assertThat(table.rowKeySet()).has().exactly('a', 'b', 'c').inOrder();
+<a class="jxr_linenumber" name="L313" href="#L313">313</a>     assertThat(table.column(1).keySet()).has().exactly('a', 'b', 'c').inOrder();
 <a class="jxr_linenumber" name="L314" href="#L314">314</a>   }
 <a class="jxr_linenumber" name="L315" href="#L315">315</a> 
 <a class="jxr_linenumber" name="L316" href="#L316">316</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testBuilder_orderColumnsBy_sparse() {
@@ -335,8 +335,8 @@
 <a class="jxr_linenumber" name="L327" href="#L327">327</a>     builder.put('r', 4, <span class="jxr_string">"foo"</span>);
 <a class="jxr_linenumber" name="L328" href="#L328">328</a>     builder.put('x', 5, <span class="jxr_string">"bar"</span>);
 <a class="jxr_linenumber" name="L329" href="#L329">329</a>     Table&lt;Character, Integer, String&gt; table = builder.build();
-<a class="jxr_linenumber" name="L330" href="#L330">330</a>     assertThat(table.columnKeySet()).containsExactly(0, 1, 2, 3, 4, 5, 7).inOrder();
-<a class="jxr_linenumber" name="L331" href="#L331">331</a>     assertThat(table.row('c').keySet()).containsExactly(0, 3).inOrder();
+<a class="jxr_linenumber" name="L330" href="#L330">330</a>     assertThat(table.columnKeySet()).has().exactly(0, 1, 2, 3, 4, 5, 7).inOrder();
+<a class="jxr_linenumber" name="L331" href="#L331">331</a>     assertThat(table.row('c').keySet()).has().exactly(0, 3).inOrder();
 <a class="jxr_linenumber" name="L332" href="#L332">332</a>   }
 <a class="jxr_linenumber" name="L333" href="#L333">333</a> 
 <a class="jxr_linenumber" name="L334" href="#L334">334</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testBuilder_orderColumnsBy_dense() {
@@ -352,8 +352,8 @@
 <a class="jxr_linenumber" name="L344" href="#L344">344</a>     builder.put('a', 2, <span class="jxr_string">"bar"</span>);
 <a class="jxr_linenumber" name="L345" href="#L345">345</a>     builder.put('a', 1, <span class="jxr_string">"baz"</span>);
 <a class="jxr_linenumber" name="L346" href="#L346">346</a>     Table&lt;Character, Integer, String&gt; table = builder.build();
-<a class="jxr_linenumber" name="L347" href="#L347">347</a>     assertThat(table.columnKeySet()).containsExactly(1, 2, 3).inOrder();
-<a class="jxr_linenumber" name="L348" href="#L348">348</a>     assertThat(table.row('c').keySet()).containsExactly(1, 2, 3).inOrder();
+<a class="jxr_linenumber" name="L347" href="#L347">347</a>     assertThat(table.columnKeySet()).has().exactly(1, 2, 3).inOrder();
+<a class="jxr_linenumber" name="L348" href="#L348">348</a>     assertThat(table.row('c').keySet()).has().exactly(1, 2, 3).inOrder();
 <a class="jxr_linenumber" name="L349" href="#L349">349</a>   }
 <a class="jxr_linenumber" name="L350" href="#L350">350</a> }
 <a class="jxr_linenumber" name="L351" href="#L351">351</a> 

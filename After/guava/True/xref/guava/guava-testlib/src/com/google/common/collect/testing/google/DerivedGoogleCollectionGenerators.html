@@ -108,8 +108,8 @@
 <a class="jxr_linenumber" name="L100" href="#L100">100</a>     @Override
 <a class="jxr_linenumber" name="L101" href="#L101">101</a>     <strong class="jxr_keyword">public</strong> SampleElements&lt;Map.Entry&lt;V, K&gt;&gt; samples() {
 <a class="jxr_linenumber" name="L102" href="#L102">102</a>       SampleElements&lt;Entry&lt;K, V&gt;&gt; samples = generator.samples();
-<a class="jxr_linenumber" name="L103" href="#L103">103</a>       <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> SampleElements&lt;Map.Entry&lt;V, K&gt;&gt;(reverse(samples.e0()), reverse(samples.e1()),
-<a class="jxr_linenumber" name="L104" href="#L104">104</a>           reverse(samples.e2()), reverse(samples.e3()), reverse(samples.e4()));
+<a class="jxr_linenumber" name="L103" href="#L103">103</a>       <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> SampleElements&lt;Map.Entry&lt;V, K&gt;&gt;(reverse(samples.e0), reverse(samples.e1),
+<a class="jxr_linenumber" name="L104" href="#L104">104</a>           reverse(samples.e2), reverse(samples.e3), reverse(samples.e4));
 <a class="jxr_linenumber" name="L105" href="#L105">105</a>     }
 <a class="jxr_linenumber" name="L106" href="#L106">106</a> 
 <a class="jxr_linenumber" name="L107" href="#L107">107</a>     <strong class="jxr_keyword">private</strong> Map.Entry&lt;V, K&gt; reverse(Map.Entry&lt;K, V&gt; entry) {
@@ -166,11 +166,11 @@
 <a class="jxr_linenumber" name="L158" href="#L158">158</a>       <strong class="jxr_keyword">final</strong> SampleElements&lt;Map.Entry&lt;K, V&gt;&gt; mapSamples =
 <a class="jxr_linenumber" name="L159" href="#L159">159</a>           <strong class="jxr_keyword">this</strong>.mapGenerator.samples();
 <a class="jxr_linenumber" name="L160" href="#L160">160</a>       <strong class="jxr_keyword">this</strong>.samples = <strong class="jxr_keyword">new</strong> SampleElements&lt;V&gt;(
-<a class="jxr_linenumber" name="L161" href="#L161">161</a>           mapSamples.e0().getValue(),
-<a class="jxr_linenumber" name="L162" href="#L162">162</a>           mapSamples.e1().getValue(),
-<a class="jxr_linenumber" name="L163" href="#L163">163</a>           mapSamples.e2().getValue(),
-<a class="jxr_linenumber" name="L164" href="#L164">164</a>           mapSamples.e3().getValue(),
-<a class="jxr_linenumber" name="L165" href="#L165">165</a>           mapSamples.e4().getValue());
+<a class="jxr_linenumber" name="L161" href="#L161">161</a>           mapSamples.e0.getValue(),
+<a class="jxr_linenumber" name="L162" href="#L162">162</a>           mapSamples.e1.getValue(),
+<a class="jxr_linenumber" name="L163" href="#L163">163</a>           mapSamples.e2.getValue(),
+<a class="jxr_linenumber" name="L164" href="#L164">164</a>           mapSamples.e3.getValue(),
+<a class="jxr_linenumber" name="L165" href="#L165">165</a>           mapSamples.e4.getValue());
 <a class="jxr_linenumber" name="L166" href="#L166">166</a>     }
 <a class="jxr_linenumber" name="L167" href="#L167">167</a> 
 <a class="jxr_linenumber" name="L168" href="#L168">168</a>     @Override

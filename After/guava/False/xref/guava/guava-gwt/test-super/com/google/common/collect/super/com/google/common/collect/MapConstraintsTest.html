@@ -121,7 +121,7 @@
 <a class="jxr_linenumber" name="L113" href="#L113">113</a>     assertFalse(map.values() instanceof Serializable);
 <a class="jxr_linenumber" name="L114" href="#L114">114</a>     assertEquals(map.toString(), constrained.toString());
 <a class="jxr_linenumber" name="L115" href="#L115">115</a>     assertEquals(map.hashCode(), constrained.hashCode());
-<a class="jxr_linenumber" name="L116" href="#L116">116</a>     assertThat(map.entrySet()).containsExactly(
+<a class="jxr_linenumber" name="L116" href="#L116">116</a>     assertThat(map.entrySet()).has().exactly(
 <a class="jxr_linenumber" name="L117" href="#L117">117</a>         Maps.immutableEntry(TEST_KEY, TEST_VALUE),
 <a class="jxr_linenumber" name="L118" href="#L118">118</a>         Maps.immutableEntry(<span class="jxr_string">"foo"</span>, 1),
 <a class="jxr_linenumber" name="L119" href="#L119">119</a>         Maps.immutableEntry(<span class="jxr_string">"bar"</span>, 2),
@@ -169,7 +169,7 @@
 <a class="jxr_linenumber" name="L161" href="#L161">161</a>     assertEquals(map.values(), constrained.values());
 <a class="jxr_linenumber" name="L162" href="#L162">162</a>     assertEquals(map.toString(), constrained.toString());
 <a class="jxr_linenumber" name="L163" href="#L163">163</a>     assertEquals(map.hashCode(), constrained.hashCode());
-<a class="jxr_linenumber" name="L164" href="#L164">164</a>     assertThat(map.entrySet()).containsExactly(
+<a class="jxr_linenumber" name="L164" href="#L164">164</a>     assertThat(map.entrySet()).has().exactly(
 <a class="jxr_linenumber" name="L165" href="#L165">165</a>         Maps.immutableEntry(TEST_KEY, TEST_VALUE),
 <a class="jxr_linenumber" name="L166" href="#L166">166</a>         Maps.immutableEntry(<span class="jxr_string">"foo"</span>, 1),
 <a class="jxr_linenumber" name="L167" href="#L167">167</a>         Maps.immutableEntry(<span class="jxr_string">"bar"</span>, 2),
@@ -238,7 +238,7 @@
 <a class="jxr_linenumber" name="L230" href="#L230">230</a>     assertTrue(constrained.equals(multimap));
 <a class="jxr_linenumber" name="L231" href="#L231">231</a>     assertThat(ImmutableList.copyOf(multimap.entries())).isEqualTo(
 <a class="jxr_linenumber" name="L232" href="#L232">232</a>         ImmutableList.copyOf(constrained.entries()));
-<a class="jxr_linenumber" name="L233" href="#L233">233</a>     assertThat(constrained.asMap().get(<span class="jxr_string">"foo"</span>)).contains(1);
+<a class="jxr_linenumber" name="L233" href="#L233">233</a>     assertThat(constrained.asMap().get(<span class="jxr_string">"foo"</span>)).has().item(1);
 <a class="jxr_linenumber" name="L234" href="#L234">234</a>     assertNull(constrained.asMap().get(<span class="jxr_string">"missing"</span>));
 <a class="jxr_linenumber" name="L235" href="#L235">235</a>     assertEquals(multimap.asMap(), constrained.asMap());
 <a class="jxr_linenumber" name="L236" href="#L236">236</a>     assertEquals(multimap.values(), constrained.values());
@@ -246,7 +246,7 @@
 <a class="jxr_linenumber" name="L238" href="#L238">238</a>     assertEquals(multimap.keySet(), constrained.keySet());
 <a class="jxr_linenumber" name="L239" href="#L239">239</a>     assertEquals(multimap.toString(), constrained.toString());
 <a class="jxr_linenumber" name="L240" href="#L240">240</a>     assertEquals(multimap.hashCode(), constrained.hashCode());
-<a class="jxr_linenumber" name="L241" href="#L241">241</a>     assertThat(multimap.entries()).containsExactly(
+<a class="jxr_linenumber" name="L241" href="#L241">241</a>     assertThat(multimap.entries()).has().exactly(
 <a class="jxr_linenumber" name="L242" href="#L242">242</a>         Maps.immutableEntry(TEST_KEY, TEST_VALUE),
 <a class="jxr_linenumber" name="L243" href="#L243">243</a>         Maps.immutableEntry(<span class="jxr_string">"foo"</span>, 1),
 <a class="jxr_linenumber" name="L244" href="#L244">244</a>         Maps.immutableEntry(<span class="jxr_string">"bar"</span>, 2),

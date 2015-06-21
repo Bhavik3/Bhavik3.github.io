@@ -340,11 +340,11 @@
 <a class="jxr_linenumber" name="L332" href="#L332">332</a>       SampleElements&lt;V&gt; sampleValues =
 <a class="jxr_linenumber" name="L333" href="#L333">333</a>           ((TestMultimapGenerator&lt;K, V, M&gt;) multimapGenerator.getInnerGenerator()).sampleValues();
 <a class="jxr_linenumber" name="L334" href="#L334">334</a>       <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> SampleElements&lt;Entry&lt;K, Collection&lt;V&gt;&gt;&gt;(
-<a class="jxr_linenumber" name="L335" href="#L335">335</a>           mapEntry(sampleKeys.e0(), createCollection(sampleValues.e0())),
-<a class="jxr_linenumber" name="L336" href="#L336">336</a>           mapEntry(sampleKeys.e1(), createCollection(sampleValues.e1())),
-<a class="jxr_linenumber" name="L337" href="#L337">337</a>           mapEntry(sampleKeys.e2(), createCollection(sampleValues.e2())),
-<a class="jxr_linenumber" name="L338" href="#L338">338</a>           mapEntry(sampleKeys.e3(), createCollection(sampleValues.e3())),
-<a class="jxr_linenumber" name="L339" href="#L339">339</a>           mapEntry(sampleKeys.e4(), createCollection(sampleValues.e4())));
+<a class="jxr_linenumber" name="L335" href="#L335">335</a>           mapEntry(sampleKeys.e0, createCollection(sampleValues.e0)),
+<a class="jxr_linenumber" name="L336" href="#L336">336</a>           mapEntry(sampleKeys.e1, createCollection(sampleValues.e1)),
+<a class="jxr_linenumber" name="L337" href="#L337">337</a>           mapEntry(sampleKeys.e2, createCollection(sampleValues.e2)),
+<a class="jxr_linenumber" name="L338" href="#L338">338</a>           mapEntry(sampleKeys.e3, createCollection(sampleValues.e3)),
+<a class="jxr_linenumber" name="L339" href="#L339">339</a>           mapEntry(sampleKeys.e4, createCollection(sampleValues.e4)));
 <a class="jxr_linenumber" name="L340" href="#L340">340</a>     }
 <a class="jxr_linenumber" name="L341" href="#L341">341</a> 
 <a class="jxr_linenumber" name="L342" href="#L342">342</a>     @Override
@@ -452,8 +452,8 @@
 <a class="jxr_linenumber" name="L444" href="#L444">444</a> 
 <a class="jxr_linenumber" name="L445" href="#L445">445</a>     @Override
 <a class="jxr_linenumber" name="L446" href="#L446">446</a>     <strong class="jxr_keyword">public</strong> Collection&lt;V&gt; create(Object... elements) {
-<a class="jxr_linenumber" name="L447" href="#L447">447</a>       K k = ((TestMultimapGenerator&lt;K, V, M&gt;)
-<a class="jxr_linenumber" name="L448" href="#L448">448</a>           multimapGenerator.getInnerGenerator()).sampleKeys().e0();
+<a class="jxr_linenumber" name="L447" href="#L447">447</a>       K k =
+<a class="jxr_linenumber" name="L448" href="#L448">448</a>           ((TestMultimapGenerator&lt;K, V, M&gt;) multimapGenerator.getInnerGenerator()).sampleKeys().e0;
 <a class="jxr_linenumber" name="L449" href="#L449">449</a>       Entry&lt;K, V&gt;[] entries = <strong class="jxr_keyword">new</strong> <a href="../../../../../../com/google/common/collect/Multiset.html">Entry</a>[elements.length];
 <a class="jxr_linenumber" name="L450" href="#L450">450</a>       <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; elements.length; i++) {
 <a class="jxr_linenumber" name="L451" href="#L451">451</a>         entries[i] = mapEntry(k, (V) elements[i]);
@@ -470,8 +470,8 @@
 <a class="jxr_linenumber" name="L462" href="#L462">462</a> 
 <a class="jxr_linenumber" name="L463" href="#L463">463</a>     @Override
 <a class="jxr_linenumber" name="L464" href="#L464">464</a>     <strong class="jxr_keyword">public</strong> Iterable&lt;V&gt; order(List&lt;V&gt; insertionOrder) {
-<a class="jxr_linenumber" name="L465" href="#L465">465</a>       K k = ((TestMultimapGenerator&lt;K, V, M&gt;)
-<a class="jxr_linenumber" name="L466" href="#L466">466</a>           multimapGenerator.getInnerGenerator()).sampleKeys().e0();
+<a class="jxr_linenumber" name="L465" href="#L465">465</a>       K k =
+<a class="jxr_linenumber" name="L466" href="#L466">466</a>           ((TestMultimapGenerator&lt;K, V, M&gt;) multimapGenerator.getInnerGenerator()).sampleKeys().e0;
 <a class="jxr_linenumber" name="L467" href="#L467">467</a>       List&lt;Entry&lt;K, V&gt;&gt; entries = <strong class="jxr_keyword">new</strong> ArrayList&lt;Entry&lt;K, V&gt;&gt;();
 <a class="jxr_linenumber" name="L468" href="#L468">468</a>       <strong class="jxr_keyword">for</strong> (V v : insertionOrder) {
 <a class="jxr_linenumber" name="L469" href="#L469">469</a>         entries.add(mapEntry(k, v));
@@ -578,7 +578,7 @@
 <a class="jxr_linenumber" name="L570" href="#L570">570</a>     @Override
 <a class="jxr_linenumber" name="L571" href="#L571">571</a>     <strong class="jxr_keyword">public</strong> Iterable&lt;V&gt; order(List&lt;V&gt; insertionOrder) {
 <a class="jxr_linenumber" name="L572" href="#L572">572</a>       K k = ((TestMultimapGenerator&lt;K, V, M&gt;) multimapGenerator.getInnerGenerator())
-<a class="jxr_linenumber" name="L573" href="#L573">573</a>           .sampleKeys().e0();
+<a class="jxr_linenumber" name="L573" href="#L573">573</a>           .sampleKeys().e0;
 <a class="jxr_linenumber" name="L574" href="#L574">574</a>       List&lt;Entry&lt;K, V&gt;&gt; entries = <strong class="jxr_keyword">new</strong> ArrayList&lt;Entry&lt;K, V&gt;&gt;();
 <a class="jxr_linenumber" name="L575" href="#L575">575</a>       <strong class="jxr_keyword">for</strong> (V v : insertionOrder) {
 <a class="jxr_linenumber" name="L576" href="#L576">576</a>         entries.add(mapEntry(k, v));
@@ -595,7 +595,7 @@
 <a class="jxr_linenumber" name="L587" href="#L587">587</a>     <strong class="jxr_keyword">public</strong> Collection&lt;V&gt; create(Object... elements) {
 <a class="jxr_linenumber" name="L588" href="#L588">588</a>       Entry&lt;K, V&gt;[] array = multimapGenerator.createArray(elements.length);
 <a class="jxr_linenumber" name="L589" href="#L589">589</a>       K k = ((TestMultimapGenerator&lt;K, V, M&gt;) multimapGenerator.getInnerGenerator())
-<a class="jxr_linenumber" name="L590" href="#L590">590</a>           .sampleKeys().e0();
+<a class="jxr_linenumber" name="L590" href="#L590">590</a>           .sampleKeys().e0;
 <a class="jxr_linenumber" name="L591" href="#L591">591</a>       <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; elements.length; i++) {
 <a class="jxr_linenumber" name="L592" href="#L592">592</a>         array[i] = mapEntry(k, (V) elements[i]);
 <a class="jxr_linenumber" name="L593" href="#L593">593</a>       }
@@ -616,7 +616,7 @@
 <a class="jxr_linenumber" name="L608" href="#L608">608</a>     <strong class="jxr_keyword">public</strong> Collection&lt;V&gt; create(Object... elements) {
 <a class="jxr_linenumber" name="L609" href="#L609">609</a>       Entry&lt;K, V&gt;[] array = multimapGenerator.createArray(elements.length);
 <a class="jxr_linenumber" name="L610" href="#L610">610</a>       K k = ((TestMultimapGenerator&lt;K, V, M&gt;) multimapGenerator.getInnerGenerator())
-<a class="jxr_linenumber" name="L611" href="#L611">611</a>           .sampleKeys().e0();
+<a class="jxr_linenumber" name="L611" href="#L611">611</a>           .sampleKeys().e0;
 <a class="jxr_linenumber" name="L612" href="#L612">612</a>       <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; elements.length; i++) {
 <a class="jxr_linenumber" name="L613" href="#L613">613</a>         array[i] = mapEntry(k, (V) elements[i]);
 <a class="jxr_linenumber" name="L614" href="#L614">614</a>       }

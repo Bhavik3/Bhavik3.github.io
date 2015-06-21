@@ -134,15 +134,7 @@
 <a class="jxr_linenumber" name="L126" href="#L126">126</a>     iterator.remove(); <em class="jxr_comment">// removes the updated entry</em>
 <a class="jxr_linenumber" name="L127" href="#L127">127</a>     assertTrue(map.isEmpty());
 <a class="jxr_linenumber" name="L128" href="#L128">128</a>   }
-<a class="jxr_linenumber" name="L129" href="#L129">129</a> 
-<a class="jxr_linenumber" name="L130" href="#L130">130</a>   <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testInverseEntrySetValue() {
-<a class="jxr_linenumber" name="L131" href="#L131">131</a>     BiMap&lt;Integer, String&gt; map = HashBiMap.create();
-<a class="jxr_linenumber" name="L132" href="#L132">132</a>     map.put(1, <span class="jxr_string">"one"</span>);
-<a class="jxr_linenumber" name="L133" href="#L133">133</a>     Entry&lt;String, Integer&gt; inverseEntry = Iterables.getOnlyElement(map.inverse().entrySet());
-<a class="jxr_linenumber" name="L134" href="#L134">134</a>     inverseEntry.setValue(2);
-<a class="jxr_linenumber" name="L135" href="#L135">135</a>     assertEquals(Integer.valueOf(2), inverseEntry.getValue());
-<a class="jxr_linenumber" name="L136" href="#L136">136</a>   }
-<a class="jxr_linenumber" name="L137" href="#L137">137</a> }
+<a class="jxr_linenumber" name="L129" href="#L129">129</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2015. All rights reserved.</div>

@@ -41,7 +41,7 @@
 <a class="jxr_linenumber" name="L33" href="#L33">33</a>  <em class="jxr_javadoccomment"> */</em>
 <a class="jxr_linenumber" name="L34" href="#L34">34</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../com/google/common/collect/MapMaker.html">MapMaker</a> <strong class="jxr_keyword">extends</strong> GenericMapMaker&lt;Object, Object&gt; {
 <a class="jxr_linenumber" name="L35" href="#L35">35</a>  
-<a class="jxr_linenumber" name="L36" href="#L36">36</a>    <em class="jxr_comment">// TODO(fry,kak): ConcurrentHashMap never throws a CME when mutating the map during iteration, but</em>
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>    <em class="jxr_comment">// TODO(fry,user): ConcurrentHashMap never throws a CME when mutating the map during iteration, but</em>
 <a class="jxr_linenumber" name="L37" href="#L37">37</a>    <em class="jxr_comment">// this implementation (based on a LHM) does. This will all be replaced soon anyways, so leaving</em>
 <a class="jxr_linenumber" name="L38" href="#L38">38</a>    <em class="jxr_comment">// it as is for now.</em>
 <a class="jxr_linenumber" name="L39" href="#L39">39</a>    <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">class</strong> ExpiringComputingMap&lt;K, V&gt; <strong class="jxr_keyword">extends</strong> LinkedHashMap&lt;K, V&gt;
